@@ -54,7 +54,7 @@
           a.className = 'day-btn';
           const title = `第${item.id}天`;
           a.href = `player.html?title=${encodeURIComponent(title)}&src=${encodeURIComponent(item.file)}&back=${encodeURIComponent(location.pathname)}&id=${encodeURIComponent(item.id)}&manifest=${encodeURIComponent(window.__MANIFEST__)}`;
-          a.textContent = `${title}`;
+          a.innerHTML = `<span>${title}</span>`;
           li.appendChild(a);
           
           // 让整行可点击（不仅仅是文字）

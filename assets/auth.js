@@ -45,20 +45,76 @@ export async function ensureAlbumAccess(slug){
     return true;
   }
   const correct = String(entry.password || '');
-  // Prompt loop with up to 3 attempts
-  for(let i=0;i<3;i++){
-    const tip = i===0 ? '' : '（再试一次）';
-    const input = window.prompt(`请输入「${entry.title || slug}」的访问密码${tip}`);
-    if(input == null){
-      // cancel
-      return false;
-    }
-    if(String(input) === correct){
-      grantAlbumAccess(slug);
-      return true;
-    } else {
-      alert('密码不正确');
-    }
+
+  const ok = await openPasswordGate({ title: entry.title || slug, correct });
+  if(ok){
+    grantAlbumAccess(slug);
+    return true;
   }
   return false;
+}
+
+// In-page password gate with accessible focus and keyboard handling
+function openPasswordGate({ title, correct }){
+  return new Promise(resolve => {
+    const backdrop = document.createElement('div');
+    backdrop.className = 'pw-backdrop';
+
+    const modal = document.createElement('div');
+    modal.className = 'pw-modal';
+    modal.setAttribute('role', 'dialog');
+    modal.setAttribute('aria-modal', 'true');
+    modal.setAttribute('aria-labelledby', 'pw-title');
+
+    modal.innerHTML = `
+      <h2 id="pw-title">请输入「${title}」的访问密码</h2>
+      <input type="password" class="pw-input" placeholder="输入密码" autocomplete="current-password" />
+      <div class="pw-error" aria-live="polite"></div>
+      <div class="pw-actions">
+        <button type="button" class="pw-btn secondary">取消</button>
+        <button type="button" class="pw-btn primary">确认</button>
+      </div>
+    `;
+
+    backdrop.appendChild(modal);
+    document.body.appendChild(backdrop);
+
+    const input = modal.querySelector('.pw-input');
+    const error = modal.querySelector('.pw-error');
+    const [cancelBtn, okBtn] = modal.querySelectorAll('.pw-actions .pw-btn');
+
+    const cleanup = () => {
+      try { document.body.removeChild(backdrop); } catch {}
+    };
+
+    const submit = () => {
+      const val = String(input.value || '');
+      if(val === String(correct)){
+        cleanup();
+        resolve(true);
+      } else {
+        error.textContent = '密码不正确';
+        input.classList.add('pw-input-error');
+        input.focus();
+        input.select();
+      }
+    };
+
+    okBtn.addEventListener('click', submit);
+    cancelBtn.addEventListener('click', () => { cleanup(); resolve(false); });
+    backdrop.addEventListener('click', (e) => {
+      // prevent accidental close when clicking outside modal content
+      if(e.target === backdrop){ /* do nothing */ }
+    });
+    input.addEventListener('keydown', (e) => {
+      if(e.key === 'Enter') submit();
+      if(e.key === 'Escape') { cleanup(); resolve(false); }
+    });
+    okBtn.addEventListener('keydown', (e) => {
+      if(e.key === 'Enter') submit();
+    });
+
+    // Autofocus
+    setTimeout(() => { input.focus(); }, 0);
+  });
 }

@@ -76,6 +76,9 @@ a{ color:inherit; text-decoration:none; }
 .pw-btn.primary{ background: var(--primary); color:#fff; border-color: var(--primary); }
 .pw-btn:active{ transform: translateY(1px); }
 
+/* 解释与链接区域间距（醒来页面） */
+.after-grid{ margin-top: 20px; }
+
 @media (prefers-reduced-motion: reduce){
   .pw-input{ transition:none; }
 }

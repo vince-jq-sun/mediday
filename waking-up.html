@@ -11,7 +11,11 @@
 </head>
 <body>
   <header class="site-header with-back">
-    <button class="back-btn" onclick="history.length>1?history.back():location.href='index.html'" aria-label="返回">←</button>
+    <button class="back-btn" onclick="location.href='index.html'" aria-label="返回" title="返回">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+        <path d="M15 6L9 12L15 18" stroke="#6b7280" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
     <h1>醒来 - 50天冥想入门</h1>
   </header>
 
@@ -49,13 +53,20 @@
           const a = document.createElement('a');
           a.className = 'list-link';
           const title = item.title || (`第${item.id}天`);
-          a.href = `player.html?title=${encodeURIComponent(title)}&src=${encodeURIComponent(item.file)}&back=${encodeURIComponent(location.pathname)}`;
+          a.href = `player.html?title=${encodeURIComponent(title)}&src=${encodeURIComponent(item.file)}&back=${encodeURIComponent(location.pathname)}&id=${encodeURIComponent(item.id)}&manifest=${encodeURIComponent(window.__MANIFEST__)}`;
           a.textContent = `${title}`;
           li.appendChild(a);
           const meta = document.createElement('div');
           meta.className='list-meta';
           meta.textContent = '音频';
           li.appendChild(meta);
+          // 让整行可点击（不仅仅是文字）
+          li.style.cursor = 'pointer';
+          li.addEventListener('click', (e) => {
+            // 若直接点在链接上，保持浏览器默认行为（允许长按/新标签等）
+            if (e.target.closest('a')) return;
+            location.href = a.href;
+          });
           list.appendChild(li);
         }
       } catch(err){

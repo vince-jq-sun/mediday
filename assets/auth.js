@@ -22,7 +22,7 @@ export function clearAlbumAccess(slug){
 
 export function albumFromSrc(src){
   try {
-    const p = decodeURIComponent(src || '');
+    const p = src || '';
     // Heuristic: first path segment is album folder
     // e.g. waking-up_intro-50_chinese/wu_day1.mp3
     const m = p.match(/^([^\/?#]+)\//);

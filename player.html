@@ -9,8 +9,15 @@
 </head>
 <body>
   <header class="site-header with-back">
-    <button class="back-btn" id="backBtn" aria-label="返回">←</button>
+    <button class="back-btn" id="backBtn" aria-label="返回主页" title="返回">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+        <path d="M15 6L9 12L15 18" stroke="#6b7280" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+    <span class="v-sep" aria-hidden="true"></span>
+    <button class="back-btn" id="prevBtn" aria-label="前往前一天" title="前一天">◀</button>
     <h1 id="trackTitle">音频</h1>
+    <button class="back-btn" id="nextBtn" aria-label="前往后一天" title="后一天">▶</button>
   </header>
 
   <main class="container player">
@@ -23,12 +30,11 @@
         <span id="duration">--:--</span>
       </div>
       <div class="btn-row">
-        <button id="rewind" class="btn" aria-label="后退15秒">⏪ 15s</button>
-        <button id="play" class="btn primary" aria-label="播放/暂停">▶️ 播放</button>
-        <button id="forward" class="btn" aria-label="快进30秒">30s ⏩</button>
+        <button id="rewind" class="btn" aria-label="后退15秒"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20 6v12l-8.5-6L20 6zm-9 0v12l-8.5-6L11 6z"/></svg><span>15s</span></button>
+        <button id="play" class="btn primary" aria-label="播放/暂停"><svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
+        <button id="forward" class="btn" aria-label="快进30秒"><span>30s</span><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M4 18l8.5-6L4 6v12zm9-12v12l8.5-6L13 6z"/></svg></button>
       </div>
       <div class="extra-row">
-        <a id="download" class="link" download>下载本音频</a>
       </div>
     </div>
   </main>

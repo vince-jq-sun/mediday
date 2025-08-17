@@ -21,7 +21,7 @@
 
   <main class="container">
     <section>
-      <ul class="list" id="day-list" aria-label="章节列表"></ul>
+      <ul class="day-grid" id="day-list" aria-label="章节列表"></ul>
     </section>
   </main>
 
@@ -49,17 +49,14 @@
         data.items.sort((a,b)=>a.id-b.id);
         for(const item of data.items){
           const li = document.createElement('li');
-          li.className = 'list-item';
+          li.className = 'day-cell';
           const a = document.createElement('a');
-          a.className = 'list-link';
-          const title = item.title || (`第${item.id}天`);
+          a.className = 'day-btn';
+          const title = `第${item.id}天`;
           a.href = `player.html?title=${encodeURIComponent(title)}&src=${encodeURIComponent(item.file)}&back=${encodeURIComponent(location.pathname)}&id=${encodeURIComponent(item.id)}&manifest=${encodeURIComponent(window.__MANIFEST__)}`;
           a.textContent = `${title}`;
           li.appendChild(a);
-          const meta = document.createElement('div');
-          meta.className='list-meta';
-          meta.textContent = '音频';
-          li.appendChild(meta);
+          
           // 让整行可点击（不仅仅是文字）
           li.style.cursor = 'pointer';
           li.addEventListener('click', (e) => {

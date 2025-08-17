@@ -33,6 +33,11 @@ a{ color:inherit; text-decoration:none; }
 .list-link{ font-weight:600; }
 .list-meta{ color:var(--muted); font-size:13px; }
 
+/* 目录网格（醒来页面） */
+.day-grid{ list-style:none; margin:0; padding:0; display:grid; grid-template-columns: repeat(5, 1fr); gap:12px; }
+.day-btn{ display:flex; align-items:center; justify-content:center; width:100%; aspect-ratio:1/1; border:1px solid var(--line); border-radius:12px; background:#fff; font-weight:600; color:var(--fg); }
+.day-btn:active{ transform: translateY(1px); }
+
 /* 播放器 */
 .player{ display:grid; gap:16px; }
 .controls{ border:1px solid var(--line); border-radius:var(--radius); padding:16px; background:#fff; display:grid; gap:12px; }

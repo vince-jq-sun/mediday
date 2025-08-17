@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>醒来 - 50天冥想入门</title>
+  <meta name="description" content="醒来-50天冥想入门 目录" />
+  <link rel="preload" href="assets/styles.css" as="style" />
+  <link rel="stylesheet" href="assets/styles.css" />
+  <script>window.__MANIFEST__ = 'manifest/waking-up_intro-50_chinese.json';</script>
+</head>
+<body>
+  <header class="site-header with-back">
+    <button class="back-btn" onclick="history.length>1?history.back():location.href='index.html'" aria-label="返回">←</button>
+    <h1>醒来 - 50天冥想入门</h1>
+  </header>
+
+  <main class="container">
+    <section>
+      <ul class="list" id="day-list" aria-label="章节列表"></ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <small>点开任意一天开始练习</small>
+  </footer>
+
+  <script type="module">
+    import { ensureAlbumAccess } from './assets/auth.js';
+    const ALBUM_SLUG = 'waking-up_intro-50_chinese';
+
+    async function load(){
+      try {
+        // Password gate
+        const ok = await ensureAlbumAccess(ALBUM_SLUG);
+        if(!ok){
+          // Redirect back to home if not authorized
+          location.href = 'index.html';
+          return;
+        }
+
+        const res = await fetch(window.__MANIFEST__, {cache:'no-cache'});
+        const data = await res.json();
+        const list = document.getElementById('day-list');
+        data.items.sort((a,b)=>a.id-b.id);
+        for(const item of data.items){
+          const li = document.createElement('li');
+          li.className = 'list-item';
+          const a = document.createElement('a');
+          a.className = 'list-link';
+          const title = item.title || (`第${item.id}天`);
+          a.href = `player.html?title=${encodeURIComponent(title)}&src=${encodeURIComponent(item.file)}&back=${encodeURIComponent(location.pathname)}`;
+          a.textContent = `${title}`;
+          li.appendChild(a);
+          const meta = document.createElement('div');
+          meta.className='list-meta';
+          meta.textContent = '音频';
+          li.appendChild(meta);
+          list.appendChild(li);
+        }
+      } catch(err){
+        const list = document.getElementById('day-list');
+        list.innerHTML = '<li class="list-item">加载失败，请刷新重试。</li>';
+        console.error(err);
+      }
+    }
+    load();
+  </script>
+</body>
+</html>

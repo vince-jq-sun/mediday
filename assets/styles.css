@@ -42,6 +42,8 @@ a{ color:inherit; text-decoration:none; }
 /* 内容绝对居中显示 */
 .day-btn > span{ position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-weight:600; }
 .day-btn:active{ transform: translateY(1px); }
+/* 完成态：降低不透明度并灰化 */
+.day-btn.done{ opacity:0.55; filter: grayscale(0.6); }
 
 /* 播放器 */
 .player{ display:grid; gap:16px; }

@@ -33,6 +33,24 @@ const curId = idParam != null ? Number(idParam) : NaN;
 let items = [];
 let curIndex = -1;
 
+// 进度存储（per-album per-item）
+let albumSlug = null;
+function progressKey(slug){ return `progress_${slug}`; }
+function loadProgress(slug){
+  try { return JSON.parse(localStorage.getItem(progressKey(slug)) || '{}'); } catch { return {}; }
+}
+function saveProgress(slug, obj){
+  try { localStorage.setItem(progressKey(slug), JSON.stringify(obj)); } catch {}
+}
+function markDone(slug, itemId){
+  if(!slug || !Number.isFinite(itemId)) return;
+  const p = loadProgress(slug);
+  if(p[String(itemId)] === 'done') return; // 已完成则跳过
+  p[String(itemId)] = 'done';
+  saveProgress(slug, p);
+}
+let doneMarked = false;
+
 async function gateAndInit(){
   const decSrc = src || '';
   const slug = albumFromSrc(decSrc);
@@ -47,6 +65,7 @@ async function gateAndInit(){
       manifest = `manifest/${slug}.json`;
     }
   }
+  albumSlug = slug || albumSlug;
   if(decSrc){
     audio.src = decSrc;
   }
@@ -133,6 +152,20 @@ audio.addEventListener('timeupdate', ()=>{
   tCur.textContent = fmt(audio.currentTime);
   if(isFinite(audio.duration)){
     seek.value = (audio.currentTime / audio.duration) * 100;
+    // 到达 90% 视为完成（仅标记一次）
+    if(!doneMarked && albumSlug && !Number.isNaN(curId)){
+      const ratio = audio.currentTime / (audio.duration || 1);
+      if(ratio >= 0.9){
+        markDone(albumSlug, curId);
+        doneMarked = true;
+      }
+    }
+  }
+});
+audio.addEventListener('ended', ()=>{
+  if(albumSlug && !Number.isNaN(curId)){
+    markDone(albumSlug, curId);
+    doneMarked = true;
   }
 });
 seek.addEventListener('input', ()=>{

@@ -37,6 +37,9 @@
   <script type="module">
     import { ensureAlbumAccess } from './assets/auth.js';
     const ALBUM_SLUG = 'waking-up_intro-50_chinese';
+    function loadProgress(slug){
+      try { return JSON.parse(localStorage.getItem(`progress_${slug}`) || '{}'); } catch { return {}; }
+    }
 
     async function load(){
       try {
@@ -51,6 +54,7 @@
         const res = await fetch(window.__MANIFEST__, {cache:'no-cache'});
         const data = await res.json();
         const list = document.getElementById('day-list');
+        const progress = loadProgress(ALBUM_SLUG);
         data.items.sort((a,b)=>a.id-b.id);
         for(const item of data.items){
           const li = document.createElement('li');
@@ -60,6 +64,12 @@
           const title = `第${item.id}天`;
           a.href = `player.html?title=${encodeURIComponent(title)}&src=${encodeURIComponent(item.file)}&back=${encodeURIComponent(location.pathname)}&id=${encodeURIComponent(item.id)}&manifest=${encodeURIComponent(window.__MANIFEST__)}`;
           a.innerHTML = `<span>${title}</span>`;
+          // 根据本地进度标记完成态（灰显）
+          if(progress[String(item.id)] === 'done'){
+            a.classList.add('done');
+            a.setAttribute('aria-disabled', 'true');
+            a.title = '已完成，可再次收听';
+          }
           li.appendChild(a);
           
           // 让整行可点击（不仅仅是文字）

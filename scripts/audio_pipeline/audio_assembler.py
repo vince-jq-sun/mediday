@@ -30,7 +30,8 @@ class AudioAssembler:
     
     def assemble_from_manual_recordings(self, translation_data: Dict, 
                                       output_path: Path = None,
-                                      compression_settings: Dict = None) -> Dict:
+                                      compression_settings: Dict = None,
+                                      manual_recordings_dir: Path = None) -> Dict:
         """
         Assemble final audio from manual recordings
         """
@@ -68,11 +69,14 @@ class AudioAssembler:
         audio_segments = []
         base_filename = Path(translation_data['original_file']).stem
         
+        # Use custom manual recordings directory if provided, otherwise use default
+        recordings_dir = manual_recordings_dir if manual_recordings_dir else MANUAL_RECORDINGS_DIR
+        
         for segment in translation_data['segments']:
             segment_id = segment['segment_id']
             
             # Look for manual recording first
-            manual_recording = MANUAL_RECORDINGS_DIR / f"{base_filename}_segment_{segment_id:03d}_manual.wav"
+            manual_recording = recordings_dir / f"{base_filename}_segment_{segment_id:03d}_manual.wav"
             
             if manual_recording.exists():
                 audio_data, sr = self.load_audio_segment(manual_recording)
@@ -252,7 +256,8 @@ class AudioAssembler:
     def create_mixed_assembly(self, translation_data: Dict, synthesis_data: Dict,
                              output_path: Path = None,
                              prefer_manual: bool = True,
-                             compression_settings: Dict = None) -> Dict:
+                             compression_settings: Dict = None,
+                             manual_recordings_dir: Path = None) -> Dict:
         """
         Create assembly using both manual recordings and synthesized audio
         Prefer manual recordings when available
@@ -295,11 +300,14 @@ class AudioAssembler:
         for segment in synthesis_data.get('segments', []):
             synthesis_lookup[segment['segment_id']] = segment
         
+        # Use custom manual recordings directory if provided, otherwise use default
+        recordings_dir = manual_recordings_dir if manual_recordings_dir else MANUAL_RECORDINGS_DIR
+        
         for segment in translation_data['segments']:
             segment_id = segment['segment_id']
             
             # Check for manual recording first
-            manual_recording = MANUAL_RECORDINGS_DIR / f"{base_filename}_segment_{segment_id:03d}_manual.wav"
+            manual_recording = recordings_dir / f"{base_filename}_segment_{segment_id:03d}_manual.wav"
             
             if prefer_manual and manual_recording.exists():
                 audio_data, sr = self.load_audio_segment(manual_recording)

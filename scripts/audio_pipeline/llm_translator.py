@@ -33,7 +33,10 @@ class LLMTranslator:
         """Load terminology dictionary from JSON file"""
         try:
             with open(terminology_file, 'r', encoding='utf-8') as f:
-                self.terminology = json.load(f)
+                data = json.load(f)
+            
+            # Handle flattened structure - exclude metadata
+            self.terminology = {k: v for k, v in data.items() if not k.startswith('_')}
             print(f"✅ Loaded {len(self.terminology)} terminology entries for LLM translation")
         except Exception as e:
             print(f"⚠️ Error loading terminology: {e}")

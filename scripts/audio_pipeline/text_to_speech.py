@@ -2,8 +2,10 @@
 Google Text-to-Speech integration for high-quality speech synthesis
 """
 from google.cloud import texttospeech
+from google.api_core.exceptions import GoogleAPICallError, InvalidArgument
 from pathlib import Path
 import json
+import os
 from typing import Dict, List
 from .config import (
     TTS_LANGUAGE_CODE,
@@ -14,7 +16,11 @@ from .config import (
 
 class TextToSpeechSynthesizer:
     def __init__(self):
-        self.client = texttospeech.TextToSpeechClient()
+        # Set Google Cloud credentials
+        os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "/Users/vince/Documents/mediday/config/storied-fuze-454117-i9-731b06659d58.json"
+        
+        # Use REST transport to avoid gRPC 503 errors
+        self.client = texttospeech.TextToSpeechClient(transport="rest")
         
     def synthesize_text(self, text: str, output_path: Path, 
                        voice_name: str = TTS_VOICE_NAME,
@@ -48,12 +54,13 @@ class TextToSpeechSynthesizer:
                 pitch=pitch
             )
             
-            # Perform synthesis
-            response = self.client.synthesize_speech(
+            # Perform synthesis with timeout
+            request = texttospeech.SynthesizeSpeechRequest(
                 input=synthesis_input,
                 voice=voice,
                 audio_config=audio_config
             )
+            response = self.client.synthesize_speech(request=request, timeout=30)
             
             # Save audio file
             output_path.parent.mkdir(parents=True, exist_ok=True)
@@ -70,6 +77,20 @@ class TextToSpeechSynthesizer:
                 'file_size': output_path.stat().st_size
             }
             
+        except InvalidArgument as e:
+            return {
+                'text': text,
+                'output_path': str(output_path),
+                'error': f'Invalid voice or configuration: {e}',
+                'success': False
+            }
+        except GoogleAPICallError as e:
+            return {
+                'text': text,
+                'output_path': str(output_path),
+                'error': f'Google API call failed: {e}',
+                'success': False
+            }
         except Exception as e:
             return {
                 'text': text,
@@ -78,7 +99,7 @@ class TextToSpeechSynthesizer:
                 'success': False
             }
     
-    def synthesize_translation_results(self, translation_data: Dict, 
+    def synthesize_translation_results(self, translation_data: Dict, output_dir: Path = None,
                                      voice_settings: Dict = None) -> Dict:
         """
         Synthesize speech for all translated segments
@@ -99,6 +120,12 @@ class TextToSpeechSynthesizer:
         
         base_filename = Path(translation_data['original_file']).stem
         
+        # Use the specified output directory directly (no extra subdirectory)
+        if output_dir is None:
+            output_dir = AUDIO_SYNTHESIS_DIR
+        project_synthesis_dir = output_dir
+        project_synthesis_dir.mkdir(parents=True, exist_ok=True)
+        
         for segment in translation_data['segments']:
             segment_id = segment['segment_id']
             chinese_text = segment['chinese_text']
@@ -106,9 +133,9 @@ class TextToSpeechSynthesizer:
             print(f"Synthesizing segment {segment_id + 1}/{translation_data['total_segments']}")
             
             if chinese_text:
-                # Create output filename
+                # Create output filename in project subfolder
                 output_filename = f"{base_filename}_segment_{segment_id:03d}_synthesis.mp3"
-                output_path = AUDIO_SYNTHESIS_DIR / output_filename
+                output_path = project_synthesis_dir / output_filename
                 
                 synthesis_result = self.synthesize_text(
                     chinese_text, 
@@ -140,10 +167,10 @@ class TextToSpeechSynthesizer:
             
             results['segments'].append(segment_result)
         
-        # Save synthesis results
-        output_path = AUDIO_SYNTHESIS_DIR / f"{base_filename}_synthesis_results.json"
+        # Save synthesis results in the output directory
+        results_output_path = project_synthesis_dir / f"{base_filename}_synthesis_results.json"
         
-        with open(output_path, 'w', encoding='utf-8') as f:
+        with open(results_output_path, 'w', encoding='utf-8') as f:
             json.dump(results, f, indent=2, ensure_ascii=False)
         
         return results
@@ -172,7 +199,7 @@ class TextToSpeechSynthesizer:
             print(f"Error getting available voices: {e}")
             return []
     
-    def batch_synthesize_directory(self, translations_dir: Path, 
+    def batch_synthesize_directory(self, translations_dir: Path, output_dir: Path = None,
                                  voice_settings: Dict = None) -> List[Dict]:
         """
         Batch synthesize all translation files in a directory
@@ -186,7 +213,7 @@ class TextToSpeechSynthesizer:
                 translation_data = json.load(f)
             
             synthesis_results = self.synthesize_translation_results(
-                translation_data, voice_settings
+                translation_data, output_dir, voice_settings
             )
             results.append(synthesis_results)
         

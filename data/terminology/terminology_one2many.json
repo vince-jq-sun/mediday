@@ -1,0 +1,72 @@
+{
+  "_metadata": {
+    "description": "正念冥想术语表 - Mindfulness Meditation Terminology",
+    "version": "1.1",
+    "last_updated": "2025-09-16",
+    "usage": "用于Google翻译API的术语表，确保正念相关术语的准确翻译（以世俗正念指导语为主）",
+    "format": "扁平结构，每个条目包含英文原文和对应的中文翻译"
+  },
+
+  "mindfulness": "正念",
+  "meditation": "冥想",
+  "aware": "觉知的, 觉知着",
+  "awareness": "觉知",
+  "present moment": "此刻",
+  "being present": "安住当下", 
+  "being here": "身处此地",
+  "mindful": "正念的",
+  "conscious": "有意识的",
+  "consciousness": "意识",
+  "awakening": "觉醒",
+  "awake": "醒着的",
+  "being awake": "醒着的状态",
+  "alert": "警觉的",
+  "attentive": "专注的",
+
+  "sitting meditation": "坐禅",
+  "walking meditation": "行禅",
+  "breathing meditation": "呼吸冥想",
+  "body scan": "身体扫描",
+  "loving-kindness": "慈心禅",
+  "loving kindness": "慈心禅",
+  "compassion": "慈悲",
+  "concentration": "专注力",
+  "contemplation": "观照",
+  "vipassana": "内观禅",
+
+  "calm": "平静",
+  "peace": "安宁",
+  "serenity": "恬静",
+  "tranquility": "宁静",
+  "equanimity": "平等心",
+  "clarity": "清明",
+  "stillness": "寂静",
+  "silence": "静默",
+  "inner peace": "内心平静",
+  "mental clarity": "心智清明",
+
+  "relaxation": "放松",
+  "embodiment": "身心合一",
+  "emotions": "情绪",
+  "feelings": "感受",
+  "thoughts": "念头",
+  "mental formations": "心理活动",
+
+  "reactivity": "反应性",
+  "acceptance": "接纳",
+  "non-judgment": "不加评判",
+  "letting go": "放下",
+
+  "here and now": "此时此地",
+  "this moment": "此刻",
+  "present": "当下",
+
+  "settle": "安住下来",
+  "settling": "安住",
+
+  "waking up": "醒来",
+  "wake up": "醒来",
+
+  "{": "{",
+  "}": "}"
+}

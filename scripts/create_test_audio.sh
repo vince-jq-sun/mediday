@@ -6,10 +6,10 @@
 #   从scripts目录: ./create_test_audio.sh
 
 # ========== 配置参数 - 您只需要在这里修改 ==========
-INPUT_FILE="awake_where_you_are/20250906_113518 types of attention practice.mp3"  # 输入文件路径
-OUTPUT_FILE="temp/test_sample.mp3"                                                 # 输出文件路径 (支持 .wav 或 .mp3)
-START_TIME=20                                                                      # 开始时间（秒）
-DURATION=30                                                                        # 持续时间（秒）
+INPUT_FILE="data/awake_where_you_are_english/1-2_foundational_meditation.mp3"  # 输入文件路径
+OUTPUT_FILE="data/awake_where_you_are_english/1-2_foundational_meditation_sample-1.mp3"                                                 # 输出文件路径 (支持 .wav 或 .mp3)
+START_TIME=2                                                                      # 开始时间（秒）
+DURATION=62                                                                        # 持续时间（秒）
 # ================================================
 
 # 检测当前执行目录并调整路径

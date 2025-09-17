@@ -1,54 +1,86 @@
 """
-Translation module supporting both Google Translate API and LLM-based translation
+Translation module supporting Google Translate API, LLM-based translation, and GPT translation
 """
-from google.cloud import translate_v2 as translate
+try:
+    from google.cloud import translate_v2 as translate
+except ImportError:
+    translate = None
 from pathlib import Path
 import json
 import os
 from typing import Dict, List, Optional
-from .config import SOURCE_LANGUAGE, TARGET_LANGUAGE, TRANSLATIONS_DIR
+from .config import SOURCE_LANGUAGE, TARGET_LANGUAGE, TRANSLATIONS_DIR, TRANSLATION_PROVIDER, USE_ENHANCED_GPT, GPT_MODEL
 from .llm_translator import LLMTranslator
+from .gpt_translator import GPTTranslator
+from .enhanced_gpt_translator import EnhancedGPTTranslator
 
 class Translator:
-    def __init__(self, terminology_file: Optional[Path] = None, use_llm: bool = None):
+    def __init__(self, terminology_file: Optional[Path] = None, provider: str = None):
         """
-        Initialize translator with support for both Google Translate and LLM
+        Initialize translator with support for multiple providers
         
         Args:
             terminology_file: Path to terminology JSON file
-            use_llm: Whether to use LLM translation. If None, reads from environment
+            provider: Translation provider ('google', 'llm', 'gpt'). If None, reads from environment
         """
-        # Traditional Google Translate client
-        self.client = translate.Client()
+        # Determine provider
+        if provider is None:
+            provider = os.getenv('TRANSLATION_PROVIDER', TRANSLATION_PROVIDER).lower()
+        
+        self.provider = provider
         self.terminology = {}
         
-        # LLM translation setup
-        if use_llm is None:
-            translation_provider = os.getenv('TRANSLATION_PROVIDER', 'google').lower()
-            use_llm = translation_provider != 'google'
-        
-        self.use_llm = use_llm
+        # Initialize clients based on provider
+        self.google_client = None
         self.llm_translator = None
+        self.gpt_translator = None
+        self.enhanced_gpt_translator = None
         
-        if self.use_llm:
+        if provider == 'gpt':
             try:
-                provider = os.getenv('TRANSLATION_PROVIDER', 'gemini')
+                model = os.getenv('GPT_MODEL', GPT_MODEL)
+                # Check if enhanced GPT should be used
+                use_enhanced = os.getenv('USE_ENHANCED_GPT', str(USE_ENHANCED_GPT).lower()).lower() == 'true'
+                
+                if use_enhanced:
+                    self.enhanced_gpt_translator = EnhancedGPTTranslator(model=model, terminology_file=terminology_file)
+                    print(f"✅ Enhanced GPT translator initialized: {model}")
+                else:
+                    self.gpt_translator = GPTTranslator(model=model, terminology_file=terminology_file)
+                    print(f"✅ GPT translator initialized: {model}")
+            except Exception as e:
+                print(f"⚠️ GPT translator failed to initialize: {e}")
+                print("   Falling back to Google Translate")
+                self.provider = 'google'
+        
+        elif provider in ['llm', 'gemini', 'anthropic', 'local']:
+            try:
                 model = os.getenv('TRANSLATION_MODEL', 'gemini-2.0-flash-exp')
                 self.llm_translator = LLMTranslator(provider, model, terminology_file)
                 print(f"✅ LLM translator initialized: {provider} ({model})")
             except Exception as e:
                 print(f"⚠️ LLM translator failed to initialize: {e}")
                 print("   Falling back to Google Translate")
-                self.use_llm = False
+                self.provider = 'google'
         
-        if terminology_file and terminology_file.exists():
+        # Initialize Google Translate as fallback or primary
+        if self.provider == 'google' or (not self.gpt_translator and not self.enhanced_gpt_translator and not self.llm_translator):
+            self.google_client = translate.Client()
+            self.provider = 'google'
+            print("✅ Google Translate initialized")
+        
+        # Load terminology for Google Translate
+        if terminology_file and terminology_file.exists() and self.provider == 'google':
             self.load_terminology(terminology_file)
     
     def load_terminology(self, terminology_file: Path):
         """Load terminology dictionary from JSON file"""
         try:
             with open(terminology_file, 'r', encoding='utf-8') as f:
-                self.terminology = json.load(f)
+                data = json.load(f)
+            
+            # Handle flattened structure - exclude metadata
+            self.terminology = {k: v for k, v in data.items() if not k.startswith('_')}
             print(f"Loaded {len(self.terminology)} terminology entries")
         except Exception as e:
             print(f"Error loading terminology: {e}")
@@ -71,7 +103,7 @@ class Translator:
     
     def translate_text(self, text: str, use_terminology: bool = True, context: str = "") -> Dict:
         """
-        Translate text from English to Chinese using either Google Translate or LLM
+        Translate text using the configured provider
         """
         if not text.strip():
             return {
@@ -79,11 +111,18 @@ class Translator:
                 'translated_text': '',
                 'confidence': 0.0,
                 'error': 'Empty text',
-                'provider': 'llm' if self.use_llm else 'google'
+                'provider': self.provider
             }
         
-        # Use LLM translation if enabled
-        if self.use_llm and self.llm_translator:
+        # Use GPT translation (enhanced or regular)
+        if self.provider == 'gpt':
+            if self.enhanced_gpt_translator:
+                return self.enhanced_gpt_translator.translate_text(text, context)
+            elif self.gpt_translator:
+                return self.gpt_translator.translate_text(text, context)
+        
+        # Use LLM translation
+        if self.provider in ['llm', 'gemini', 'anthropic', 'local'] and self.llm_translator:
             return self.llm_translator.translate_text(text, context)
         
         # Fall back to Google Translate
@@ -94,7 +133,7 @@ class Translator:
                 processed_text = self.apply_terminology(text)
             
             # Perform translation
-            result = self.client.translate(
+            result = self.google_client.translate(
                 processed_text,
                 source_language=SOURCE_LANGUAGE,
                 target_language=TARGET_LANGUAGE
@@ -124,19 +163,41 @@ class Translator:
                 'provider': 'google'
             }
     
-    def translate_transcription_results(self, transcription_data: Dict) -> Dict:
+    def translate_transcription_results(self, transcription_data: Dict, output_dir: Path = None, use_context: bool = False,
+                                       include_previous_translations: bool = True,
+                                       context_window: int = 1) -> Dict:
         """
-        Translate all transcription results using either Google Translate or LLM
+        Translate all transcription results using the configured provider
         """
-        # Use LLM translation if enabled
-        if self.use_llm and self.llm_translator:
-            return self.llm_translator.translate_transcription_results(transcription_data, use_context=True)
+        # Use GPT translation (enhanced or regular)
+        if self.provider == 'gpt':
+            if self.enhanced_gpt_translator:
+                # Enhanced GPT translator doesn't have batch methods yet, use single translate
+                return self._translate_with_enhanced_gpt(
+                    transcription_data, use_context, include_previous_translations, context_window
+                )
+            elif self.gpt_translator:
+                return self.gpt_translator.translate_transcription_results(
+                    transcription_data, 
+                    use_context=use_context,
+                    include_previous_translations=include_previous_translations,
+                    context_window=context_window
+                )
+        
+        # Use LLM translation
+        if self.provider in ['llm', 'gemini', 'anthropic', 'local'] and self.llm_translator:
+            return self.llm_translator.translate_transcription_results(
+                transcription_data, 
+                use_context=use_context,
+                include_previous_translations=include_previous_translations,
+                context_window=context_window
+            )
         
         # Fall back to Google Translate
         results = {
             'original_file': transcription_data['original_file'],
             'total_segments': transcription_data['total_segments'],
-            'translation_provider': 'google',
+            'translation_provider': self.provider,
             'segments': []
         }
         
@@ -168,27 +229,162 @@ class Translator:
                 'chinese_text': translation_result['translated_text'],
                 'translation_metadata': translation_result
             }
-            
             results['segments'].append(segment_result)
         
         # Save translation results
-        output_path = TRANSLATIONS_DIR / f"{Path(transcription_data['original_file']).stem}_translations.json"
+        if output_dir is None or output_dir is False or not output_dir:
+            output_dir = TRANSLATIONS_DIR
+        else:
+            # Clean and validate the provided output directory
+            output_dir = str(output_dir).strip().replace('\n', '').replace('\r', '')
+            if not output_dir:  # If empty after cleaning
+                output_dir = TRANSLATIONS_DIR
+        output_path = Path(output_dir) / f"{Path(transcription_data['original_file']).stem}_translations.json"
         output_path.parent.mkdir(parents=True, exist_ok=True)
         
         with open(output_path, 'w', encoding='utf-8') as f:
             json.dump(results, f, indent=2, ensure_ascii=False)
+        
+        print(f"💾 Enhanced GPT translations saved to: {output_path}")
+        print(f"📊 Total tokens used: {total_tokens}")
+        
+        return results
+    
+    def _translate_with_enhanced_gpt(self, transcription_data: Dict, output_dir: Path = None, use_context: bool = False,
+                                   include_previous_translations: bool = True,
+                                   context_window: int = 1) -> Dict:
+        """
+        Translate transcription results using enhanced GPT translator
+        """
+        results = {
+            'original_file': transcription_data['original_file'],
+            'total_segments': transcription_data['total_segments'],
+            'translation_provider': 'enhanced_openai_gpt',
+            'translation_model': self.enhanced_gpt_translator.model,
+            'segments': []
+        }
+        
+        translations = []  # Store completed translations for context
+        total_tokens = 0
+        
+        for i, segment in enumerate(transcription_data['segments']):
+            print(f"Enhanced GPT translating segment {i + 1}/{transcription_data['total_segments']}")
+            
+            transcription = segment['transcription']
+            english_text = transcription.get('full_transcript', '')
+            
+            if not english_text:
+                translation_result = {
+                    'original_text': '',
+                    'translated_text': '',
+                    'error': 'No transcription available',
+                    'confidence': 0.0,
+                    'provider': 'enhanced_openai_gpt'
+                }
+            else:
+                # Build context if enabled
+                context = ""
+                if use_context:
+                    context_parts = []
+                    
+                    # Previous segments with translations
+                    if include_previous_translations:
+                        for j in range(max(0, i - context_window), i):
+                            prev_segment = transcription_data['segments'][j]
+                            prev_en = prev_segment['transcription'].get('full_transcript', '').strip()
+                            prev_zh = translations[j] if j < len(translations) else ''
+                            
+                            if prev_en:
+                                context_parts.append(f"前文段落 {j + 1}:")
+                                context_parts.append(f"  英文: {prev_en}")
+                                if prev_zh:
+                                    context_parts.append(f"  中文: {prev_zh}")
+                                context_parts.append("")
+                    
+                    # Next segments (English only)
+                    for j in range(i + 1, min(len(transcription_data['segments']), i + context_window + 1)):
+                        next_segment = transcription_data['segments'][j]
+                        next_text = next_segment['transcription'].get('full_transcript', '').strip()
+                        if next_text:
+                            context_parts.append(f"后文段落 {j + 1}:")
+                            context_parts.append(f"  英文: {next_text}")
+                            context_parts.append("")
+                    
+                    context = "\n".join(context_parts).strip()
+                
+                translation_result = self.enhanced_gpt_translator.translate_text(english_text, context)
+                
+                # Store translation for future context
+                translated_text = translation_result.get('translated_text', '')
+                translations.append(translated_text)
+                
+                # Track token usage
+                if 'tokens_used' in translation_result:
+                    total_tokens += translation_result['tokens_used']
+                
+                print(f"  → EN: {english_text[:50]}...")
+                print(f"  → ZH: {translated_text[:50]}...")
+                if 'tokens_used' in translation_result:
+                    print(f"  📊 Tokens: {translation_result['tokens_used']}")
+            
+            segment_result = {
+                'segment_id': segment['segment_id'],
+                'start_time': segment['start_time'],
+                'end_time': segment['end_time'],
+                'duration': segment['duration'],
+                'file_path': segment['file_path'],
+                'english_text': english_text,
+                'chinese_text': translation_result.get('translated_text', ''),
+                'translation_metadata': translation_result
+            }
+            
+            results['segments'].append(segment_result)
+        
+        results['total_tokens_used'] = total_tokens
+        
+        # Save translation results
+        if output_dir is None or output_dir is False or not output_dir:
+            output_dir = TRANSLATIONS_DIR
+        else:
+            # Clean and validate the provided output directory
+            output_dir = str(output_dir).strip().replace('\n', '').replace('\r', '')
+            if not output_dir:  # If empty after cleaning
+                output_dir = TRANSLATIONS_DIR
+        output_path = Path(output_dir) / f"{Path(transcription_data['original_file']).stem}_translations.json"
+        output_path.parent.mkdir(parents=True, exist_ok=True)
+        
+        with open(output_path, 'w', encoding='utf-8') as f:
+            json.dump(results, f, indent=2, ensure_ascii=False)
+        
+        print(f"💾 Enhanced GPT translations saved to: {output_path}")
+        print(f"📊 Total tokens used: {total_tokens}")
         
         return results
     
     def retranslate_segment(self, text: str, use_terminology: bool = True) -> Dict:
         """
         Re-translate a single text segment (for GUI use)
+        Uses enhanced GPT mode with context window = 1 when available
         """
+        # Use enhanced GPT translator with context window = 1 if available
+        if self.provider == 'gpt' and self.enhanced_gpt_translator:
+            # For retranslation, we use empty context but enable enhanced mode
+            return self.enhanced_gpt_translator.translate_text(text, context="")
+        
+        # Fall back to regular translation
         return self.translate_text(text, use_terminology)
     
-    def batch_translate_directory(self, transcripts_dir: Path) -> List[Dict]:
+    def batch_translate_directory(self, transcripts_dir: Path, output_dir: Path = None, use_context: bool = False, 
+                                 include_previous_translations: bool = True, 
+                                 context_window: int = 1) -> List[Dict]:
         """
         Batch translate all transcription files in a directory
+        
+        Args:
+            transcripts_dir: Directory containing transcription files
+            use_context: Whether to use context for translation (for GPT/LLM providers)
+            include_previous_translations: Whether to include previous translations in context
+            context_window: Number of previous segments to include as context
         """
         results = []
         
@@ -198,7 +394,30 @@ class Translator:
             with open(transcript_file, 'r', encoding='utf-8') as f:
                 transcription_data = json.load(f)
             
-            translation_results = self.translate_transcription_results(transcription_data)
+            # Pass context parameters to GPT/LLM translators
+            if self.provider == 'gpt':
+                if self.enhanced_gpt_translator:
+                    translation_results = self._translate_with_enhanced_gpt(
+                        transcription_data, output_dir, use_context, include_previous_translations, context_window
+                    )
+                elif self.gpt_translator:
+                    translation_results = self.gpt_translator.translate_transcription_results(
+                        transcription_data, 
+                        use_context=use_context,
+                        include_previous_translations=include_previous_translations,
+                        context_window=context_window
+                    )
+            elif self.provider in ['llm', 'gemini', 'anthropic', 'local'] and self.llm_translator:
+                translation_results = self.llm_translator.translate_transcription_results(
+                    transcription_data, 
+                    use_context=use_context,
+                    include_previous_translations=include_previous_translations,
+                    context_window=context_window
+                )
+            else:
+                # Google Translate doesn't use context
+                translation_results = self.translate_transcription_results(transcription_data)
+            
             results.append(translation_results)
         
         return results

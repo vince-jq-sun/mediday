@@ -161,8 +161,8 @@ class AudioPreprocessor:
             if audio_file.suffix.lower() in audio_extensions:
                 print(f"Processing: {audio_file.name}")
                 
-                # Create output directory for this file
-                file_output_dir = output_base_dir / audio_file.stem
+                # Output directly to the specified output directory (no extra subdirectory)
+                file_output_dir = output_base_dir
                 
                 try:
                     metadata = self.segment_audio(audio_file, file_output_dir)

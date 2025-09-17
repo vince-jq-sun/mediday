@@ -43,14 +43,12 @@ fi
 SEGMENTS_DIR="$PROJECT_FOLDER/segments"
 TRANSCRIPTS_DIR="$PROJECT_FOLDER/transcripts"
 TRANSLATIONS_DIR="$PROJECT_FOLDER/translations"
-RECORDINGS_DIR="$PROJECT_FOLDER/recordings"
 
 echo ""
 echo "📁 Checking folder structure..."
 echo "   - Segments: $SEGMENTS_DIR"
 echo "   - Transcripts: $TRANSCRIPTS_DIR"
 echo "   - Translations: $TRANSLATIONS_DIR"
-echo "   - Recordings: $RECORDINGS_DIR"
 
 # Validate required folders exist
 missing_folders=()
@@ -92,8 +90,7 @@ else
     fi
 fi
 
-# Create recordings directory
-mkdir -p "$RECORDINGS_DIR"
+# Note: recordings directory creation removed as it's not needed
 
 echo ""
 echo "✅ Found translation file: $(basename "$TRANSLATION_FILE")"

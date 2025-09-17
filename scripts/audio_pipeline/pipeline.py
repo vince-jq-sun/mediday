@@ -29,10 +29,16 @@ class AudioProcessingPipeline:
         self.stt_provider = stt_provider
         self.translation_provider = translation_provider
     
-    def run_preprocessing(self, input_dir: Path, output_dir: Path = None):
+    def run_preprocessing(self, input_dir: Path, output_dir: Path = None, silence_threshold: float = None):
         """Step 1: Preprocess audio files (silence detection and segmentation)"""
         print("=== Step 1: Audio Preprocessing ===")
-        results = self.preprocessor.process_directory(input_dir, output_dir)
+        if silence_threshold is not None:
+            print(f"Using silence threshold: {silence_threshold}s")
+            # Create a new preprocessor with the specified threshold
+            preprocessor = AudioPreprocessor(silence_threshold_seconds=silence_threshold)
+            results = preprocessor.process_directory(input_dir, output_dir)
+        else:
+            results = self.preprocessor.process_directory(input_dir, output_dir)
         print(f"Processed {len(results)} audio files")
         return results
     
@@ -164,6 +170,8 @@ def main():
                                  help='Input directory with audio files')
     preprocess_parser.add_argument('--output-dir', type=Path,
                                  help='Output directory for segmented audio files')
+    preprocess_parser.add_argument('--silence-threshold', type=float, default=3.0,
+                                 help='Silence threshold in seconds for segmentation (default: 3.0)')
     
     transcribe_parser = subparsers.add_parser('transcribe', help='Speech recognition only')
     transcribe_parser.add_argument('--segments-dir', type=Path,
@@ -244,7 +252,7 @@ def main():
         
         elif args.command == 'preprocess':
             pipeline = AudioProcessingPipeline()
-            pipeline.run_preprocessing(args.input_dir, args.output_dir)
+            pipeline.run_preprocessing(args.input_dir, args.output_dir, args.silence_threshold)
         
         elif args.command == 'transcribe':
             from .config import SEGMENTS_DIR

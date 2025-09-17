@@ -2,7 +2,7 @@
 # Project Configuration - Centralized project settings
 # Change CURRENT_PROJECT here to switch between different audio files
 
-export CURRENT_PROJECT="1-2_foundational_meditation_sample-1"
+export CURRENT_PROJECT="1-2_foundational_meditation"
 export PROJECT_COLLECTION="awake_where_you_are_english"
 export PROJECT_FILE="data/${PROJECT_COLLECTION}/${CURRENT_PROJECT}.mp3"
 

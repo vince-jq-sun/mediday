@@ -2,9 +2,13 @@
 # Project Configuration - Centralized project settings
 # Change CURRENT_PROJECT here to switch between different audio files
 
-export CURRENT_PROJECT="1-2_foundational_meditation"
+export CURRENT_PROJECT="1-2_foundational_meditation_sample-1"
 export PROJECT_COLLECTION="awake_where_you_are_english"
 export PROJECT_FILE="data/${PROJECT_COLLECTION}/${CURRENT_PROJECT}.mp3"
+
+# Google Cloud credentials
+export GOOGLE_APPLICATION_CREDENTIALS="config/storied-fuze-454117-i9-731b06659d58.json"
+export GOOGLE_CLOUD_PROJECT_ID="storied-fuze-454117-i9"
 
 # New hierarchical temp structure: temp/{collection}/{project}/{type}/
 export PROJECT_BASE_DIR="temp/${PROJECT_COLLECTION}/${CURRENT_PROJECT}"

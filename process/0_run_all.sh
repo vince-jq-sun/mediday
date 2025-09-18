@@ -1,13 +1,18 @@
 #!/bin/bash
 # Run all pipeline steps in sequence
+# Usage: ./0_run_all.sh [openai|google]
 
 # Load project configuration
 source process/project_config.sh
+
+# Set default STT provider to OpenAI if not specified
+STT_PROVIDER=${1:-openai}
 
 echo "🚀 Running Complete Pipeline"
 echo "============================"
 echo "Project: $CURRENT_PROJECT"
 echo "File: $PROJECT_FILE"
+echo "STT Provider: $STT_PROVIDER"
 echo ""
 
 # Clean previous results for this project
@@ -17,7 +22,7 @@ echo "Step 1: Preprocessing..."
 bash process/1_preprocess.sh
 
 echo -e "\nStep 2: Transcription..."
-bash process/2_transcribe.sh
+bash process/2_transcribe.sh "$STT_PROVIDER"
 
 echo -e "\nStep 3: Translation..."
 bash process/3_translate.sh

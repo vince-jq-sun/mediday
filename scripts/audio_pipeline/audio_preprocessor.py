@@ -12,8 +12,15 @@ import tempfile
 from .config import SILENCE_THRESHOLD_SECONDS, SEGMENTS_DIR, TEMP_DIR
 
 class AudioPreprocessor:
-    def __init__(self, silence_threshold_seconds: float = SILENCE_THRESHOLD_SECONDS):
+    def __init__(self, silence_threshold_seconds: float = SILENCE_THRESHOLD_SECONDS, min_segment_duration: float = 0.5, sec_len_approx: float = 0.0, boundary_search: float = 3.0, normalize_padding: bool = True, target_padding: float = 1.0):
         self.silence_threshold_seconds = silence_threshold_seconds
+        self.min_segment_duration = min_segment_duration  # Minimum segment duration in seconds
+        # Approximate section length mode. If >= 10 seconds, use approximate-length-based cuts.
+        self.sec_len_approx = sec_len_approx or 0.0
+        self.boundary_search = boundary_search or 3.0
+        # Audio padding normalization settings
+        self.normalize_padding = normalize_padding  # Whether to normalize front/back silence
+        self.target_padding = target_padding  # Target padding duration in seconds (default 1.0s)
         
     def _convert_mp4_to_wav(self, audio_path: Path) -> Path:
         """
@@ -51,6 +58,85 @@ class AudioPreprocessor:
             return 'ISO Media' in result.stdout
         except:
             return False
+        
+    def _detect_audio_boundaries(self, y: np.ndarray, sr: int) -> Tuple[float, float]:
+        """
+        Detect the start and end of actual audio content (non-silence)
+        Returns (start_time, end_time) in seconds
+        """
+        # Calculate RMS energy
+        frame_length = int(0.025 * sr)  # 25ms frames
+        hop_length = int(0.010 * sr)    # 10ms hop
+        
+        # Simple RMS calculation
+        rms_values = []
+        for i in range(0, len(y) - frame_length, hop_length):
+            frame = y[i:i + frame_length]
+            rms_val = np.sqrt(np.mean(frame ** 2))
+            rms_values.append(rms_val)
+        
+        rms = np.array(rms_values)
+        
+        # Avoid division by zero
+        max_rms = np.max(rms)
+        if max_rms == 0:
+            return 0.0, len(y) / sr
+        
+        # Convert to dB
+        rms_db = 20 * np.log10(rms / max_rms + 1e-10)
+        
+        # Create time array
+        times = np.arange(len(rms)) * hop_length / sr
+        
+        # Detect non-silence (threshold: -40 dB)
+        silence_threshold_db = -40
+        non_silence_frames = rms_db >= silence_threshold_db
+        
+        # Find first and last non-silence frames
+        non_silence_indices = np.where(non_silence_frames)[0]
+        
+        if len(non_silence_indices) == 0:
+            # All silence, return original boundaries
+            return 0.0, len(y) / sr
+        
+        start_time = times[non_silence_indices[0]]
+        end_time = times[non_silence_indices[-1]]
+        
+        return start_time, end_time
+    
+    def normalize_audio_padding(self, y: np.ndarray, sr: int) -> np.ndarray:
+        """
+        Normalize the front and back silence/padding of audio to target_padding seconds
+        """
+        if not self.normalize_padding:
+            return y
+        
+        # Detect actual audio boundaries
+        audio_start, audio_end = self._detect_audio_boundaries(y, sr)
+        total_duration = len(y) / sr
+        
+        print(f"  → Original audio: {total_duration:.2f}s, content: {audio_start:.2f}s - {audio_end:.2f}s")
+        print(f"  → Front padding: {audio_start:.2f}s, back padding: {total_duration - audio_end:.2f}s")
+        
+        # Calculate target sample positions
+        target_padding_samples = int(self.target_padding * sr)
+        audio_start_sample = int(audio_start * sr)
+        audio_end_sample = int(audio_end * sr)
+        
+        # Extract the actual audio content
+        audio_content = y[audio_start_sample:audio_end_sample]
+        
+        # Create silence for padding
+        front_silence = np.zeros(target_padding_samples)
+        back_silence = np.zeros(target_padding_samples)
+        
+        # Combine: front_silence + audio_content + back_silence
+        normalized_audio = np.concatenate([front_silence, audio_content, back_silence])
+        
+        new_duration = len(normalized_audio) / sr
+        print(f"  → Normalized audio: {new_duration:.2f}s with {self.target_padding:.1f}s padding on each side")
+        
+        return normalized_audio
         
     def detect_silence_segments(self, audio_path: Path) -> List[Tuple[float, float]]:
         """
@@ -164,66 +250,179 @@ class AudioPreprocessor:
                 audio_file_path = str(audio_path)
                 # Use librosa for regular audio files
                 y, sr = librosa.load(audio_file_path, sr=None)
+            
+            # Apply audio padding normalization before segmentation
+            if self.normalize_padding:
+                print(f"🔧 Normalizing audio padding to {self.target_padding}s...")
+                y = self.normalize_audio_padding(y, sr)
+            
             total_duration = len(y) / sr
             
-            # Detect silence segments
-            silence_segments = self.detect_silence_segments(audio_path)
-            
-            # Create audio segments (non-silence parts)
+            # Detect silence segments (used either for direct silence-threshold cutting or for boundary search)
+            # Note: We need to detect silence on the normalized audio, so we create a temporary file
+            if self.normalize_padding:
+                # Create temporary file with normalized audio for silence detection
+                temp_normalized_path = Path(tempfile.mktemp(suffix='.wav'))
+                sf.write(str(temp_normalized_path), y, sr)
+                silence_segments = self.detect_silence_segments(temp_normalized_path)
+                # Clean up temporary file
+                try:
+                    temp_normalized_path.unlink()
+                except:
+                    pass
+            else:
+                silence_segments = self.detect_silence_segments(audio_path)
+
+            # Create audio segments according to the selected mode
             audio_segments = []
             segment_files = []
-            
-            current_start = 0.0
-            
-            for silence_start, silence_end in silence_segments:
-                if silence_start > current_start:
-                    # Add segment before silence
-                    segment_start_sample = int(current_start * sr)
-                    segment_end_sample = int(silence_start * sr)
-                    
-                    segment_audio = y[segment_start_sample:segment_end_sample]
-                    
-                    # Save segment
-                    segment_filename = f"{audio_path.stem}_segment_{len(audio_segments):03d}.wav"
-                    segment_path = output_dir / segment_filename
-                    sf.write(str(segment_path), segment_audio, sr)
-                    
-                    audio_segments.append({
-                        'segment_id': len(audio_segments),
-                        'start_time': current_start,
-                        'end_time': silence_start,
-                        'duration': silence_start - current_start,
-                        'file_path': str(segment_path)
-                    })
-                    
-                    segment_files.append(segment_path)
+
+            # Mode A: Approximate-length based segmentation when sec_len_approx >= 10
+            if self.sec_len_approx >= 10.0:
+                print(f"  → Using approx-length mode: {self.sec_len_approx}s sections, ±{self.boundary_search}s search window")
+                # Sequential boundary finding: start from each actual cut position and find next boundary
+                cut_times = []
+                current_pos = 0.0
+                silence_cuts_found = 0
                 
-                current_start = silence_end
-            
-            # Add final segment if there's audio after the last silence
-            if current_start < total_duration:
-                segment_start_sample = int(current_start * sr)
-                segment_audio = y[segment_start_sample:]
+                while current_pos < total_duration:
+                    # Calculate target position for next cut (current_pos + sec_len_approx)
+                    target_pos = current_pos + self.sec_len_approx
+                    
+                    # If target is beyond audio end, stop
+                    if target_pos >= total_duration:
+                        break
+                    
+                    # Search window around target position
+                    window_start = max(current_pos + 1.0, target_pos - self.boundary_search)  # Ensure at least 1s after current
+                    window_end = min(total_duration, target_pos + self.boundary_search)
+                    
+                    # Find silence segments overlapping the search window
+                    candidates = []
+                    for s_start, s_end in silence_segments:
+                        # Check if silence segment overlaps with search window
+                        if s_start < window_end and s_end > window_start:
+                            # Calculate the overlapping portion
+                            overlap_start = max(s_start, window_start)
+                            overlap_end = min(s_end, window_end)
+                            overlap_duration = overlap_end - overlap_start
+                            if overlap_duration > 0.1:  # At least 0.1s overlap
+                                candidates.append((s_start, s_end, overlap_duration))
+                    
+                    if candidates:
+                        # Choose the candidate with the longest overlap (not total duration)
+                        s_start, s_end, _ = max(candidates, key=lambda x: x[2])
+                        # Cut at the midpoint of the silence segment
+                        cut_time = (s_start + s_end) / 2.0
+                        silence_cuts_found += 1
+                    else:
+                        # No silence in the window; fall back to target time
+                        cut_time = target_pos
+                    
+                    # Ensure cut_time is valid and after current position
+                    cut_time = min(max(current_pos + 0.5, cut_time), total_duration)
+                    cut_times.append(cut_time)
+                    
+                    # Update current position to the actual cut time for next iteration
+                    current_pos = cut_time
+
+                # Build boundaries from sequential cut times
+                boundaries = [0.0] + cut_times + [total_duration]
+                print(f"  → Found {silence_cuts_found} silence-based cuts out of {len(cut_times)} total cuts")
+
+                # Emit segments between boundaries
+                for i in range(len(boundaries) - 1):
+                    seg_start = boundaries[i]
+                    seg_end = boundaries[i + 1]
+                    seg_duration = seg_end - seg_start
+                    if seg_duration >= self.min_segment_duration:
+                        start_sample = int(seg_start * sr)
+                        end_sample = int(seg_end * sr)
+                        segment_audio = y[start_sample:end_sample]
+                        segment_filename = f"{audio_path.stem}_segment_{len(audio_segments):03d}.wav"
+                        segment_path = output_dir / segment_filename
+                        sf.write(str(segment_path), segment_audio, sr)
+                        audio_segments.append({
+                            'segment_id': len(audio_segments),
+                            'start_time': seg_start,
+                            'end_time': seg_end,
+                            'duration': seg_duration,
+                            'file_path': str(segment_path)
+                        })
+                        segment_files.append(segment_path)
+                    else:
+                        print(f"  → Skipping short segment ({seg_duration:.3f}s < {self.min_segment_duration}s)")
+
+                used_mode = 'approx_length'
+                cut_boundaries = boundaries
+            else:
+                # Mode B: Original silence-threshold-based segmentation
+                current_start = 0.0
+                for silence_start, silence_end in silence_segments:
+                    if silence_start > current_start:
+                        # Check if segment is long enough
+                        segment_duration = silence_start - current_start
+                        if segment_duration >= self.min_segment_duration:
+                            # Add segment before silence
+                            segment_start_sample = int(current_start * sr)
+                            segment_end_sample = int(silence_start * sr)
+                            
+                            segment_audio = y[segment_start_sample:segment_end_sample]
+                            
+                            # Save segment
+                            segment_filename = f"{audio_path.stem}_segment_{len(audio_segments):03d}.wav"
+                            segment_path = output_dir / segment_filename
+                            sf.write(str(segment_path), segment_audio, sr)
+                            
+                            audio_segments.append({
+                                'segment_id': len(audio_segments),
+                                'start_time': current_start,
+                                'end_time': silence_start,
+                                'duration': segment_duration,
+                                'file_path': str(segment_path)
+                            })
+                            
+                            segment_files.append(segment_path)
+                        else:
+                            print(f"  → Skipping short segment ({segment_duration:.3f}s < {self.min_segment_duration}s)")
+                    
+                    current_start = silence_end
                 
-                segment_filename = f"{audio_path.stem}_segment_{len(audio_segments):03d}.wav"
-                segment_path = output_dir / segment_filename
-                sf.write(str(segment_path), segment_audio, sr)
-                
-                audio_segments.append({
-                    'segment_id': len(audio_segments),
-                    'start_time': current_start,
-                    'end_time': total_duration,
-                    'duration': total_duration - current_start,
-                    'file_path': str(segment_path)
-                })
-                
-                segment_files.append(segment_path)
+                # Add final segment if there's audio after the last silence
+                if current_start < total_duration:
+                    final_segment_duration = total_duration - current_start
+                    if final_segment_duration >= self.min_segment_duration:
+                        segment_start_sample = int(current_start * sr)
+                        segment_audio = y[segment_start_sample:]
+                        
+                        segment_filename = f"{audio_path.stem}_segment_{len(audio_segments):03d}.wav"
+                        segment_path = output_dir / segment_filename
+                        sf.write(str(segment_path), segment_audio, sr)
+                        
+                        audio_segments.append({
+                            'segment_id': len(audio_segments),
+                            'start_time': current_start,
+                            'end_time': total_duration,
+                            'duration': final_segment_duration,
+                            'file_path': str(segment_path)
+                        })
+                        
+                        segment_files.append(segment_path)
+                    else:
+                        print(f"  → Skipping short final segment ({final_segment_duration:.3f}s < {self.min_segment_duration}s)")
+
+                used_mode = 'silence_threshold'
+                cut_boundaries = None
             
             # Create metadata
             metadata = {
                 'original_file': str(audio_path),
                 'total_duration': total_duration,
                 'silence_threshold_seconds': self.silence_threshold_seconds,
+                'min_segment_duration': self.min_segment_duration,
+                'mode': used_mode,
+                'sec_len_approx': self.sec_len_approx,
+                'boundary_search': self.boundary_search,
                 'silence_segments': [{'start': start, 'end': end, 'duration': end - start} 
                                    for start, end in silence_segments],
                 'audio_segments': audio_segments,
@@ -231,6 +430,8 @@ class AudioPreprocessor:
                 'total_silence_duration': sum(end - start for start, end in silence_segments),
                 'total_audio_duration': sum(seg['duration'] for seg in audio_segments)
             }
+            if cut_boundaries is not None:
+                metadata['cut_boundaries'] = cut_boundaries
             
             # Save metadata
             metadata_path = output_dir / f"{audio_path.stem}_metadata.json"

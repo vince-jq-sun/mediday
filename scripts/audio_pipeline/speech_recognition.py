@@ -1,4 +1,4 @@
-"""Speech-to-Text integration supporting both Google STT and OpenAI Whisper"""
+"""Speech-to-Text integration supporting Google STT, OpenAI Whisper, and Local Whisper"""
 from pathlib import Path
 import json
 from typing import Dict, List
@@ -6,6 +6,9 @@ import io
 import wave
 import time
 import os
+import subprocess
+import tempfile
+import shutil
 from openai import OpenAI
 
 # Optional Google Cloud import
@@ -24,11 +27,11 @@ from .config import (
 )
 
 class SpeechRecognizer:
-    def __init__(self, provider="openai"):
+    def __init__(self, provider="localwhisper"):
         """
         Initialize speech recognizer with specified provider
         Args:
-            provider (str): "google" for Google STT or "openai" for OpenAI Whisper
+            provider (str): "google" for Google STT, "openai" for OpenAI Whisper, or "localwhisper" for Local Whisper
         """
         self.provider = provider.lower()
         
@@ -43,8 +46,11 @@ class SpeechRecognizer:
             if not api_key:
                 raise ValueError("OpenAI API key not found. Please check config/openai.json")
             self.client = OpenAI(api_key=api_key)
+        elif self.provider == "localwhisper":
+            # Initialize local whisper settings
+            self._init_local_whisper()
         else:
-            raise ValueError(f"Unsupported provider: {provider}. Use 'google' or 'openai'")
+            raise ValueError(f"Unsupported provider: {provider}. Use 'google', 'openai', or 'localwhisper'")
     
     def _load_openai_config(self):
         """Load OpenAI API key from config file."""
@@ -54,6 +60,22 @@ class SpeechRecognizer:
             return config.get('api')
         except (FileNotFoundError, json.JSONDecodeError, KeyError):
             return None
+    
+    def _init_local_whisper(self):
+        """Initialize local whisper settings"""
+        # Default paths based on test_whisper_local.sh
+        self.model_path = os.path.expanduser("~/.cache/huggingface/hub/models--ggerganov--whisper.cpp/snapshots/5359861c739e955e79d9a303bcbc70fb988958b1/ggml-large-v3.bin")
+        self.whisper_bin = os.path.expanduser("~/whisper.cpp/build/bin/whisper-cli")
+        self.lang_opt = "en"
+        self.nthread = 4
+        self.disable_gpu = False
+        self.pause_threshold = 1.0
+        
+        # Check if model and binary exist
+        if not os.path.exists(self.model_path):
+            raise ValueError(f"Local Whisper model not found: {self.model_path}")
+        if not os.path.exists(self.whisper_bin):
+            raise ValueError(f"Local Whisper binary not found: {self.whisper_bin}. Please compile whisper.cpp with GGML_METAL=1")
         
     def get_wav_metadata(self, audio_path: Path) -> tuple:
         """Get WAV file metadata (sample_rate, channels, sample_width, duration)"""
@@ -72,6 +94,8 @@ class SpeechRecognizer:
             return self._transcribe_with_google(audio_path)
         elif self.provider == "openai":
             return self._transcribe_with_openai(audio_path)
+        elif self.provider == "localwhisper":
+            return self._transcribe_with_local_whisper(audio_path)
     
     def _transcribe_with_openai(self, audio_path: Path) -> Dict:
         """
@@ -233,6 +257,131 @@ class SpeechRecognizer:
                 'full_transcript': ''
             }
     
+    def _transcribe_with_local_whisper(self, audio_path: Path) -> Dict:
+        """
+        Transcribe a single audio file using Local Whisper (whisper.cpp)
+        """
+        try:
+            # Get audio metadata for info
+            sample_rate, channels, sample_width, duration = self.get_wav_metadata(audio_path)
+            file_size = audio_path.stat().st_size
+            
+            print(f"  Audio info: {duration:.2f}s, {sample_rate}Hz, {channels}ch, {sample_width}bit, {file_size} bytes")
+            print(f"  Using Local Whisper (whisper.cpp)...")
+            
+            start_time = time.time()
+            
+            # Create temporary directory for whisper outputs
+            with tempfile.TemporaryDirectory() as temp_dir:
+                temp_path = Path(temp_dir)
+                
+                # Normalize audio to 16kHz mono PCM16 (required by whisper.cpp)
+                normalized_wav = temp_path / f"{audio_path.stem}.wav"
+                ffmpeg_cmd = [
+                    "ffmpeg", "-y", "-loglevel", "error",
+                    "-i", str(audio_path),
+                    "-ar", "16000", "-ac", "1", "-c:a", "pcm_s16le",
+                    str(normalized_wav)
+                ]
+                
+                subprocess.run(ffmpeg_cmd, check=True)
+                
+                # Prepare whisper command
+                output_stem = temp_path / audio_path.stem
+                whisper_cmd = [
+                    self.whisper_bin,
+                    "-m", self.model_path,
+                    "-f", str(normalized_wav),
+                    "-l", self.lang_opt,
+                    "-t", str(self.nthread),
+                    "-otxt", "-osrt", "-ojf",
+                    "--output-words",
+                    "-of", str(output_stem),
+                    "-bs", "5",
+                    "-tp", "0.2",
+                    "--max-context", "256",
+                    "--suppress-nst", "0",
+                    "--prompt", " "
+                ]
+                
+                # Add GPU flag if disabled
+                if self.disable_gpu:
+                    whisper_cmd.append("--no-gpu")
+                
+                # Run whisper
+                result = subprocess.run(whisper_cmd, capture_output=True, text=True)
+                
+                if result.returncode != 0:
+                    raise RuntimeError(f"Whisper failed with exit code {result.returncode}: {result.stderr}")
+                
+                elapsed_time = time.time() - start_time
+                print(f"  Recognition completed in {elapsed_time:.1f}s")
+                
+                # Read generated files
+                json_file = temp_path / f"{audio_path.stem}.json"
+                srt_file = temp_path / f"{audio_path.stem}.srt"
+                txt_file = temp_path / f"{audio_path.stem}.txt"
+                
+                # Read transcript text
+                full_transcript = ""
+                if txt_file.exists():
+                    with open(txt_file, 'r', encoding='utf-8') as f:
+                        full_transcript = f.read().strip()
+                
+                # Use whisper_output_integrator to process JSON and SRT
+                integrated_json = temp_path / f"{audio_path.stem}_integrated.json"
+                if json_file.exists() and srt_file.exists():
+                    # Import and use the integrator
+                    from ..whisper_output_integrator import integrate_whisper_outputs
+                    integrate_whisper_outputs(
+                        str(json_file), 
+                        str(srt_file), 
+                        str(integrated_json), 
+                        self.pause_threshold
+                    )
+                
+                # Read integrated data if available
+                integrated_data = None
+                if integrated_json.exists():
+                    with open(integrated_json, 'r', encoding='utf-8') as f:
+                        integrated_data = json.load(f)
+                
+                # Format results to match other providers
+                transcription_data = {
+                    'file_path': str(audio_path),
+                    'language_code': 'en-US',
+                    'provider': 'localwhisper',
+                    'transcripts': [{
+                        'transcript': full_transcript,
+                        'confidence': 1.0  # Local whisper doesn't provide confidence scores
+                    }],
+                    'word_details': integrated_data.get('words', []) if integrated_data else [],
+                    'processing_time': elapsed_time,
+                    'audio_duration': duration,
+                    'full_transcript': full_transcript,
+                    'integrated_data': integrated_data  # Store full integrated data
+                }
+                
+                if full_transcript:
+                    print(f"  Transcribed: {full_transcript}")
+                else:
+                    print(f"  No speech detected in {audio_path.name}")
+                
+                return transcription_data
+                
+        except Exception as e:
+            print(f"  Error transcribing {audio_path.name} with Local Whisper: {e}")
+            print(f"  Troubleshooting tips:")
+            print(f"    - Check whisper.cpp binary: {self.whisper_bin}")
+            print(f"    - Check model file: {self.model_path}")
+            print(f"    - Ensure ffmpeg is installed")
+            return {
+                'file_path': str(audio_path),
+                'provider': 'localwhisper',
+                'error': str(e),
+                'full_transcript': ''
+            }
+    
     def transcribe_segments(self, metadata: Dict, output_dir: Path = None) -> Dict:
         """
         Transcribe all segments from audio preprocessing metadata
@@ -243,6 +392,12 @@ class SpeechRecognizer:
             'total_segments': metadata['total_segments']
         }
         
+        # Create individual_segments directory for storing integrated JSONs
+        if output_dir is None:
+            output_dir = TRANSCRIPTS_DIR
+        individual_segments_dir = output_dir / "individual_segments"
+        individual_segments_dir.mkdir(parents=True, exist_ok=True)
+        
         for segment in metadata['audio_segments']:
             segment_path = Path(segment['file_path'])
             
@@ -250,13 +405,31 @@ class SpeechRecognizer:
             
             transcription = self.transcribe_audio_file(segment_path)
             
+            # For localwhisper, save individual integrated JSON and clean up temp files
+            if self.provider == "localwhisper" and transcription.get('integrated_data'):
+                # Save individual integrated JSON
+                integrated_json_path = individual_segments_dir / f"{segment_path.stem}_integrated.json"
+                with open(integrated_json_path, 'w', encoding='utf-8') as f:
+                    json.dump(transcription['integrated_data'], f, indent=2, ensure_ascii=False)
+                print(f"  → Saved integrated JSON: {integrated_json_path}")
+            
+            # Create segment result with full_transcript as text_wt_pause version
+            text_wt_pause = transcription.get('integrated_data', {}).get('sentence_wt_pause', transcription.get('full_transcript', '')) if transcription.get('integrated_data') else transcription.get('full_transcript', '')
+            original_transcript = transcription.get('full_transcript', '')
+            
             segment_result = {
                 'segment_id': segment['segment_id'],
                 'start_time': segment['start_time'],
                 'end_time': segment['end_time'],
                 'duration': segment['duration'],
                 'file_path': segment['file_path'],
-                'transcription': transcription
+                'transcription': {
+                    'provider': transcription.get('provider'),
+                    'full_transcript': text_wt_pause,  # 带停顿标记的版本
+                    'transcript': original_transcript,  # 原始版本（不带停顿）
+                    'processing_time': transcription.get('processing_time', 0),
+                    'audio_duration': transcription.get('audio_duration', 0)
+                }
             }
             
             results['segments'].append(segment_result)
@@ -266,14 +439,15 @@ class SpeechRecognizer:
             else:
                 print(f"  → Error: {transcription.get('error', 'Unknown error')}")
         
-        # Save transcription results
-        if output_dir is None:
-            output_dir = TRANSCRIPTS_DIR
+        # Save transcription results (without word details, using text_wt_pause)
         output_path = output_dir / f"{Path(metadata['original_file']).stem}_transcriptions.json"
         output_path.parent.mkdir(parents=True, exist_ok=True)
         
         with open(output_path, 'w', encoding='utf-8') as f:
             json.dump(results, f, indent=2, ensure_ascii=False)
+        
+        print(f"✅ Transcription completed. Results saved to: {output_path}")
+        print(f"   Individual integrated JSONs saved to: {individual_segments_dir}")
         
         return results
     

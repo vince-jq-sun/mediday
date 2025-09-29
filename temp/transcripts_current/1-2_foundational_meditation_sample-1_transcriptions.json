@@ -1,0 +1,72 @@
+{
+  "original_file": "temp/single_file/1-2_foundational_meditation_sample-1.mp3",
+  "segments": [
+    {
+      "segment_id": 0,
+      "start_time": 0.0,
+      "end_time": 21.81,
+      "duration": 21.81,
+      "file_path": "/Users/vince/Documents/mediday/temp/segments/1-2_foundational_meditation_sample-1/1-2_foundational_meditation_sample-1_segment_000.wav",
+      "transcription": {
+        "file_path": "/Users/vince/Documents/mediday/temp/segments/1-2_foundational_meditation_sample-1/1-2_foundational_meditation_sample-1_segment_000.wav",
+        "language_code": "en-US",
+        "provider": "openai",
+        "transcripts": [
+          {
+            "transcript": "So let me ask you, what is awareness? What is awareness? I'm not expecting an answer to that question, but rather using it as an invitation to find out experientially. So let's spend some time together in meditation.",
+            "confidence": 1.0
+          }
+        ],
+        "word_details": [],
+        "processing_time": 6.730700731277466,
+        "audio_duration": 21.81,
+        "full_transcript": "So let me ask you, what is awareness? What is awareness? I'm not expecting an answer to that question, but rather using it as an invitation to find out experientially. So let's spend some time together in meditation."
+      }
+    },
+    {
+      "segment_id": 1,
+      "start_time": 25.71,
+      "end_time": 42.76,
+      "duration": 17.049999999999997,
+      "file_path": "/Users/vince/Documents/mediday/temp/segments/1-2_foundational_meditation_sample-1/1-2_foundational_meditation_sample-1_segment_001.wav",
+      "transcription": {
+        "file_path": "/Users/vince/Documents/mediday/temp/segments/1-2_foundational_meditation_sample-1/1-2_foundational_meditation_sample-1_segment_001.wav",
+        "language_code": "en-US",
+        "provider": "openai",
+        "transcripts": [
+          {
+            "transcript": "and take a seat, settle into a posture that's easeful and relaxed, and yet which also has a certain formality, a certain dignity to it, sitting in a way that's steady and upright.",
+            "confidence": 1.0
+          }
+        ],
+        "word_details": [],
+        "processing_time": 4.86194372177124,
+        "audio_duration": 17.05,
+        "full_transcript": "and take a seat, settle into a posture that's easeful and relaxed, and yet which also has a certain formality, a certain dignity to it, sitting in a way that's steady and upright."
+      }
+    },
+    {
+      "segment_id": 2,
+      "start_time": 48.24,
+      "end_time": 62.00233560090703,
+      "duration": 13.76233560090703,
+      "file_path": "/Users/vince/Documents/mediday/temp/segments/1-2_foundational_meditation_sample-1/1-2_foundational_meditation_sample-1_segment_002.wav",
+      "transcription": {
+        "file_path": "/Users/vince/Documents/mediday/temp/segments/1-2_foundational_meditation_sample-1/1-2_foundational_meditation_sample-1_segment_002.wav",
+        "language_code": "en-US",
+        "provider": "openai",
+        "transcripts": [
+          {
+            "transcript": "And as you do that, as you settle into a meditation posture, I'll notice that consciousness is switched on.",
+            "confidence": 1.0
+          }
+        ],
+        "word_details": [],
+        "processing_time": 5.195935964584351,
+        "audio_duration": 13.76233560090703,
+        "full_transcript": "And as you do that, as you settle into a meditation posture, I'll notice that consciousness is switched on."
+      }
+    }
+  ],
+  "total_segments": 3
+}

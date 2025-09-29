@@ -1,0 +1,128 @@
+{
+  "metadata": {
+    "source_json": "/var/folders/yg/x826b3fj19v0c3kkfvwk143r0000gn/T/tmp3a14k3uy/1-2_foundational_meditation_segment_013.json",
+    "source_srt": "/var/folders/yg/x826b3fj19v0c3kkfvwk143r0000gn/T/tmp3a14k3uy/1-2_foundational_meditation_segment_013.srt",
+    "original_sentences_count": 2,
+    "total_words": 17,
+    "pause_threshold": 1.0,
+    "processing_timestamp": null,
+    "integration_method": {
+      "sentences_source": "srt_file_merged",
+      "words_source": "json_tokens",
+      "pause_detection": "word_level_timing",
+      "description": "所有SRT句子合并为一句，单词使用JSON tokens（时间戳精确），检测词间停顿"
+    }
+  },
+  "sentence": {
+    "text": "And yet most essentially, you're returning your attention to being here, being aware.",
+    "start_time": 0.0,
+    "end_time": 8.12
+  },
+  "sentence_wt_pause": "And yet most essentially, <1.24>  you're returning your <1.27>  attention to being here, being aware.",
+  "original_sentences": [
+    {
+      "text": "And yet most essentially, you're returning your attention",
+      "start_time": 0.0,
+      "end_time": 5.32
+    },
+    {
+      "text": "to being here, being aware.",
+      "start_time": 5.32,
+      "end_time": 8.12
+    }
+  ],
+  "words": [
+    {
+      "text": "And",
+      "start_time": 0.03,
+      "end_time": 0.31
+    },
+    {
+      "text": "yet",
+      "start_time": 0.31,
+      "end_time": 0.53
+    },
+    {
+      "text": "most",
+      "start_time": 0.63,
+      "end_time": 1.01
+    },
+    {
+      "text": "essentially",
+      "start_time": 1.16,
+      "end_time": 2.19
+    },
+    {
+      "text": ",",
+      "start_time": 2.19,
+      "end_time": 2.4
+    },
+    {
+      "text": "you",
+      "start_time": 2.4,
+      "end_time": 2.71
+    },
+    {
+      "text": "'re",
+      "start_time": 2.71,
+      "end_time": 3.02
+    },
+    {
+      "text": "returning",
+      "start_time": 3.02,
+      "end_time": 3.23
+    },
+    {
+      "text": "your",
+      "start_time": 3.85,
+      "end_time": 4.38
+    },
+    {
+      "text": "attention",
+      "start_time": 5.12,
+      "end_time": 5.32
+    },
+    {
+      "text": "to",
+      "start_time": 5.32,
+      "end_time": 5.53
+    },
+    {
+      "text": "being",
+      "start_time": 5.53,
+      "end_time": 5.59
+    },
+    {
+      "text": "here",
+      "start_time": 6.04,
+      "end_time": 6.47
+    },
+    {
+      "text": ",",
+      "start_time": 6.47,
+      "end_time": 6.68
+    },
+    {
+      "text": "being",
+      "start_time": 6.68,
+      "end_time": 7.2
+    },
+    {
+      "text": "aware",
+      "start_time": 7.48,
+      "end_time": 7.72
+    },
+    {
+      "text": ".",
+      "start_time": 7.72,
+      "end_time": 8.01
+    }
+  ],
+  "summary": {
+    "total_duration_seconds": 8.12,
+    "word_count": 17,
+    "original_sentence_count": 2,
+    "merged_sentence_count": 1,
+    "detected_pauses": 2
+  }
+}

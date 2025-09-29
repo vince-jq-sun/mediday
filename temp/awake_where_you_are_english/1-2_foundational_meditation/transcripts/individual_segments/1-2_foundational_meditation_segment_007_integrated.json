@@ -1,0 +1,78 @@
+{
+  "metadata": {
+    "source_json": "/var/folders/yg/x826b3fj19v0c3kkfvwk143r0000gn/T/tmps4_a5zry/1-2_foundational_meditation_segment_007.json",
+    "source_srt": "/var/folders/yg/x826b3fj19v0c3kkfvwk143r0000gn/T/tmps4_a5zry/1-2_foundational_meditation_segment_007.srt",
+    "original_sentences_count": 1,
+    "total_words": 8,
+    "pause_threshold": 1.0,
+    "processing_timestamp": null,
+    "integration_method": {
+      "sentences_source": "srt_file_merged",
+      "words_source": "json_tokens",
+      "pause_detection": "word_level_timing",
+      "description": "所有SRT句子合并为一句，单词使用JSON tokens（时间戳精确），检测词间停顿"
+    }
+  },
+  "sentence": {
+    "text": "That's feeling your body sitting here.",
+    "start_time": 0.0,
+    "end_time": 6.64
+  },
+  "sentence_wt_pause": "That's feeling <1.66>  your body sitting <1.51>  here.",
+  "original_sentences": [
+    {
+      "text": "That's feeling your body sitting here.",
+      "start_time": 0.0,
+      "end_time": 6.64
+    }
+  ],
+  "words": [
+    {
+      "text": "That",
+      "start_time": 0.01,
+      "end_time": 0.36
+    },
+    {
+      "text": "'s",
+      "start_time": 0.61,
+      "end_time": 1.12
+    },
+    {
+      "text": "feeling",
+      "start_time": 1.12,
+      "end_time": 2.44
+    },
+    {
+      "text": "your",
+      "start_time": 2.7800000000000002,
+      "end_time": 3.19
+    },
+    {
+      "text": "body",
+      "start_time": 3.19,
+      "end_time": 3.26
+    },
+    {
+      "text": "sitting",
+      "start_time": 3.89,
+      "end_time": 5.26
+    },
+    {
+      "text": "here",
+      "start_time": 5.4,
+      "end_time": 6.0
+    },
+    {
+      "text": ".",
+      "start_time": 6.03,
+      "end_time": 6.61
+    }
+  ],
+  "summary": {
+    "total_duration_seconds": 6.64,
+    "word_count": 8,
+    "original_sentence_count": 1,
+    "merged_sentence_count": 1,
+    "detected_pauses": 2
+  }
+}

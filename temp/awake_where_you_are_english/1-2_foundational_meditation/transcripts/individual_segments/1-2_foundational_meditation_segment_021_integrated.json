@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "source_json": "/var/folders/yg/x826b3fj19v0c3kkfvwk143r0000gn/T/tmp5ct0q83n/1-2_foundational_meditation_segment_021.json",
+    "source_srt": "/var/folders/yg/x826b3fj19v0c3kkfvwk143r0000gn/T/tmp5ct0q83n/1-2_foundational_meditation_segment_021.srt",
+    "original_sentences_count": 1,
+    "total_words": 4,
+    "pause_threshold": 1.0,
+    "processing_timestamp": null,
+    "integration_method": {
+      "sentences_source": "srt_file_merged",
+      "words_source": "json_tokens",
+      "pause_detection": "word_level_timing",
+      "description": "所有SRT句子合并为一句，单词使用JSON tokens（时间戳精确），检测词间停顿"
+    }
+  },
+  "sentence": {
+    "text": "breathing in awareness.",
+    "start_time": 0.0,
+    "end_time": 2.14
+  },
+  "sentence_wt_pause": "breathing in awareness.",
+  "original_sentences": [
+    {
+      "text": "breathing in awareness.",
+      "start_time": 0.0,
+      "end_time": 2.14
+    }
+  ],
+  "words": [
+    {
+      "text": "breathing",
+      "start_time": 0.04,
+      "end_time": 0.63
+    },
+    {
+      "text": "in",
+      "start_time": 0.7,
+      "end_time": 1.01
+    },
+    {
+      "text": "awareness",
+      "start_time": 1.41,
+      "end_time": 1.8399999999999999
+    },
+    {
+      "text": ".",
+      "start_time": 1.8399999999999999,
+      "end_time": 2.06
+    }
+  ],
+  "summary": {
+    "total_duration_seconds": 2.14,
+    "word_count": 4,
+    "original_sentence_count": 1,
+    "merged_sentence_count": 1,
+    "detected_pauses": 0
+  }
+}

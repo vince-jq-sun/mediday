@@ -1,0 +1,59 @@
+{
+  "original_file": "temp/single_file/1-2_foundational_meditation_sample-1.mp3",
+  "total_segments": 3,
+  "voice_settings": {
+    "voice_name": "cmn-CN-Chirp3-HD-Achird",
+    "speaking_rate": 1.0,
+    "pitch": 0.0
+  },
+  "segments": [
+    {
+      "segment_id": 0,
+      "start_time": 0.0,
+      "end_time": 21.81,
+      "duration": 21.81,
+      "chinese_text": "那么让我问你，什么是觉知？什么是觉知？我并不期待你给出答案，而是希望借此邀请你去亲身体验。让我们一起花些时间进行冥想吧。",
+      "synthesis_result": {
+        "text": "那么让我问你，什么是觉知？什么是觉知？我并不期待你给出答案，而是希望借此邀请你去亲身体验。让我们一起花些时间进行冥想吧。",
+        "output_path": "/Users/vince/Documents/mediday/temp/synthesis/1-2_foundational_meditation_sample-1_segment_000_synthesis.mp3",
+        "voice_name": "cmn-CN-Chirp3-HD-Achird",
+        "speaking_rate": 1.0,
+        "pitch": 0.0,
+        "success": true,
+        "file_size": 53184
+      }
+    },
+    {
+      "segment_id": 1,
+      "start_time": 25.71,
+      "end_time": 42.76,
+      "duration": 17.049999999999997,
+      "chinese_text": "请坐下，安住于一个既舒适放松，又带有一定庄重与尊严的姿势中，坐得稳健而端正。",
+      "synthesis_result": {
+        "text": "请坐下，安住于一个既舒适放松，又带有一定庄重与尊严的姿势中，坐得稳健而端正。",
+        "output_path": "/Users/vince/Documents/mediday/temp/synthesis/1-2_foundational_meditation_sample-1_segment_001_synthesis.mp3",
+        "voice_name": "cmn-CN-Chirp3-HD-Achird",
+        "speaking_rate": 1.0,
+        "pitch": 0.0,
+        "success": true,
+        "file_size": 36864
+      }
+    },
+    {
+      "segment_id": 2,
+      "start_time": 48.24,
+      "end_time": 62.00233560090703,
+      "duration": 13.76233560090703,
+      "chinese_text": "当你这样做，安住于冥想的姿势时，你会觉察到意识已经被唤醒。",
+      "synthesis_result": {
+        "text": "当你这样做，安住于冥想的姿势时，你会觉察到意识已经被唤醒。",
+        "output_path": "/Users/vince/Documents/mediday/temp/synthesis/1-2_foundational_meditation_sample-1_segment_002_synthesis.mp3",
+        "voice_name": "cmn-CN-Chirp3-HD-Achird",
+        "speaking_rate": 1.0,
+        "pitch": 0.0,
+        "success": true,
+        "file_size": 24576
+      }
+    }
+  ]
+}

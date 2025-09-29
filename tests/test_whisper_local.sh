@@ -4,7 +4,6 @@ set -euo pipefail
 # ================= 配置（可改） =================
 INPUT_FILE="/Users/vince/Documents/mediday/temp/awake_where_you_are_english/1-2_foundational_meditation_sample-1/segments/1-2_foundational_meditation_sample-1_segment_002.wav"
 OUTPUT_DIR="/Users/vince/Documents/mediday/temp/awake_where_you_are_english/1-2_foundational_meditation_sample-1/transcripts"
-# MODEL_PATH="$HOME/.cache/huggingface/hub/models--ggerganov--whisper.cpp/snapshots/5359861c739e955e79d9a303bcbc70fb988958b1/ggml-large-v3-q5_0.bin"
 MODEL_PATH="$HOME/.cache/huggingface/hub/models--ggerganov--whisper.cpp/snapshots/5359861c739e955e79d9a303bcbc70fb988958b1/ggml-large-v3.bin"
 
 # whisper 可执行：使用 whisper-cli（已用 GGML_METAL=1 编译会自动用 Metal GPU）

@@ -1,0 +1,263 @@
+{
+  "metadata": {
+    "source_json": "/var/folders/yg/x826b3fj19v0c3kkfvwk143r0000gn/T/tmpgcrnwnp8/1-2_foundational_meditation_sample-1_segment_001.json",
+    "source_srt": "/var/folders/yg/x826b3fj19v0c3kkfvwk143r0000gn/T/tmpgcrnwnp8/1-2_foundational_meditation_sample-1_segment_001.srt",
+    "original_sentences_count": 4,
+    "total_words": 42,
+    "pause_threshold": 1.0,
+    "processing_timestamp": null,
+    "integration_method": {
+      "sentences_source": "srt_file_merged",
+      "words_source": "json_tokens",
+      "pause_detection": "word_level_timing",
+      "description": "所有SRT句子合并为一句，单词使用JSON tokens（时间戳精确），检测词间停顿"
+    }
+  },
+  "sentence": {
+    "text": "and take a seat, settle into a posture that's easeful and relaxed, and yet which also has a certain formality, a certain dignity to it. Sitting in a way that's steady and upright.",
+    "start_time": 0.0,
+    "end_time": 16.92
+  },
+  "sentence_wt_pause": "and take a seat, settle <1.05>  into a posture that's easeful and relaxed, <1.23>  and yet which also has a certain formality, a certain dignity to it. Sitting in a way that's steady and upright.",
+  "original_sentences": [
+    {
+      "text": "and take a seat, settle into a posture that's easeful and",
+      "start_time": 0.0,
+      "end_time": 5.98
+    },
+    {
+      "text": "relaxed, and yet which also has a certain formality, a",
+      "start_time": 5.98,
+      "end_time": 10.3
+    },
+    {
+      "text": "certain dignity to it.",
+      "start_time": 10.3,
+      "end_time": 12.1
+    },
+    {
+      "text": "Sitting in a way that's steady and upright.",
+      "start_time": 12.1,
+      "end_time": 16.92
+    }
+  ],
+  "words": [
+    {
+      "text": "and",
+      "start_time": 0.0,
+      "end_time": 0.32
+    },
+    {
+      "text": "take",
+      "start_time": 0.41,
+      "end_time": 0.8
+    },
+    {
+      "text": "a",
+      "start_time": 0.88,
+      "end_time": 0.92
+    },
+    {
+      "text": "seat",
+      "start_time": 1.49,
+      "end_time": 1.49
+    },
+    {
+      "text": ",",
+      "start_time": 1.49,
+      "end_time": 1.74
+    },
+    {
+      "text": "settle",
+      "start_time": 1.74,
+      "end_time": 2.49
+    },
+    {
+      "text": "into",
+      "start_time": 2.79,
+      "end_time": 2.99
+    },
+    {
+      "text": "a",
+      "start_time": 2.99,
+      "end_time": 3.03
+    },
+    {
+      "text": "posture",
+      "start_time": 3.11,
+      "end_time": 3.98
+    },
+    {
+      "text": "that",
+      "start_time": 3.98,
+      "end_time": 4.23
+    },
+    {
+      "text": "'s",
+      "start_time": 4.48,
+      "end_time": 4.74
+    },
+    {
+      "text": "ease",
+      "start_time": 4.89,
+      "end_time": 5.2
+    },
+    {
+      "text": "ful",
+      "start_time": 5.4,
+      "end_time": 5.61
+    },
+    {
+      "text": "and",
+      "start_time": 5.61,
+      "end_time": 5.98
+    },
+    {
+      "text": "relaxed",
+      "start_time": 5.98,
+      "end_time": 6.86
+    },
+    {
+      "text": ",",
+      "start_time": 6.86,
+      "end_time": 7.17
+    },
+    {
+      "text": "and",
+      "start_time": 7.21,
+      "end_time": 7.26
+    },
+    {
+      "text": "yet",
+      "start_time": 7.42,
+      "end_time": 7.68
+    },
+    {
+      "text": "which",
+      "start_time": 7.68,
+      "end_time": 8.09
+    },
+    {
+      "text": "also",
+      "start_time": 8.42,
+      "end_time": 8.42
+    },
+    {
+      "text": "has",
+      "start_time": 8.54,
+      "end_time": 8.66
+    },
+    {
+      "text": "a",
+      "start_time": 8.66,
+      "end_time": 8.74
+    },
+    {
+      "text": "certain",
+      "start_time": 8.74,
+      "end_time": 9.32
+    },
+    {
+      "text": "form",
+      "start_time": 9.32,
+      "end_time": 9.65
+    },
+    {
+      "text": "ality",
+      "start_time": 9.65,
+      "end_time": 9.95
+    },
+    {
+      "text": ",",
+      "start_time": 10.1,
+      "end_time": 10.22
+    },
+    {
+      "text": "a",
+      "start_time": 10.22,
+      "end_time": 10.3
+    },
+    {
+      "text": "certain",
+      "start_time": 10.3,
+      "end_time": 10.79
+    },
+    {
+      "text": "dignity",
+      "start_time": 10.88,
+      "end_time": 11.46
+    },
+    {
+      "text": "to",
+      "start_time": 11.46,
+      "end_time": 11.62
+    },
+    {
+      "text": "it",
+      "start_time": 11.62,
+      "end_time": 11.76
+    },
+    {
+      "text": ".",
+      "start_time": 11.77,
+      "end_time": 11.99
+    },
+    {
+      "text": "Sitting",
+      "start_time": 12.1,
+      "end_time": 12.9
+    },
+    {
+      "text": "in",
+      "start_time": 12.97,
+      "end_time": 13.04
+    },
+    {
+      "text": "a",
+      "start_time": 13.15,
+      "end_time": 13.35
+    },
+    {
+      "text": "way",
+      "start_time": 13.35,
+      "end_time": 13.73
+    },
+    {
+      "text": "that",
+      "start_time": 13.73,
+      "end_time": 14.23
+    },
+    {
+      "text": "'s",
+      "start_time": 14.23,
+      "end_time": 14.48
+    },
+    {
+      "text": "steady",
+      "start_time": 14.89,
+      "end_time": 15.24
+    },
+    {
+      "text": "and",
+      "start_time": 15.24,
+      "end_time": 15.55
+    },
+    {
+      "text": "upright",
+      "start_time": 15.66,
+      "end_time": 16.32
+    },
+    {
+      "text": ".",
+      "start_time": 16.92,
+      "end_time": 16.92
+    }
+  ],
+  "summary": {
+    "total_duration_seconds": 16.92,
+    "word_count": 42,
+    "original_sentence_count": 4,
+    "merged_sentence_count": 1,
+    "detected_pauses": 2
+  }
+}

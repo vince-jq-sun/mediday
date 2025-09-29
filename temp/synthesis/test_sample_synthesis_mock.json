@@ -1,0 +1,41 @@
+{
+  "original_file": "temp/test_input/test_sample.mp3",
+  "total_segments": 3,
+  "voice_settings": {
+    "voice_name": "zh-CN-Wavenet-A",
+    "speaking_rate": 1.0,
+    "pitch": 0.0
+  },
+  "segments": [
+    {
+      "segment_id": 0,
+      "chinese_text": "提醒自己。你在这里。你是清醒和觉知的。",
+      "synthesis_result": {
+        "text": "提醒自己。你在这里。你是清醒和觉知的。",
+        "output_path": "temp/synthesis/test_sample_segment_000_synthesized.mp3",
+        "duration": 7.5,
+        "success": true
+      }
+    },
+    {
+      "segment_id": 1,
+      "chinese_text": "花前几分钟的冥想时间来安定下来。感受存在于此刻。",
+      "synthesis_result": {
+        "text": "花前几分钟的冥想时间来安定下来。感受存在于此刻。",
+        "output_path": "temp/synthesis/test_sample_segment_001_synthesized.mp3",
+        "duration": 8.7,
+        "success": true
+      }
+    },
+    {
+      "segment_id": 2,
+      "chinese_text": "感受在这一刻中保持清醒的状态。",
+      "synthesis_result": {
+        "text": "感受在这一刻中保持清醒的状态。",
+        "output_path": "temp/synthesis/test_sample_segment_002_synthesized.mp3",
+        "duration": 9.9,
+        "success": true
+      }
+    }
+  ]
+}

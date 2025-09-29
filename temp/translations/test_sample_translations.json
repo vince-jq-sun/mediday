@@ -1,0 +1,55 @@
+{
+  "original_file": "temp/test_input/test_sample.mp3",
+  "total_segments": 3,
+  "translation_provider": "google",
+  "segments": [
+    {
+      "segment_id": 0,
+      "start_time": 0.0,
+      "end_time": 7.75,
+      "duration": 7.75,
+      "file_path": "/Users/vince/Documents/mediday/temp/segments/test_sample/test_sample_segment_000.wav",
+      "english_text": "Remind yourself.  That you're here.  You're awake and aware.",
+      "chinese_text": "",
+      "translation_metadata": {
+        "original_text": "Remind yourself.  That you're here.  You're awake and aware.",
+        "translated_text": "",
+        "error": "403 POST https://translation.googleapis.com/language/translate/v2?prettyPrint=false: Cloud Translation API has not been used in project 291629120674 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/translate.googleapis.com/overview?project=291629120674 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [{'@type': 'type.googleapis.com/google.rpc.ErrorInfo', 'reason': 'SERVICE_DISABLED', 'domain': 'googleapis.com', 'metadata': {'containerInfo': '291629120674', 'consumer': 'projects/291629120674', 'activationUrl': 'https://console.developers.google.com/apis/api/translate.googleapis.com/overview?project=291629120674', 'service': 'translate.googleapis.com', 'serviceTitle': 'Cloud Translation API'}}, {'@type': 'type.googleapis.com/google.rpc.LocalizedMessage', 'locale': 'en-US', 'message': 'Cloud Translation API has not been used in project 291629120674 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/translate.googleapis.com/overview?project=291629120674 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.'}, {'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Google developers console API activation', 'url': 'https://console.developers.google.com/apis/api/translate.googleapis.com/overview?project=291629120674'}]}]",
+        "confidence": 0.0,
+        "provider": "google"
+      }
+    },
+    {
+      "segment_id": 1,
+      "start_time": 12.31,
+      "end_time": 21.1,
+      "duration": 8.790000000000001,
+      "file_path": "/Users/vince/Documents/mediday/temp/segments/test_sample/test_sample_segment_001.wav",
+      "english_text": "And spend his first few moments of the meditation just settling.  And sensing into being here.",
+      "chinese_text": "",
+      "translation_metadata": {
+        "original_text": "And spend his first few moments of the meditation just settling.  And sensing into being here.",
+        "translated_text": "",
+        "error": "403 POST https://translation.googleapis.com/language/translate/v2?prettyPrint=false: Cloud Translation API has not been used in project 291629120674 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/translate.googleapis.com/overview?project=291629120674 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [{'@type': 'type.googleapis.com/google.rpc.ErrorInfo', 'reason': 'SERVICE_DISABLED', 'domain': 'googleapis.com', 'metadata': {'service': 'translate.googleapis.com', 'consumer': 'projects/291629120674', 'containerInfo': '291629120674', 'activationUrl': 'https://console.developers.google.com/apis/api/translate.googleapis.com/overview?project=291629120674', 'serviceTitle': 'Cloud Translation API'}}, {'@type': 'type.googleapis.com/google.rpc.LocalizedMessage', 'locale': 'en-US', 'message': 'Cloud Translation API has not been used in project 291629120674 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/translate.googleapis.com/overview?project=291629120674 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.'}, {'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Google developers console API activation', 'url': 'https://console.developers.google.com/apis/api/translate.googleapis.com/overview?project=291629120674'}]}]",
+        "confidence": 0.0,
+        "provider": "google"
+      }
+    },
+    {
+      "segment_id": 2,
+      "start_time": 24.83,
+      "end_time": 30.001428571428573,
+      "duration": 5.171428571428574,
+      "file_path": "/Users/vince/Documents/mediday/temp/segments/test_sample/test_sample_segment_002.wav",
+      "english_text": "Sense of being awake in the midst of this moment.",
+      "chinese_text": "",
+      "translation_metadata": {
+        "original_text": "Sense of being awake in the midst of this moment.",
+        "translated_text": "",
+        "error": "403 POST https://translation.googleapis.com/language/translate/v2?prettyPrint=false: Cloud Translation API has not been used in project 291629120674 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/translate.googleapis.com/overview?project=291629120674 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [{'@type': 'type.googleapis.com/google.rpc.ErrorInfo', 'reason': 'SERVICE_DISABLED', 'domain': 'googleapis.com', 'metadata': {'serviceTitle': 'Cloud Translation API', 'containerInfo': '291629120674', 'service': 'translate.googleapis.com', 'activationUrl': 'https://console.developers.google.com/apis/api/translate.googleapis.com/overview?project=291629120674', 'consumer': 'projects/291629120674'}}, {'@type': 'type.googleapis.com/google.rpc.LocalizedMessage', 'locale': 'en-US', 'message': 'Cloud Translation API has not been used in project 291629120674 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/translate.googleapis.com/overview?project=291629120674 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.'}, {'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Google developers console API activation', 'url': 'https://console.developers.google.com/apis/api/translate.googleapis.com/overview?project=291629120674'}]}]",
+        "confidence": 0.0,
+        "provider": "google"
+      }
+    }
+  ]
+}

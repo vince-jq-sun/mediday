@@ -5,10 +5,24 @@
 # Load project configuration
 source process/project_config.sh
 
-echo "🔧 Step 6: Final Audio Assembly"
-echo "==============================="
+# Volume scaling control (default: enabled)
+ENABLE_VOLUME_SCALING=${ENABLE_VOLUME_SCALING:-true}
+
+echo "🔧 Step 6: Final Audio Assembly with Volume Scaling"
+echo "===================================================="
 echo "Project: $CURRENT_PROJECT"
 echo "Collection: $PROJECT_COLLECTION"
+echo ""
+if [[ "$ENABLE_VOLUME_SCALING" == "true" ]]; then
+    echo "📊 Volume Scaling: Enabled (matching original segment volumes)"
+    echo "   Each segment will be scaled to match its original volume"
+    echo "   To disable: set ENABLE_VOLUME_SCALING=false"
+    VOLUME_SCALING_ARG=""  # No argument needed when enabled (default behavior)
+else
+    echo "📊 Volume Scaling: Disabled"
+    echo "   Using original audio levels without scaling"
+    VOLUME_SCALING_ARG="--no-volume-scaling"
+fi
 
 # Check if required files exist
 if [[ ! -f "$PROJECT_TRANSLATIONS_FILE" ]]; then
@@ -46,7 +60,8 @@ if [[ "$SYNTHESIZED_AVAILABLE" == true ]]; then
     python -m scripts.audio_pipeline.pipeline assemble \
         --translation-file "$PROJECT_TRANSLATIONS_FILE" \
         --synthesis-file "$PROJECT_SYNTHESIS_FILE" \
-        --output "$PROJECT_OUTPUT_SYNTHESIZED"
+        --output "$PROJECT_OUTPUT_SYNTHESIZED" \
+        $VOLUME_SCALING_ARG
     
     if [[ $? -eq 0 ]]; then
         echo "✅ Synthesized assembly completed: $PROJECT_OUTPUT_SYNTHESIZED"
@@ -65,7 +80,8 @@ if [[ "$RECORDED_AVAILABLE" == true ]]; then
     python -m scripts.audio_pipeline.pipeline assemble \
         --translation-file "$PROJECT_TRANSLATIONS_FILE" \
         --manual-recordings-dir "$PROJECT_MANUAL_RECORDINGS_DIR" \
-        --output "$PROJECT_OUTPUT_RECORDED"
+        --output "$PROJECT_OUTPUT_RECORDED" \
+        $VOLUME_SCALING_ARG
     
     if [[ $? -eq 0 ]]; then
         echo "✅ Recorded assembly completed: $PROJECT_OUTPUT_RECORDED"

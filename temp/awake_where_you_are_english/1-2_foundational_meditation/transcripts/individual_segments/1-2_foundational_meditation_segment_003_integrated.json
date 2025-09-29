@@ -1,0 +1,113 @@
+{
+  "metadata": {
+    "source_json": "/var/folders/yg/x826b3fj19v0c3kkfvwk143r0000gn/T/tmpv4o5qo5h/1-2_foundational_meditation_segment_003.json",
+    "source_srt": "/var/folders/yg/x826b3fj19v0c3kkfvwk143r0000gn/T/tmpv4o5qo5h/1-2_foundational_meditation_segment_003.srt",
+    "original_sentences_count": 2,
+    "total_words": 14,
+    "pause_threshold": 1.0,
+    "processing_timestamp": null,
+    "integration_method": {
+      "sentences_source": "srt_file_merged",
+      "words_source": "json_tokens",
+      "pause_detection": "word_level_timing",
+      "description": "所有SRT句子合并为一句，单词使用JSON tokens（时间戳精确），检测词间停顿"
+    }
+  },
+  "sentence": {
+    "text": "Let's see, can you just settle a little into this awareness ?",
+    "start_time": 0.0,
+    "end_time": 6.42
+  },
+  "sentence_wt_pause": "Let's see, can you just settle a little into this awareness ?",
+  "original_sentences": [
+    {
+      "text": "Let's see, can you just settle a little into this awareness",
+      "start_time": 0.0,
+      "end_time": 6.0
+    },
+    {
+      "text": "?",
+      "start_time": 6.0,
+      "end_time": 6.42
+    }
+  ],
+  "words": [
+    {
+      "text": "Let",
+      "start_time": 0.02,
+      "end_time": 0.36
+    },
+    {
+      "text": "'s",
+      "start_time": 0.36,
+      "end_time": 0.6
+    },
+    {
+      "text": "see",
+      "start_time": 0.76,
+      "end_time": 0.96
+    },
+    {
+      "text": ",",
+      "start_time": 0.96,
+      "end_time": 1.08
+    },
+    {
+      "text": "can",
+      "start_time": 1.56,
+      "end_time": 1.56
+    },
+    {
+      "text": "you",
+      "start_time": 1.56,
+      "end_time": 1.9100000000000001
+    },
+    {
+      "text": "just",
+      "start_time": 2.15,
+      "end_time": 2.4
+    },
+    {
+      "text": "settle",
+      "start_time": 2.4,
+      "end_time": 3.12
+    },
+    {
+      "text": "a",
+      "start_time": 3.12,
+      "end_time": 3.24
+    },
+    {
+      "text": "little",
+      "start_time": 3.24,
+      "end_time": 3.35
+    },
+    {
+      "text": "into",
+      "start_time": 3.93,
+      "end_time": 4.44
+    },
+    {
+      "text": "this",
+      "start_time": 4.44,
+      "end_time": 4.92
+    },
+    {
+      "text": "awareness",
+      "start_time": 5.32,
+      "end_time": 6.0
+    },
+    {
+      "text": "?",
+      "start_time": 6.0,
+      "end_time": 6.23
+    }
+  ],
+  "summary": {
+    "total_duration_seconds": 6.42,
+    "word_count": 14,
+    "original_sentence_count": 2,
+    "merged_sentence_count": 1,
+    "detected_pauses": 0
+  }
+}

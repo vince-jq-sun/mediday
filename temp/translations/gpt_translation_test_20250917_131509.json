@@ -1,0 +1,70 @@
+{
+  "test_timestamp": "2025-09-17T13:15:02.870204",
+  "model_used": "gpt-4o-mini",
+  "terminology_loaded": true,
+  "individual_translations": [
+    {
+      "test_id": 1,
+      "original_text": "\n            <div data-seg=\"1\">Remind yourself that you're here, awake and aware.</div>\n            <div data-seg=\"2\">Spend the first moments settling in and sensing being here.</div>\n            <div data-seg=\"3\">Feel awake in the midst of this moment.</div>\n            ",
+      "cost_estimate": {
+        "estimated_input_tokens": 1125,
+        "estimated_output_tokens": 81.6,
+        "estimated_total_tokens": 1206.6,
+        "estimated_cost_usd": 0.0068,
+        "input_cost_usd": 0.0056,
+        "output_cost_usd": 0.0012,
+        "model": "gpt-4o-mini"
+      },
+      "translation_result": {
+        "original_text": "\n            <div data-seg=\"1\">Remind yourself that you're here, awake and aware.</div>\n            <div data-seg=\"2\">Spend the first moments settling in and sensing being here.</div>\n            <div data-seg=\"3\">Feel awake in the midst of this moment.</div>\n            ",
+        "translated_text": "提醒自己，你在这里，醒着且觉知。}\n{花些时间安住下来，细细感受此时此地。}\n{在这一刻中，感受到清醒的状态。",
+        "confidence": 0.95,
+        "provider": "openai_gpt",
+        "model": "gpt-4o-mini",
+        "context_used": false,
+        "terminology_applied": true,
+        "tokens_used": 1040,
+        "prompt_tokens": 994,
+        "completion_tokens": 46
+      }
+    }
+  ],
+  "context_aware_translations": [
+    {
+      "segment_id": 0,
+      "english_text": "\n            <div data-seg=\"1\">Remind yourself that you're here, awake and aware.</div>\n            <div data-seg=\"2\">Spend the first moments settling in and sensing being here.</div>\n            <div data-seg=\"3\">Feel awake in the midst of this moment.</div>\n            ",
+      "start_time": 0.0,
+      "end_time": 10.0,
+      "duration": 10.0,
+      "file_path": "test_segment_0.wav",
+      "gpt_translation": {
+        "original_text": "\n            <div data-seg=\"1\">Remind yourself that you're here, awake and aware.</div>\n            <div data-seg=\"2\">Spend the first moments settling in and sensing being here.</div>\n            <div data-seg=\"3\">Feel awake in the midst of this moment.</div>\n            ",
+        "translated_text": "提醒自己，你在这里，醒着且觉知。}\n{花些时间安住下来，细细感受安住于此。}\n{在此刻中感受自己的觉醒。",
+        "confidence": 0.95,
+        "provider": "openai_gpt",
+        "model": "gpt-4o-mini",
+        "context_used": false,
+        "terminology_applied": true,
+        "tokens_used": 1038,
+        "prompt_tokens": 994,
+        "completion_tokens": 44
+      }
+    }
+  ],
+  "terminology_test": {
+    "original_text": "Practice mindfulness meditation with awareness and presence.",
+    "translation_result": {
+      "original_text": "Practice mindfulness meditation with awareness and presence.",
+      "translated_text": "以觉知和安住当下的状态练习正念冥想。",
+      "confidence": 0.95,
+      "provider": "openai_gpt",
+      "model": "gpt-4o-mini",
+      "context_used": false,
+      "terminology_applied": true,
+      "tokens_used": 957,
+      "prompt_tokens": 937,
+      "completion_tokens": 20
+    }
+  },
+  "total_tokens_used": 3035
+}

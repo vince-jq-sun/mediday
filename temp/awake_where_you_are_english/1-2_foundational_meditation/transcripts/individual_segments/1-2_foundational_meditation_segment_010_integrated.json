@@ -1,0 +1,228 @@
+{
+  "metadata": {
+    "source_json": "/var/folders/yg/x826b3fj19v0c3kkfvwk143r0000gn/T/tmptv7_86pn/1-2_foundational_meditation_segment_010.json",
+    "source_srt": "/var/folders/yg/x826b3fj19v0c3kkfvwk143r0000gn/T/tmptv7_86pn/1-2_foundational_meditation_segment_010.srt",
+    "original_sentences_count": 4,
+    "total_words": 35,
+    "pause_threshold": 1.0,
+    "processing_timestamp": null,
+    "integration_method": {
+      "sentences_source": "srt_file_merged",
+      "words_source": "json_tokens",
+      "pause_detection": "word_level_timing",
+      "description": "所有SRT句子合并为一句，单词使用JSON tokens（时间戳精确），检测词间停顿"
+    }
+  },
+  "sentence": {
+    "text": "It's so obvious, so ordinary, this fact that we're aware, that we overlook it. We overlook it by getting caught up in ideas and images and abstractions.",
+    "start_time": 0.0,
+    "end_time": 16.28
+  },
+  "sentence_wt_pause": "It's so obvious, so ordinary, this fact that we're aware, that we overlook it. We overlook it by <1.03>  getting caught up in ideas and images and abstractions.",
+  "original_sentences": [
+    {
+      "text": "It's so obvious, so ordinary, this fact that we're aware,",
+      "start_time": 0.0,
+      "end_time": 5.88
+    },
+    {
+      "text": "that we overlook it.",
+      "start_time": 5.88,
+      "end_time": 8.18
+    },
+    {
+      "text": "We overlook it by getting caught up in ideas and images and",
+      "start_time": 8.18,
+      "end_time": 14.5
+    },
+    {
+      "text": "abstractions.",
+      "start_time": 14.5,
+      "end_time": 16.28
+    }
+  ],
+  "words": [
+    {
+      "text": "It",
+      "start_time": 0.02,
+      "end_time": 0.14
+    },
+    {
+      "text": "'s",
+      "start_time": 0.23,
+      "end_time": 0.43
+    },
+    {
+      "text": "so",
+      "start_time": 0.58,
+      "end_time": 0.69
+    },
+    {
+      "text": "obvious",
+      "start_time": 0.73,
+      "end_time": 1.29
+    },
+    {
+      "text": ",",
+      "start_time": 1.29,
+      "end_time": 1.55
+    },
+    {
+      "text": "so",
+      "start_time": 1.65,
+      "end_time": 1.96
+    },
+    {
+      "text": "ordinary",
+      "start_time": 2.54,
+      "end_time": 2.89
+    },
+    {
+      "text": ",",
+      "start_time": 2.89,
+      "end_time": 3.12
+    },
+    {
+      "text": "this",
+      "start_time": 3.12,
+      "end_time": 3.39
+    },
+    {
+      "text": "fact",
+      "start_time": 3.57,
+      "end_time": 4.03
+    },
+    {
+      "text": "that",
+      "start_time": 4.03,
+      "end_time": 4.5
+    },
+    {
+      "text": "we",
+      "start_time": 4.5,
+      "end_time": 4.73
+    },
+    {
+      "text": "'re",
+      "start_time": 5.07,
+      "end_time": 5.07
+    },
+    {
+      "text": "aware",
+      "start_time": 5.12,
+      "end_time": 5.54
+    },
+    {
+      "text": ",",
+      "start_time": 5.67,
+      "end_time": 5.88
+    },
+    {
+      "text": "that",
+      "start_time": 5.88,
+      "end_time": 6.34
+    },
+    {
+      "text": "we",
+      "start_time": 6.34,
+      "end_time": 6.57
+    },
+    {
+      "text": "overlook",
+      "start_time": 6.57,
+      "end_time": 7.5
+    },
+    {
+      "text": "it",
+      "start_time": 7.5,
+      "end_time": 7.7
+    },
+    {
+      "text": ".",
+      "start_time": 7.73,
+      "end_time": 8.09
+    },
+    {
+      "text": "We",
+      "start_time": 8.2,
+      "end_time": 8.32
+    },
+    {
+      "text": "overlook",
+      "start_time": 8.43,
+      "end_time": 9.45
+    },
+    {
+      "text": "it",
+      "start_time": 9.45,
+      "end_time": 9.6
+    },
+    {
+      "text": "by",
+      "start_time": 9.6,
+      "end_time": 9.73
+    },
+    {
+      "text": "getting",
+      "start_time": 10.63,
+      "end_time": 10.83
+    },
+    {
+      "text": "caught",
+      "start_time": 10.92,
+      "end_time": 11.54
+    },
+    {
+      "text": "up",
+      "start_time": 11.86,
+      "end_time": 11.86
+    },
+    {
+      "text": "in",
+      "start_time": 11.86,
+      "end_time": 12.11
+    },
+    {
+      "text": "ideas",
+      "start_time": 12.11,
+      "end_time": 12.75
+    },
+    {
+      "text": "and",
+      "start_time": 12.75,
+      "end_time": 13.13
+    },
+    {
+      "text": "images",
+      "start_time": 13.3,
+      "end_time": 13.9
+    },
+    {
+      "text": "and",
+      "start_time": 13.9,
+      "end_time": 14.25
+    },
+    {
+      "text": "abstract",
+      "start_time": 14.5,
+      "end_time": 14.97
+    },
+    {
+      "text": "ions",
+      "start_time": 15.47,
+      "end_time": 15.81
+    },
+    {
+      "text": ".",
+      "start_time": 15.81,
+      "end_time": 16.26
+    }
+  ],
+  "summary": {
+    "total_duration_seconds": 16.28,
+    "word_count": 35,
+    "original_sentence_count": 4,
+    "merged_sentence_count": 1,
+    "detected_pauses": 1
+  }
+}

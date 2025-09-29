@@ -53,7 +53,7 @@ GOOGLE_CLOUD_PROJECT_ID = os.getenv("GOOGLE_CLOUD_PROJECT_ID")
 OPENAI_CONFIG_PATH = PROJECT_ROOT / "config" / "openai.json"
 
 # Speech-to-Text settings
-STT_PROVIDER = "openai"  # Default provider: "openai" or "google"
+STT_PROVIDER = "localwhisper"  # Default provider: "localwhisper", "openai", or "google"
 STT_LANGUAGE_CODE = "en-US"
 STT_ENCODING = "MP3"
 

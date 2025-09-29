@@ -1,0 +1,262 @@
+{
+  "original_file": "temp/single_file/test_sample_types_of_medidation.mp3",
+  "segments": [
+    {
+      "segment_id": 0,
+      "start_time": 0.0,
+      "end_time": 7.75,
+      "duration": 7.75,
+      "file_path": "temp/awake_where_you_are_english/test_sample_types_of_medidation/segments/test_sample_types_of_medidation_segment_000.wav",
+      "transcription": {
+        "file_path": "temp/awake_where_you_are_english/test_sample_types_of_medidation/segments/test_sample_types_of_medidation_segment_000.wav",
+        "language_code": "en-US",
+        "provider": "google",
+        "transcripts": [
+          {
+            "transcript": "Remind yourself.",
+            "confidence": 0.886685311794281
+          },
+          {
+            "transcript": " That you're here.",
+            "confidence": 0.8704109787940979
+          },
+          {
+            "transcript": " You're awake and aware.",
+            "confidence": 0.9493737816810608
+          }
+        ],
+        "word_details": [
+          {
+            "word": "Remind",
+            "start_time": 0.9,
+            "end_time": 1.7
+          },
+          {
+            "word": "yourself.",
+            "start_time": 1.7,
+            "end_time": 2.0
+          },
+          {
+            "word": "That",
+            "start_time": 3.2,
+            "end_time": 3.8
+          },
+          {
+            "word": "you're",
+            "start_time": 3.8,
+            "end_time": 4.0
+          },
+          {
+            "word": "here.",
+            "start_time": 4.0,
+            "end_time": 4.2
+          },
+          {
+            "word": "You're",
+            "start_time": 6.1,
+            "end_time": 6.7
+          },
+          {
+            "word": "awake",
+            "start_time": 6.7,
+            "end_time": 6.9
+          },
+          {
+            "word": "and",
+            "start_time": 6.9,
+            "end_time": 7.5
+          },
+          {
+            "word": "aware.",
+            "start_time": 7.5,
+            "end_time": 7.8
+          }
+        ],
+        "processing_time": 14.182740926742554,
+        "audio_duration": 7.75,
+        "full_transcript": "Remind yourself.  That you're here.  You're awake and aware."
+      }
+    },
+    {
+      "segment_id": 1,
+      "start_time": 12.31,
+      "end_time": 21.1,
+      "duration": 8.790000000000001,
+      "file_path": "temp/awake_where_you_are_english/test_sample_types_of_medidation/segments/test_sample_types_of_medidation_segment_001.wav",
+      "transcription": {
+        "file_path": "temp/awake_where_you_are_english/test_sample_types_of_medidation/segments/test_sample_types_of_medidation_segment_001.wav",
+        "language_code": "en-US",
+        "provider": "google",
+        "transcripts": [
+          {
+            "transcript": "And spend his first few moments of the meditation just settling.",
+            "confidence": 0.8901503086090088
+          },
+          {
+            "transcript": " And sensing into being here.",
+            "confidence": 0.9315682649612427
+          }
+        ],
+        "word_details": [
+          {
+            "word": "And",
+            "start_time": 0.0,
+            "end_time": 0.7
+          },
+          {
+            "word": "spend",
+            "start_time": 0.7,
+            "end_time": 0.9
+          },
+          {
+            "word": "his",
+            "start_time": 0.9,
+            "end_time": 1.1
+          },
+          {
+            "word": "first",
+            "start_time": 1.1,
+            "end_time": 1.1
+          },
+          {
+            "word": "few",
+            "start_time": 1.1,
+            "end_time": 1.3
+          },
+          {
+            "word": "moments",
+            "start_time": 1.3,
+            "end_time": 2.2
+          },
+          {
+            "word": "of",
+            "start_time": 2.2,
+            "end_time": 2.7
+          },
+          {
+            "word": "the",
+            "start_time": 2.7,
+            "end_time": 2.8
+          },
+          {
+            "word": "meditation",
+            "start_time": 2.8,
+            "end_time": 3.7
+          },
+          {
+            "word": "just",
+            "start_time": 3.7,
+            "end_time": 4.0
+          },
+          {
+            "word": "settling.",
+            "start_time": 4.0,
+            "end_time": 5.1
+          },
+          {
+            "word": "And",
+            "start_time": 6.7,
+            "end_time": 7.3
+          },
+          {
+            "word": "sensing",
+            "start_time": 7.3,
+            "end_time": 7.8
+          },
+          {
+            "word": "into",
+            "start_time": 7.8,
+            "end_time": 8.2
+          },
+          {
+            "word": "being",
+            "start_time": 8.2,
+            "end_time": 8.5
+          },
+          {
+            "word": "here.",
+            "start_time": 8.5,
+            "end_time": 8.8
+          }
+        ],
+        "processing_time": 13.798874855041504,
+        "audio_duration": 8.79,
+        "full_transcript": "And spend his first few moments of the meditation just settling.  And sensing into being here."
+      }
+    },
+    {
+      "segment_id": 2,
+      "start_time": 24.83,
+      "end_time": 30.001428571428573,
+      "duration": 5.171428571428574,
+      "file_path": "temp/awake_where_you_are_english/test_sample_types_of_medidation/segments/test_sample_types_of_medidation_segment_002.wav",
+      "transcription": {
+        "file_path": "temp/awake_where_you_are_english/test_sample_types_of_medidation/segments/test_sample_types_of_medidation_segment_002.wav",
+        "language_code": "en-US",
+        "provider": "google",
+        "transcripts": [
+          {
+            "transcript": "Sense of being awake in the midst of this moment.",
+            "confidence": 0.9851984977722168
+          }
+        ],
+        "word_details": [
+          {
+            "word": "Sense",
+            "start_time": 0.0,
+            "end_time": 1.0
+          },
+          {
+            "word": "of",
+            "start_time": 1.0,
+            "end_time": 1.2
+          },
+          {
+            "word": "being",
+            "start_time": 1.2,
+            "end_time": 1.3
+          },
+          {
+            "word": "awake",
+            "start_time": 1.3,
+            "end_time": 1.9
+          },
+          {
+            "word": "in",
+            "start_time": 1.9,
+            "end_time": 2.2
+          },
+          {
+            "word": "the",
+            "start_time": 2.2,
+            "end_time": 2.3
+          },
+          {
+            "word": "midst",
+            "start_time": 2.3,
+            "end_time": 2.7
+          },
+          {
+            "word": "of",
+            "start_time": 2.7,
+            "end_time": 3.4
+          },
+          {
+            "word": "this",
+            "start_time": 3.4,
+            "end_time": 3.6
+          },
+          {
+            "word": "moment.",
+            "start_time": 3.6,
+            "end_time": 3.9
+          }
+        ],
+        "processing_time": 7.6684441566467285,
+        "audio_duration": 5.171428571428572,
+        "full_transcript": "Sense of being awake in the midst of this moment."
+      }
+    }
+  ],
+  "total_segments": 3
+}

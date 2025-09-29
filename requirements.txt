@@ -20,3 +20,4 @@ resampy>=0.4.0
 
 # GUI dependencies (install separately if needed)
 # pyaudio  # May need system-level installation
+simpleaudio>=1.0.4  # For audio playback with seeking support

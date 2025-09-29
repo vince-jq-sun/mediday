@@ -1,0 +1,78 @@
+{
+  "metadata": {
+    "source_json": "/var/folders/yg/x826b3fj19v0c3kkfvwk143r0000gn/T/tmp9hfrl7bx/1-2_foundational_meditation_segment_014.json",
+    "source_srt": "/var/folders/yg/x826b3fj19v0c3kkfvwk143r0000gn/T/tmp9hfrl7bx/1-2_foundational_meditation_segment_014.srt",
+    "original_sentences_count": 1,
+    "total_words": 8,
+    "pause_threshold": 1.0,
+    "processing_timestamp": null,
+    "integration_method": {
+      "sentences_source": "srt_file_merged",
+      "words_source": "json_tokens",
+      "pause_detection": "word_level_timing",
+      "description": "所有SRT句子合并为一句，单词使用JSON tokens（时间戳精确），检测词间停顿"
+    }
+  },
+  "sentence": {
+    "text": "Here's the breathing happening in awareness.",
+    "start_time": 0.0,
+    "end_time": 3.82
+  },
+  "sentence_wt_pause": "Here's the breathing <1.01>  happening in awareness.",
+  "original_sentences": [
+    {
+      "text": "Here's the breathing happening in awareness.",
+      "start_time": 0.0,
+      "end_time": 3.82
+    }
+  ],
+  "words": [
+    {
+      "text": "Here",
+      "start_time": 0.1,
+      "end_time": 0.37
+    },
+    {
+      "text": "'s",
+      "start_time": 0.37,
+      "end_time": 0.5
+    },
+    {
+      "text": "the",
+      "start_time": 0.59,
+      "end_time": 0.83
+    },
+    {
+      "text": "breathing",
+      "start_time": 0.83,
+      "end_time": 1.3
+    },
+    {
+      "text": "happening",
+      "start_time": 1.8399999999999999,
+      "end_time": 2.38
+    },
+    {
+      "text": "in",
+      "start_time": 2.67,
+      "end_time": 2.67
+    },
+    {
+      "text": "awareness",
+      "start_time": 3.09,
+      "end_time": 3.5
+    },
+    {
+      "text": ".",
+      "start_time": 3.5,
+      "end_time": 3.61
+    }
+  ],
+  "summary": {
+    "total_duration_seconds": 3.82,
+    "word_count": 8,
+    "original_sentence_count": 1,
+    "merged_sentence_count": 1,
+    "detected_pauses": 1
+  }
+}

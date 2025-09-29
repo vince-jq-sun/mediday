@@ -29,13 +29,31 @@ class AudioProcessingPipeline:
         self.stt_provider = stt_provider
         self.translation_provider = translation_provider
     
-    def run_preprocessing(self, input_dir: Path, output_dir: Path = None, silence_threshold: float = None):
+    def run_preprocessing(self, input_dir: Path, output_dir: Path = None, silence_threshold: float = None, min_segment_duration: float = None, sec_len_approx: float = 0.0, boundary_search: float = 3.0, normalize_padding: bool = True, target_padding: float = 1.0):
         """Step 1: Preprocess audio files (silence detection and segmentation)"""
         print("=== Step 1: Audio Preprocessing ===")
-        if silence_threshold is not None:
-            print(f"Using silence threshold: {silence_threshold}s")
-            # Create a new preprocessor with the specified threshold
-            preprocessor = AudioPreprocessor(silence_threshold_seconds=silence_threshold)
+        if (silence_threshold is not None or min_segment_duration is not None) or (sec_len_approx is not None or boundary_search is not None) or (normalize_padding is not None or target_padding is not None):
+            # Create a new preprocessor with the specified parameters
+            kwargs = {}
+            if silence_threshold is not None:
+                kwargs['silence_threshold_seconds'] = silence_threshold
+                print(f"Using silence threshold: {silence_threshold}s")
+            if min_segment_duration is not None:
+                kwargs['min_segment_duration'] = min_segment_duration
+                print(f"Using minimum segment duration: {min_segment_duration}s")
+            if sec_len_approx is not None:
+                kwargs['sec_len_approx'] = sec_len_approx
+                print(f"Approx section length: {sec_len_approx}s (0 disables)")
+            if boundary_search is not None:
+                kwargs['boundary_search'] = boundary_search
+                print(f"Boundary search window: ±{boundary_search}s")
+            if normalize_padding is not None:
+                kwargs['normalize_padding'] = normalize_padding
+                print(f"Audio padding normalization: {'enabled' if normalize_padding else 'disabled'}")
+            if target_padding is not None:
+                kwargs['target_padding'] = target_padding
+                print(f"Target padding duration: {target_padding}s")
+            preprocessor = AudioPreprocessor(**kwargs)
             results = preprocessor.process_directory(input_dir, output_dir)
         else:
             results = self.preprocessor.process_directory(input_dir, output_dir)
@@ -70,18 +88,25 @@ class AudioProcessingPipeline:
         print(f"Translated {len(results)} files using {provider_name}")
         return results
     
-    def run_synthesis(self, translations_dir: Path, output_dir: Path = None, voice_settings: dict = None):
+    def run_synthesis(self, translations_dir: Path, output_dir: Path = None, voice_settings: dict = None, use_pause_aware: bool = True):
         """Step 4: Synthesize Chinese text to speech"""
         print("\n=== Step 4: Speech Synthesis ===")
-        results = self.tts_synthesizer.batch_synthesize_directory(translations_dir, output_dir, voice_settings)
+        if use_pause_aware:
+            print("Using pause-aware synthesis for texts with pause markers")
+        results = self.tts_synthesizer.batch_synthesize_directory(translations_dir, output_dir, voice_settings, use_pause_aware)
         print(f"Synthesized {len(results)} files")
         return results
     
     def run_assembly(self, translation_file: Path, synthesis_file: Path = None, 
                     output_path: Path = None, prefer_manual: bool = True, 
-                    manual_recordings_dir: Path = None):
+                    manual_recordings_dir: Path = None, enable_volume_scaling: bool = True):
         """Step 5: Assemble final audio"""
         print("\n=== Step 5: Audio Assembly ===")
+        
+        if enable_volume_scaling:
+            print("Volume scaling enabled: matching original segment volumes")
+        else:
+            print("Volume scaling disabled: using original audio levels")
         
         with open(translation_file, 'r', encoding='utf-8') as f:
             translation_data = json.load(f)
@@ -91,11 +116,14 @@ class AudioProcessingPipeline:
                 synthesis_data = json.load(f)
             
             result = self.assembler.create_mixed_assembly(
-                translation_data, synthesis_data, output_path, prefer_manual
+                translation_data, synthesis_data, output_path, prefer_manual,
+                manual_recordings_dir=manual_recordings_dir,
+                enable_volume_scaling=enable_volume_scaling
             )
         else:
             result = self.assembler.assemble_from_manual_recordings(
-                translation_data, output_path, manual_recordings_dir=manual_recordings_dir
+                translation_data, output_path, manual_recordings_dir=manual_recordings_dir,
+                enable_volume_scaling=enable_volume_scaling
             )
         
         if result['success']:
@@ -153,8 +181,8 @@ def main():
                            help='Input directory with audio files')
     full_parser.add_argument('--terminology', type=Path,
                            help='Terminology file for translation')
-    full_parser.add_argument('--stt-provider', choices=['google', 'openai'], default='openai',
-                           help='Speech-to-text provider (google or openai)')
+    full_parser.add_argument('--stt-provider', choices=['google', 'openai', 'localwhisper'], default='localwhisper',
+                           help='Speech-to-text provider (google, openai, or localwhisper)')
     full_parser.add_argument('--translation-provider', choices=['google', 'gpt', 'llm', 'gemini', 'anthropic', 'local'], default='google',
                            help='Translation provider (google or gpt)')
     full_parser.add_argument('--voice', default='cmn-CN-Chirp3-HD-Achird',
@@ -172,14 +200,24 @@ def main():
                                  help='Output directory for segmented audio files')
     preprocess_parser.add_argument('--silence-threshold', type=float, default=3.0,
                                  help='Silence threshold in seconds for segmentation (default: 3.0)')
+    preprocess_parser.add_argument('--min-segment-duration', type=float, default=0.5,
+                                 help='Minimum segment duration in seconds (default: 0.5)')
+    preprocess_parser.add_argument('--sec-len-approx', type=float, default=0.0,
+                                 help='Approximate section length in seconds. If >= 10, ignore silence-threshold mode and cut near multiples of this length by searching for longest silence within the boundary window (default: 0 = disabled)')
+    preprocess_parser.add_argument('--boundary-search', type=float, default=3.0,
+                                 help='Search window (±seconds) around target cut time to find the longest silence when --sec-len-approx >= 10 (default: 3.0)')
+    preprocess_parser.add_argument('--no-normalize-padding', action='store_true',
+                                 help='Disable audio padding normalization (keep original front/back silence)')
+    preprocess_parser.add_argument('--target-padding', type=float, default=1.0,
+                                 help='Target padding duration in seconds for front and back of audio (default: 1.0)')
     
     transcribe_parser = subparsers.add_parser('transcribe', help='Speech recognition only')
     transcribe_parser.add_argument('--segments-dir', type=Path,
                                  help='Directory with segmented audio files')
     transcribe_parser.add_argument('--output-dir', type=Path,
                                  help='Output directory for transcription files')
-    transcribe_parser.add_argument('--stt-provider', choices=['google', 'openai'], default='openai',
-                                 help='Speech-to-text provider (google or openai)')
+    transcribe_parser.add_argument('--stt-provider', choices=['google', 'openai', 'localwhisper'], default='localwhisper',
+                                 help='Speech-to-text provider (google, openai, or localwhisper)')
     
     translate_parser = subparsers.add_parser('translate', help='Translation only')
     translate_parser.add_argument('--transcripts-dir', type=Path,
@@ -210,6 +248,8 @@ def main():
                                  help='TTS speaking rate')
     synthesize_parser.add_argument('--pitch', type=float, default=0.0,
                                  help='TTS pitch adjustment')
+    synthesize_parser.add_argument('--no-pause-aware', action='store_true',
+                                 help='Disable pause-aware synthesis (treat pause markers as regular text)')
     
     # GUI command
     gui_parser = subparsers.add_parser('gui', help='Launch translation review GUI')
@@ -228,6 +268,8 @@ def main():
                                help='Output audio file path')
     assemble_parser.add_argument('--prefer-synthesis', action='store_true',
                                help='Prefer synthesized audio over manual recordings')
+    assemble_parser.add_argument('--no-volume-scaling', action='store_true',
+                               help='Disable volume scaling to match original segments')
     
     # List voices command
     voices_parser = subparsers.add_parser('voices', help='List available TTS voices')
@@ -252,7 +294,16 @@ def main():
         
         elif args.command == 'preprocess':
             pipeline = AudioProcessingPipeline()
-            pipeline.run_preprocessing(args.input_dir, args.output_dir, args.silence_threshold)
+            pipeline.run_preprocessing(
+                args.input_dir,
+                args.output_dir,
+                args.silence_threshold,
+                args.min_segment_duration,
+                args.sec_len_approx,
+                args.boundary_search,
+                not args.no_normalize_padding,  # normalize_padding
+                args.target_padding,
+            )
         
         elif args.command == 'transcribe':
             from .config import SEGMENTS_DIR
@@ -284,8 +335,9 @@ def main():
                 'speaking_rate': args.speaking_rate,
                 'pitch': args.pitch
             }
+            use_pause_aware = not args.no_pause_aware
             pipeline = AudioProcessingPipeline()
-            pipeline.run_synthesis(translations_dir, args.output_dir, voice_settings)
+            pipeline.run_synthesis(translations_dir, args.output_dir, voice_settings, use_pause_aware)
         
         elif args.command == 'gui':
             launch_translation_gui(args.translation_file)
@@ -293,8 +345,10 @@ def main():
         elif args.command == 'assemble':
             pipeline = AudioProcessingPipeline()
             prefer_manual = not args.prefer_synthesis
+            enable_volume_scaling = not args.no_volume_scaling
             pipeline.run_assembly(args.translation_file, args.synthesis_file,
-                                args.output, prefer_manual, args.manual_recordings_dir)
+                                args.output, prefer_manual, args.manual_recordings_dir,
+                                enable_volume_scaling)
         
         elif args.command == 'voices':
             from .text_to_speech import TextToSpeechSynthesizer

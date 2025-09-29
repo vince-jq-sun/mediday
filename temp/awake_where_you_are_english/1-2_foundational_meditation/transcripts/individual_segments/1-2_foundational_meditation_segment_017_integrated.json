@@ -1,0 +1,73 @@
+{
+  "metadata": {
+    "source_json": "/var/folders/yg/x826b3fj19v0c3kkfvwk143r0000gn/T/tmpsa2irt15/1-2_foundational_meditation_segment_017.json",
+    "source_srt": "/var/folders/yg/x826b3fj19v0c3kkfvwk143r0000gn/T/tmpsa2irt15/1-2_foundational_meditation_segment_017.srt",
+    "original_sentences_count": 1,
+    "total_words": 7,
+    "pause_threshold": 1.0,
+    "processing_timestamp": null,
+    "integration_method": {
+      "sentences_source": "srt_file_merged",
+      "words_source": "json_tokens",
+      "pause_detection": "word_level_timing",
+      "description": "所有SRT句子合并为一句，单词使用JSON tokens（时间戳精确），检测词间停顿"
+    }
+  },
+  "sentence": {
+    "text": "Don't be aware of anything.",
+    "start_time": 0.0,
+    "end_time": 2.48
+  },
+  "sentence_wt_pause": "Don't be aware of anything.",
+  "original_sentences": [
+    {
+      "text": "Don't be aware of anything.",
+      "start_time": 0.0,
+      "end_time": 2.48
+    }
+  ],
+  "words": [
+    {
+      "text": "Don",
+      "start_time": 0.04,
+      "end_time": 0.29
+    },
+    {
+      "text": "'t",
+      "start_time": 0.29,
+      "end_time": 0.32
+    },
+    {
+      "text": "be",
+      "start_time": 0.67,
+      "end_time": 0.67
+    },
+    {
+      "text": "aware",
+      "start_time": 0.73,
+      "end_time": 1.16
+    },
+    {
+      "text": "of",
+      "start_time": 1.16,
+      "end_time": 1.34
+    },
+    {
+      "text": "anything",
+      "start_time": 1.34,
+      "end_time": 2.14
+    },
+    {
+      "text": ".",
+      "start_time": 2.14,
+      "end_time": 2.35
+    }
+  ],
+  "summary": {
+    "total_duration_seconds": 2.48,
+    "word_count": 7,
+    "original_sentence_count": 1,
+    "merged_sentence_count": 1,
+    "detected_pauses": 0
+  }
+}

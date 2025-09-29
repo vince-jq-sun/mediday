@@ -1,0 +1,473 @@
+{
+  "metadata": {
+    "source_json": "/var/folders/yg/x826b3fj19v0c3kkfvwk143r0000gn/T/tmps_b4ptzo/1-1_introduction_segment_001.json",
+    "source_srt": "/var/folders/yg/x826b3fj19v0c3kkfvwk143r0000gn/T/tmps_b4ptzo/1-1_introduction_segment_001.srt",
+    "original_sentences_count": 9,
+    "total_words": 79,
+    "pause_threshold": 1.0,
+    "processing_timestamp": null,
+    "integration_method": {
+      "sentences_source": "srt_file_merged",
+      "words_source": "json_tokens",
+      "pause_detection": "word_level_timing",
+      "description": "所有SRT句子合并为一句，单词使用JSON tokens（时间戳精确），检测词间停顿"
+    }
+  },
+  "sentence": {
+    "text": "integrating those qualities, bringing the insight from those meditations into our daily lives. And there'll be various ways for each module, for each dimension of awareness that we explore together. There'll be a kind of unique part to the course where we really look at ways to reflect on and contemplate and open up those nuances, those dimensions of awareness in the midst of the life you're living.",
+    "start_time": 0.0,
+    "end_time": 29.62
+  },
+  "sentence_wt_pause": "integrating those qualities, bringing the insight from those meditations into our daily lives. And there'll be various ways for each module, for each dimension of awareness that we explore <1.16>  together. There'll be a kind of unique part to the course where we really look at ways to reflect on and contemplate and open up those nuances, those dimensions of awareness in the midst of the life you're living.",
+  "original_sentences": [
+    {
+      "text": "integrating those qualities, bringing the insight from",
+      "start_time": 0.0,
+      "end_time": 4.32
+    },
+    {
+      "text": "those meditations into our daily lives.",
+      "start_time": 4.32,
+      "end_time": 7.6
+    },
+    {
+      "text": "And there'll be various ways for each module, for each",
+      "start_time": 7.6,
+      "end_time": 11.16
+    },
+    {
+      "text": "dimension of awareness that we explore",
+      "start_time": 11.16,
+      "end_time": 13.9
+    },
+    {
+      "text": "together. There'll be a kind of unique part to the course",
+      "start_time": 13.9,
+      "end_time": 18.43
+    },
+    {
+      "text": "where we really look at ways to reflect on",
+      "start_time": 18.43,
+      "end_time": 21.68
+    },
+    {
+      "text": "and contemplate and open up those nuances, those dimensions",
+      "start_time": 21.68,
+      "end_time": 26.36
+    },
+    {
+      "text": "of awareness in the midst of the life",
+      "start_time": 26.36,
+      "end_time": 29.22
+    },
+    {
+      "text": "you're living.",
+      "start_time": 29.22,
+      "end_time": 29.62
+    }
+  ],
+  "words": [
+    {
+      "text": "integrating",
+      "start_time": 0.45,
+      "end_time": 0.98
+    },
+    {
+      "text": "those",
+      "start_time": 0.98,
+      "end_time": 1.42
+    },
+    {
+      "text": "qualities",
+      "start_time": 1.42,
+      "end_time": 2.2
+    },
+    {
+      "text": ",",
+      "start_time": 2.38,
+      "end_time": 2.39
+    },
+    {
+      "text": "bringing",
+      "start_time": 2.39,
+      "end_time": 3.1
+    },
+    {
+      "text": "the",
+      "start_time": 3.1,
+      "end_time": 3.33
+    },
+    {
+      "text": "insight",
+      "start_time": 3.35,
+      "end_time": 3.98
+    },
+    {
+      "text": "from",
+      "start_time": 3.98,
+      "end_time": 4.32
+    },
+    {
+      "text": "those",
+      "start_time": 4.32,
+      "end_time": 4.77
+    },
+    {
+      "text": "med",
+      "start_time": 4.77,
+      "end_time": 4.79
+    },
+    {
+      "text": "itations",
+      "start_time": 5.32,
+      "end_time": 5.74
+    },
+    {
+      "text": "into",
+      "start_time": 5.88,
+      "end_time": 6.09
+    },
+    {
+      "text": "our",
+      "start_time": 6.09,
+      "end_time": 6.25
+    },
+    {
+      "text": "daily",
+      "start_time": 6.77,
+      "end_time": 6.79
+    },
+    {
+      "text": "lives",
+      "start_time": 6.79,
+      "end_time": 7.23
+    },
+    {
+      "text": ".",
+      "start_time": 7.23,
+      "end_time": 7.48
+    },
+    {
+      "text": "And",
+      "start_time": 7.6,
+      "end_time": 7.83
+    },
+    {
+      "text": "there",
+      "start_time": 8.05,
+      "end_time": 8.22
+    },
+    {
+      "text": "'ll",
+      "start_time": 8.22,
+      "end_time": 8.44
+    },
+    {
+      "text": "be",
+      "start_time": 8.44,
+      "end_time": 8.6
+    },
+    {
+      "text": "various",
+      "start_time": 8.6,
+      "end_time": 9.07
+    },
+    {
+      "text": "ways",
+      "start_time": 9.17,
+      "end_time": 9.43
+    },
+    {
+      "text": "for",
+      "start_time": 9.48,
+      "end_time": 9.69
+    },
+    {
+      "text": "each",
+      "start_time": 9.69,
+      "end_time": 10.0
+    },
+    {
+      "text": "module",
+      "start_time": 10.0,
+      "end_time": 10.47
+    },
+    {
+      "text": ",",
+      "start_time": 10.47,
+      "end_time": 10.5
+    },
+    {
+      "text": "for",
+      "start_time": 10.65,
+      "end_time": 10.85
+    },
+    {
+      "text": "each",
+      "start_time": 10.85,
+      "end_time": 11.16
+    },
+    {
+      "text": "dimension",
+      "start_time": 11.16,
+      "end_time": 11.85
+    },
+    {
+      "text": "of",
+      "start_time": 11.91,
+      "end_time": 12.02
+    },
+    {
+      "text": "awareness",
+      "start_time": 12.02,
+      "end_time": 12.39
+    },
+    {
+      "text": "that",
+      "start_time": 12.93,
+      "end_time": 13.04
+    },
+    {
+      "text": "we",
+      "start_time": 13.04,
+      "end_time": 13.19
+    },
+    {
+      "text": "explore",
+      "start_time": 13.19,
+      "end_time": 13.85
+    },
+    {
+      "text": "together",
+      "start_time": 14.35,
+      "end_time": 14.63
+    },
+    {
+      "text": ".",
+      "start_time": 14.66,
+      "end_time": 14.92
+    },
+    {
+      "text": "There",
+      "start_time": 14.92,
+      "end_time": 15.37
+    },
+    {
+      "text": "'ll",
+      "start_time": 15.37,
+      "end_time": 15.66
+    },
+    {
+      "text": "be",
+      "start_time": 15.66,
+      "end_time": 15.81
+    },
+    {
+      "text": "a",
+      "start_time": 15.86,
+      "end_time": 15.93
+    },
+    {
+      "text": "kind",
+      "start_time": 15.93,
+      "end_time": 16.3
+    },
+    {
+      "text": "of",
+      "start_time": 16.3,
+      "end_time": 16.48
+    },
+    {
+      "text": "unique",
+      "start_time": 16.48,
+      "end_time": 17.04
+    },
+    {
+      "text": "part",
+      "start_time": 17.04,
+      "end_time": 17.41
+    },
+    {
+      "text": "to",
+      "start_time": 17.41,
+      "end_time": 17.51
+    },
+    {
+      "text": "the",
+      "start_time": 17.68,
+      "end_time": 17.87
+    },
+    {
+      "text": "course",
+      "start_time": 17.87,
+      "end_time": 18.43
+    },
+    {
+      "text": "where",
+      "start_time": 18.43,
+      "end_time": 18.69
+    },
+    {
+      "text": "we",
+      "start_time": 18.69,
+      "end_time": 19.07
+    },
+    {
+      "text": "really",
+      "start_time": 19.23,
+      "end_time": 19.63
+    },
+    {
+      "text": "look",
+      "start_time": 19.63,
+      "end_time": 20.0
+    },
+    {
+      "text": "at",
+      "start_time": 20.0,
+      "end_time": 20.15
+    },
+    {
+      "text": "ways",
+      "start_time": 20.55,
+      "end_time": 20.55
+    },
+    {
+      "text": "to",
+      "start_time": 20.67,
+      "end_time": 20.73
+    },
+    {
+      "text": "reflect",
+      "start_time": 20.73,
+      "end_time": 21.38
+    },
+    {
+      "text": "on",
+      "start_time": 21.38,
+      "end_time": 21.52
+    },
+    {
+      "text": "and",
+      "start_time": 21.68,
+      "end_time": 21.95
+    },
+    {
+      "text": "contempl",
+      "start_time": 22.13,
+      "end_time": 22.67
+    },
+    {
+      "text": "ate",
+      "start_time": 22.67,
+      "end_time": 22.94
+    },
+    {
+      "text": "and",
+      "start_time": 22.94,
+      "end_time": 23.15
+    },
+    {
+      "text": "open",
+      "start_time": 23.25,
+      "end_time": 23.57
+    },
+    {
+      "text": "up",
+      "start_time": 23.57,
+      "end_time": 23.75
+    },
+    {
+      "text": "those",
+      "start_time": 23.75,
+      "end_time": 24.2
+    },
+    {
+      "text": "nuances",
+      "start_time": 24.2,
+      "end_time": 24.83
+    },
+    {
+      "text": ",",
+      "start_time": 24.83,
+      "end_time": 24.96
+    },
+    {
+      "text": "those",
+      "start_time": 25.0,
+      "end_time": 25.28
+    },
+    {
+      "text": "dimensions",
+      "start_time": 25.46,
+      "end_time": 26.36
+    },
+    {
+      "text": "of",
+      "start_time": 26.36,
+      "end_time": 26.47
+    },
+    {
+      "text": "awareness",
+      "start_time": 27.0,
+      "end_time": 27.32
+    },
+    {
+      "text": "in",
+      "start_time": 27.38,
+      "end_time": 27.43
+    },
+    {
+      "text": "the",
+      "start_time": 27.56,
+      "end_time": 27.8
+    },
+    {
+      "text": "midst",
+      "start_time": 27.8,
+      "end_time": 27.93
+    },
+    {
+      "text": "of",
+      "start_time": 28.45,
+      "end_time": 28.52
+    },
+    {
+      "text": "the",
+      "start_time": 28.52,
+      "end_time": 28.81
+    },
+    {
+      "text": "life",
+      "start_time": 28.81,
+      "end_time": 29.16
+    },
+    {
+      "text": "you",
+      "start_time": 29.22,
+      "end_time": 29.3
+    },
+    {
+      "text": "'re",
+      "start_time": 29.3,
+      "end_time": 29.37
+    },
+    {
+      "text": "living",
+      "start_time": 29.37,
+      "end_time": 29.52
+    },
+    {
+      "text": ".",
+      "start_time": 29.62,
+      "end_time": 29.62
+    }
+  ],
+  "summary": {
+    "total_duration_seconds": 29.62,
+    "word_count": 79,
+    "original_sentence_count": 9,
+    "merged_sentence_count": 1,
+    "detected_pauses": 1
+  }
+}

@@ -6,16 +6,17 @@
 # Load project configuration
 source process/project_config.sh
 
-# Set default STT provider to OpenAI if not specified
-# STT_PROVIDER=${1:-openai}
-STT_PROVIDER=openai
+# Set default STT provider to Local Whisper if not specified
+# STT_PROVIDER=${1:-localwhisper}
+STT_PROVIDER=localwhisper
 
 # Validate provider choice
-if [[ "$STT_PROVIDER" != "openai" && "$STT_PROVIDER" != "google" ]]; then
+if [[ "$STT_PROVIDER" != "localwhisper" && "$STT_PROVIDER" != "openai" && "$STT_PROVIDER" != "google" ]]; then
     echo "❌ Error: Invalid STT provider '$STT_PROVIDER'"
-    echo "Usage: $0 [openai|google]"
-    echo "  openai  - Use OpenAI Whisper (default, recommended)"
-    echo "  google  - Use Google Speech-to-Text"
+    echo "Usage: $0 [localwhisper|openai|google]"
+    echo "  localwhisper - Use Local Whisper (whisper.cpp) (default, recommended)"
+    echo "  openai       - Use OpenAI Whisper API"
+    echo "  google       - Use Google Speech-to-Text"
     exit 1
 fi
 

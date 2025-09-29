@@ -1,0 +1,75 @@
+{
+  "test_timestamp": "2025-09-17T15:11:38.093570",
+  "model_used": "gpt-4.1-mini",
+  "terminology_file": "terminology_enhanced_simple.json",
+  "terminology_loaded": true,
+  "context_aware_translations": [
+    {
+      "segment_id": 0,
+      "start_time": 0.0,
+      "end_time": 15.0,
+      "duration": 15.0,
+      "file_path": "test_segment_0.wav",
+      "english_text": "Remind yourself. That you're here. You're awake and aware. And spend this first few moments of the meditation just settling. And sensing into being here. Sense of being awake in the midst of this moment.",
+      "chinese_text": "提醒自己，你就在这里。你是醒着的，也是觉知的。在冥想的最初几分钟里，安住下来，感受身处此地。感受在此刻中醒着的状态。",
+      "context_used": true,
+      "translation_metadata": {
+        "original_text": "Remind yourself. That you're here. You're awake and aware. And spend this first few moments of the meditation just settling. And sensing into being here. Sense of being awake in the midst of this moment.",
+        "translated_text": "提醒自己，你就在这里。你是醒着的，也是觉知的。在冥想的最初几分钟里，安住下来，感受身处此地。感受在此刻中醒着的状态。",
+        "confidence": 0.95,
+        "provider": "enhanced_openai_gpt",
+        "model": "gpt-4.1-mini",
+        "context_used": true,
+        "terminology_applied": true,
+        "tokens_used": 1046,
+        "prompt_tokens": 996,
+        "completion_tokens": 50
+      }
+    },
+    {
+      "segment_id": 1,
+      "start_time": 15.0,
+      "end_time": 30.0,
+      "duration": 15.0,
+      "file_path": "test_segment_1.wav",
+      "english_text": "Take a moment to notice your breathing. Feel the natural rhythm of your breath. There's no need to change anything, just observe.",
+      "chinese_text": "花一点时间觉知你的呼吸。感受呼吸的自然节奏，无需刻意改变，只需观察即可。",
+      "context_used": true,
+      "translation_metadata": {
+        "original_text": "Take a moment to notice your breathing. Feel the natural rhythm of your breath. There's no need to change anything, just observe.",
+        "translated_text": "花一点时间觉知你的呼吸。感受呼吸的自然节奏，无需刻意改变，只需观察即可。",
+        "confidence": 0.95,
+        "provider": "enhanced_openai_gpt",
+        "model": "gpt-4.1-mini",
+        "context_used": true,
+        "terminology_applied": true,
+        "tokens_used": 1055,
+        "prompt_tokens": 1026,
+        "completion_tokens": 29
+      }
+    },
+    {
+      "segment_id": 2,
+      "start_time": 30.0,
+      "end_time": 45.0,
+      "duration": 15.0,
+      "file_path": "test_segment_2.wav",
+      "english_text": "Allow your attention to rest in the present moment. Notice any thoughts that arise, and gently let them pass like clouds in the sky.",
+      "chinese_text": "让你的注意力安住在此刻。觉知任何浮现的念头，轻柔地让它们如天空中的云朵般飘过。",
+      "context_used": true,
+      "translation_metadata": {
+        "original_text": "Allow your attention to rest in the present moment. Notice any thoughts that arise, and gently let them pass like clouds in the sky.",
+        "translated_text": "让你的注意力安住在此刻。觉知任何浮现的念头，轻柔地让它们如天空中的云朵般飘过。",
+        "confidence": 0.95,
+        "provider": "enhanced_openai_gpt",
+        "model": "gpt-4.1-mini",
+        "context_used": true,
+        "terminology_applied": true,
+        "tokens_used": 1019,
+        "prompt_tokens": 981,
+        "completion_tokens": 38
+      }
+    }
+  ],
+  "total_tokens_used": 3120
+}

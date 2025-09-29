@@ -1,0 +1,423 @@
+{
+  "metadata": {
+    "source_json": "/var/folders/yg/x826b3fj19v0c3kkfvwk143r0000gn/T/tmpb9g66y7h/1-1_introduction_segment_007.json",
+    "source_srt": "/var/folders/yg/x826b3fj19v0c3kkfvwk143r0000gn/T/tmpb9g66y7h/1-1_introduction_segment_007.srt",
+    "original_sentences_count": 8,
+    "total_words": 70,
+    "pause_threshold": 1.0,
+    "processing_timestamp": null,
+    "integration_method": {
+      "sentences_source": "srt_file_merged",
+      "words_source": "json_tokens",
+      "pause_detection": "word_level_timing",
+      "description": "所有SRT句子合并为一句，单词使用JSON tokens（时间戳精确），检测词间停顿"
+    }
+  },
+  "sentence": {
+    "text": "I remember being on retreat in India sometime in the early 90s, and the teacher firstly pointing to the ever-changing nature of our experience, reminding us that everything is changing. Your thoughts are changing. Sounds are changing. Sensations are changing. Everything is constantly changing. And then the teacher asked, so what is not changing? Thank you.",
+    "start_time": 0.0,
+    "end_time": 30.74
+  },
+  "sentence_wt_pause": "I remember being on retreat in India sometime in the early 90s, and the teacher firstly pointing to the ever-changing nature of our experience, <1.55>  reminding us that everything is changing. <1.03>  Your thoughts <1.01>  are changing. <1.01>  Sounds are changing. Sensations are changing. <1.13>  Everything is constantly changing. And then the teacher asked, so what is not changing? <2.12>  Thank you.",
+  "original_sentences": [
+    {
+      "text": "I remember being on retreat in India sometime in the early",
+      "start_time": 0.0,
+      "end_time": 4.35
+    },
+    {
+      "text": "90s, and the teacher firstly pointing to the ever-changing",
+      "start_time": 4.35,
+      "end_time": 9.34
+    },
+    {
+      "text": "nature of our experience, reminding us that everything is",
+      "start_time": 9.34,
+      "end_time": 13.83
+    },
+    {
+      "text": "changing.",
+      "start_time": 13.83,
+      "end_time": 14.86
+    },
+    {
+      "text": "Your thoughts are changing. Sounds are changing. Sensations",
+      "start_time": 14.86,
+      "end_time": 19.57
+    },
+    {
+      "text": "are changing. Everything is constantly changing.",
+      "start_time": 19.57,
+      "end_time": 23.24
+    },
+    {
+      "text": "And then the teacher asked, so what is not changing?",
+      "start_time": 23.24,
+      "end_time": 29.42
+    },
+    {
+      "text": "Thank you.",
+      "start_time": 30.0,
+      "end_time": 30.74
+    }
+  ],
+  "words": [
+    {
+      "text": "I",
+      "start_time": 0.0,
+      "end_time": 0.09
+    },
+    {
+      "text": "remember",
+      "start_time": 0.09,
+      "end_time": 0.82
+    },
+    {
+      "text": "being",
+      "start_time": 0.82,
+      "end_time": 1.27
+    },
+    {
+      "text": "on",
+      "start_time": 1.41,
+      "end_time": 1.45
+    },
+    {
+      "text": "retreat",
+      "start_time": 1.45,
+      "end_time": 2.08
+    },
+    {
+      "text": "in",
+      "start_time": 2.09,
+      "end_time": 2.27
+    },
+    {
+      "text": "India",
+      "start_time": 2.27,
+      "end_time": 2.7199999999999998
+    },
+    {
+      "text": "sometime",
+      "start_time": 2.7199999999999998,
+      "end_time": 3.44
+    },
+    {
+      "text": "in",
+      "start_time": 3.44,
+      "end_time": 3.63
+    },
+    {
+      "text": "the",
+      "start_time": 3.63,
+      "end_time": 3.9
+    },
+    {
+      "text": "early",
+      "start_time": 3.9,
+      "end_time": 4.35
+    },
+    {
+      "text": "90",
+      "start_time": 4.35,
+      "end_time": 4.88
+    },
+    {
+      "text": "s",
+      "start_time": 4.91,
+      "end_time": 4.92
+    },
+    {
+      "text": ",",
+      "start_time": 4.97,
+      "end_time": 5.19
+    },
+    {
+      "text": "and",
+      "start_time": 5.19,
+      "end_time": 5.22
+    },
+    {
+      "text": "the",
+      "start_time": 5.47,
+      "end_time": 5.76
+    },
+    {
+      "text": "teacher",
+      "start_time": 6.01,
+      "end_time": 6.36
+    },
+    {
+      "text": "firstly",
+      "start_time": 6.41,
+      "end_time": 7.02
+    },
+    {
+      "text": "pointing",
+      "start_time": 7.02,
+      "end_time": 7.73
+    },
+    {
+      "text": "to",
+      "start_time": 7.79,
+      "end_time": 7.92
+    },
+    {
+      "text": "the",
+      "start_time": 7.92,
+      "end_time": 8.02
+    },
+    {
+      "text": "ever",
+      "start_time": 8.29,
+      "end_time": 8.52
+    },
+    {
+      "text": "-",
+      "start_time": 8.61,
+      "end_time": 8.63
+    },
+    {
+      "text": "changing",
+      "start_time": 8.63,
+      "end_time": 9.34
+    },
+    {
+      "text": "nature",
+      "start_time": 9.34,
+      "end_time": 9.76
+    },
+    {
+      "text": "of",
+      "start_time": 10.06,
+      "end_time": 10.06
+    },
+    {
+      "text": "our",
+      "start_time": 10.12,
+      "end_time": 10.33
+    },
+    {
+      "text": "experience",
+      "start_time": 10.33,
+      "end_time": 10.95
+    },
+    {
+      "text": ",",
+      "start_time": 11.4,
+      "end_time": 11.4
+    },
+    {
+      "text": "reminding",
+      "start_time": 11.88,
+      "end_time": 12.21
+    },
+    {
+      "text": "us",
+      "start_time": 12.21,
+      "end_time": 12.39
+    },
+    {
+      "text": "that",
+      "start_time": 12.39,
+      "end_time": 12.65
+    },
+    {
+      "text": "everything",
+      "start_time": 12.75,
+      "end_time": 13.65
+    },
+    {
+      "text": "is",
+      "start_time": 13.74,
+      "end_time": 13.83
+    },
+    {
+      "text": "changing",
+      "start_time": 13.83,
+      "end_time": 14.55
+    },
+    {
+      "text": ".",
+      "start_time": 14.55,
+      "end_time": 14.86
+    },
+    {
+      "text": "Your",
+      "start_time": 14.86,
+      "end_time": 15.23
+    },
+    {
+      "text": "thoughts",
+      "start_time": 15.23,
+      "end_time": 15.97
+    },
+    {
+      "text": "are",
+      "start_time": 16.24,
+      "end_time": 16.24
+    },
+    {
+      "text": "changing",
+      "start_time": 16.27,
+      "end_time": 16.98
+    },
+    {
+      "text": ".",
+      "start_time": 16.98,
+      "end_time": 17.28
+    },
+    {
+      "text": "Sounds",
+      "start_time": 17.28,
+      "end_time": 17.67
+    },
+    {
+      "text": "are",
+      "start_time": 17.75,
+      "end_time": 17.97
+    },
+    {
+      "text": "changing",
+      "start_time": 17.97,
+      "end_time": 18.58
+    },
+    {
+      "text": ".",
+      "start_time": 18.58,
+      "end_time": 18.8
+    },
+    {
+      "text": "Sens",
+      "start_time": 18.86,
+      "end_time": 19.1
+    },
+    {
+      "text": "ations",
+      "start_time": 19.11,
+      "end_time": 19.57
+    },
+    {
+      "text": "are",
+      "start_time": 19.57,
+      "end_time": 19.74
+    },
+    {
+      "text": "changing",
+      "start_time": 19.74,
+      "end_time": 20.06
+    },
+    {
+      "text": ".",
+      "start_time": 20.33,
+      "end_time": 20.64
+    },
+    {
+      "text": "Everything",
+      "start_time": 20.87,
+      "end_time": 21.37
+    },
+    {
+      "text": "is",
+      "start_time": 21.46,
+      "end_time": 21.56
+    },
+    {
+      "text": "constantly",
+      "start_time": 21.56,
+      "end_time": 22.25
+    },
+    {
+      "text": "changing",
+      "start_time": 22.35,
+      "end_time": 22.87
+    },
+    {
+      "text": ".",
+      "start_time": 23.15,
+      "end_time": 23.24
+    },
+    {
+      "text": "And",
+      "start_time": 23.24,
+      "end_time": 23.64
+    },
+    {
+      "text": "then",
+      "start_time": 23.64,
+      "end_time": 24.17
+    },
+    {
+      "text": "the",
+      "start_time": 24.57,
+      "end_time": 24.57
+    },
+    {
+      "text": "teacher",
+      "start_time": 24.65,
+      "end_time": 25.5
+    },
+    {
+      "text": "asked",
+      "start_time": 25.5,
+      "end_time": 26.17
+    },
+    {
+      "text": ",",
+      "start_time": 26.17,
+      "end_time": 26.43
+    },
+    {
+      "text": "so",
+      "start_time": 26.43,
+      "end_time": 26.68
+    },
+    {
+      "text": "what",
+      "start_time": 26.68,
+      "end_time": 27.19
+    },
+    {
+      "text": "is",
+      "start_time": 27.24,
+      "end_time": 27.48
+    },
+    {
+      "text": "not",
+      "start_time": 27.48,
+      "end_time": 27.88
+    },
+    {
+      "text": "changing",
+      "start_time": 27.88,
+      "end_time": 28.35
+    },
+    {
+      "text": "?",
+      "start_time": 29.25,
+      "end_time": 29.42
+    },
+    {
+      "text": "Thank",
+      "start_time": 30.0,
+      "end_time": 30.33
+    },
+    {
+      "text": "you",
+      "start_time": 30.33,
+      "end_time": 30.53
+    },
+    {
+      "text": ".",
+      "start_time": 30.53,
+      "end_time": 30.74
+    }
+  ],
+  "summary": {
+    "total_duration_seconds": 30.74,
+    "word_count": 70,
+    "original_sentence_count": 8,
+    "merged_sentence_count": 1,
+    "detected_pauses": 6
+  }
+}

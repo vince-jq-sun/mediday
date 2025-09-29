@@ -1,0 +1,133 @@
+{
+  "original_file": "temp/single_file/1-1_introduction_sample-1.mp3",
+  "total_duration": 96.71,
+  "silence_threshold_seconds": 0.5,
+  "min_segment_duration": 0.5,
+  "mode": "approx_length",
+  "sec_len_approx": 40.0,
+  "boundary_search": 15.0,
+  "silence_segments": [
+    {
+      "start": 0.0,
+      "end": 1.01,
+      "duration": 1.01
+    },
+    {
+      "start": 5.68,
+      "end": 6.24,
+      "duration": 0.5600000000000005
+    },
+    {
+      "start": 7.45,
+      "end": 8.52,
+      "duration": 1.0699999999999994
+    },
+    {
+      "start": 9.99,
+      "end": 10.49,
+      "duration": 0.5
+    },
+    {
+      "start": 13.62,
+      "end": 14.34,
+      "duration": 0.7200000000000006
+    },
+    {
+      "start": 29.72,
+      "end": 30.55,
+      "duration": 0.8300000000000018
+    },
+    {
+      "start": 30.75,
+      "end": 31.61,
+      "duration": 0.8599999999999994
+    },
+    {
+      "start": 35.98,
+      "end": 36.48,
+      "duration": 0.5
+    },
+    {
+      "start": 38.81,
+      "end": 39.61,
+      "duration": 0.7999999999999972
+    },
+    {
+      "start": 60.85,
+      "end": 62.76,
+      "duration": 1.9099999999999966
+    },
+    {
+      "start": 69.21,
+      "end": 69.79,
+      "duration": 0.5800000000000125
+    },
+    {
+      "start": 80.1,
+      "end": 80.88,
+      "duration": 0.7800000000000011
+    },
+    {
+      "start": 81.51,
+      "end": 82.22,
+      "duration": 0.7099999999999937
+    },
+    {
+      "start": 85.77,
+      "end": 86.44,
+      "duration": 0.6700000000000017
+    },
+    {
+      "start": 87.44,
+      "end": 87.95,
+      "duration": 0.5100000000000051
+    },
+    {
+      "start": 93.14,
+      "end": 94.45,
+      "duration": 1.3100000000000023
+    },
+    {
+      "start": 94.7,
+      "end": 95.34,
+      "duration": 0.6400000000000006
+    },
+    {
+      "start": 95.73,
+      "end": 96.71,
+      "duration": 0.9799999999999898
+    }
+  ],
+  "audio_segments": [
+    {
+      "segment_id": 0,
+      "start_time": 0.0,
+      "end_time": 31.18,
+      "duration": 31.18,
+      "file_path": "temp/awake_where_you_are_english/1-1_introduction_sample-1/segments/1-1_introduction_sample-1_segment_000.wav"
+    },
+    {
+      "segment_id": 1,
+      "start_time": 31.18,
+      "end_time": 61.805,
+      "duration": 30.625,
+      "file_path": "temp/awake_where_you_are_english/1-1_introduction_sample-1/segments/1-1_introduction_sample-1_segment_001.wav"
+    },
+    {
+      "segment_id": 2,
+      "start_time": 61.805,
+      "end_time": 96.71,
+      "duration": 34.904999999999994,
+      "file_path": "temp/awake_where_you_are_english/1-1_introduction_sample-1/segments/1-1_introduction_sample-1_segment_002.wav"
+    }
+  ],
+  "total_segments": 3,
+  "total_silence_duration": 14.940000000000001,
+  "total_audio_duration": 96.71,
+  "cut_boundaries": [
+    0.0,
+    31.18,
+    61.805,
+    96.71
+  ]
+}

@@ -1,0 +1,698 @@
+{
+  "metadata": {
+    "source_json": "/var/folders/yg/x826b3fj19v0c3kkfvwk143r0000gn/T/tmpmh18yh9c/1-1_introduction_segment_014.json",
+    "source_srt": "/var/folders/yg/x826b3fj19v0c3kkfvwk143r0000gn/T/tmpmh18yh9c/1-1_introduction_segment_014.srt",
+    "original_sentences_count": 13,
+    "total_words": 120,
+    "pause_threshold": 1.0,
+    "processing_timestamp": null,
+    "integration_method": {
+      "sentences_source": "srt_file_merged",
+      "words_source": "json_tokens",
+      "pause_detection": "word_level_timing",
+      "description": "所有SRT句子合并为一句，单词使用JSON tokens（时间戳精确），检测词间停顿"
+    }
+  },
+  "sentence": {
+    "text": "As we go through the program, each dimension of awareness that we explore, and so each chapter of the course, will have three parts. The first is an orientation. I'll introduce a theme of awareness, explore and explain its qualities, and its implications for transforming your experience and your understanding. Then, there's a guided meditation for each quality, leading you into and through that particular dimension of awareness , experientially. The meditations can be practiced as they are, or the time can be extended if you like. They can be done sequentially, or repeated as many times as you like.",
+    "start_time": 0.0,
+    "end_time": 46.12
+  },
+  "sentence_wt_pause": "As we go through the program, each dimension <1.05>  of awareness that we explore, and so each chapter of the course, will have three parts. The first is an orientation. I'll introduce a theme of awareness, explore and explain its qualities, and its implications for transforming your experience and your understanding. <3.08>  Then, there's a guided meditation for each quality, <1.12>  leading you into and through that particular dimension of awareness , experientially. The meditations can be practiced as they are, or the time can be extended if you like. They can be done sequentially, or repeated as many times as you like.",
+  "original_sentences": [
+    {
+      "text": "As we go through the program, each dimension of awareness",
+      "start_time": 0.0,
+      "end_time": 4.67
+    },
+    {
+      "text": "that we explore, and so each chapter of the course, will",
+      "start_time": 4.67,
+      "end_time": 9.23
+    },
+    {
+      "text": "have three parts.",
+      "start_time": 9.23,
+      "end_time": 11.0
+    },
+    {
+      "text": "The first is an orientation. I'll introduce a theme of",
+      "start_time": 11.0,
+      "end_time": 14.91
+    },
+    {
+      "text": "awareness, explore and explain its qualities, and its",
+      "start_time": 14.91,
+      "end_time": 18.98
+    },
+    {
+      "text": "implications for transforming your experience and your",
+      "start_time": 18.98,
+      "end_time": 23.18
+    },
+    {
+      "text": "understanding.",
+      "start_time": 23.18,
+      "end_time": 24.44
+    },
+    {
+      "text": "Then, there's a guided meditation for each quality, leading",
+      "start_time": 26.26,
+      "end_time": 30.07
+    },
+    {
+      "text": "you into and through that particular dimension of awareness",
+      "start_time": 30.07,
+      "end_time": 33.74
+    },
+    {
+      "text": ", experientially.",
+      "start_time": 33.74,
+      "end_time": 35.24
+    },
+    {
+      "text": "The meditations can be practiced as they are, or the time",
+      "start_time": 35.24,
+      "end_time": 39.36
+    },
+    {
+      "text": "can be extended if you like. They can be done sequentially,",
+      "start_time": 39.36,
+      "end_time": 43.56
+    },
+    {
+      "text": "or repeated as many times as you like.",
+      "start_time": 43.56,
+      "end_time": 46.12
+    }
+  ],
+  "words": [
+    {
+      "text": "As",
+      "start_time": 0.0,
+      "end_time": 0.19
+    },
+    {
+      "text": "we",
+      "start_time": 0.19,
+      "end_time": 0.37
+    },
+    {
+      "text": "go",
+      "start_time": 0.38,
+      "end_time": 0.57
+    },
+    {
+      "text": "through",
+      "start_time": 0.57,
+      "end_time": 1.24
+    },
+    {
+      "text": "the",
+      "start_time": 1.52,
+      "end_time": 1.52
+    },
+    {
+      "text": "program",
+      "start_time": 1.54,
+      "end_time": 2.17
+    },
+    {
+      "text": ",",
+      "start_time": 2.34,
+      "end_time": 2.38
+    },
+    {
+      "text": "each",
+      "start_time": 2.38,
+      "end_time": 2.76
+    },
+    {
+      "text": "dimension",
+      "start_time": 2.76,
+      "end_time": 3.27
+    },
+    {
+      "text": "of",
+      "start_time": 3.81,
+      "end_time": 3.81
+    },
+    {
+      "text": "awareness",
+      "start_time": 3.81,
+      "end_time": 4.67
+    },
+    {
+      "text": "that",
+      "start_time": 4.67,
+      "end_time": 5.04
+    },
+    {
+      "text": "we",
+      "start_time": 5.04,
+      "end_time": 5.08
+    },
+    {
+      "text": "explore",
+      "start_time": 5.39,
+      "end_time": 5.91
+    },
+    {
+      "text": ",",
+      "start_time": 5.91,
+      "end_time": 6.06
+    },
+    {
+      "text": "and",
+      "start_time": 6.1,
+      "end_time": 6.38
+    },
+    {
+      "text": "so",
+      "start_time": 6.38,
+      "end_time": 6.48
+    },
+    {
+      "text": "each",
+      "start_time": 6.61,
+      "end_time": 6.9399999999999995
+    },
+    {
+      "text": "chapter",
+      "start_time": 6.95,
+      "end_time": 7.62
+    },
+    {
+      "text": "of",
+      "start_time": 7.62,
+      "end_time": 7.8100000000000005
+    },
+    {
+      "text": "the",
+      "start_time": 7.8100000000000005,
+      "end_time": 8.09
+    },
+    {
+      "text": "course",
+      "start_time": 8.09,
+      "end_time": 8.65
+    },
+    {
+      "text": ",",
+      "start_time": 8.72,
+      "end_time": 8.8
+    },
+    {
+      "text": "will",
+      "start_time": 8.85,
+      "end_time": 9.23
+    },
+    {
+      "text": "have",
+      "start_time": 9.23,
+      "end_time": 9.28
+    },
+    {
+      "text": "three",
+      "start_time": 10.02,
+      "end_time": 10.09
+    },
+    {
+      "text": "parts",
+      "start_time": 10.09,
+      "end_time": 10.56
+    },
+    {
+      "text": ".",
+      "start_time": 10.64,
+      "end_time": 11.0
+    },
+    {
+      "text": "The",
+      "start_time": 11.0,
+      "end_time": 11.25
+    },
+    {
+      "text": "first",
+      "start_time": 11.25,
+      "end_time": 11.67
+    },
+    {
+      "text": "is",
+      "start_time": 11.67,
+      "end_time": 11.83
+    },
+    {
+      "text": "an",
+      "start_time": 11.83,
+      "end_time": 11.99
+    },
+    {
+      "text": "orientation",
+      "start_time": 12.52,
+      "end_time": 12.91
+    },
+    {
+      "text": ".",
+      "start_time": 12.91,
+      "end_time": 13.16
+    },
+    {
+      "text": "I",
+      "start_time": 13.16,
+      "end_time": 13.17
+    },
+    {
+      "text": "'ll",
+      "start_time": 13.34,
+      "end_time": 13.49
+    },
+    {
+      "text": "introduce",
+      "start_time": 13.49,
+      "end_time": 14.2
+    },
+    {
+      "text": "a",
+      "start_time": 14.2,
+      "end_time": 14.29
+    },
+    {
+      "text": "theme",
+      "start_time": 14.75,
+      "end_time": 14.75
+    },
+    {
+      "text": "of",
+      "start_time": 14.81,
+      "end_time": 14.91
+    },
+    {
+      "text": "awareness",
+      "start_time": 14.91,
+      "end_time": 15.67
+    },
+    {
+      "text": ",",
+      "start_time": 15.67,
+      "end_time": 15.83
+    },
+    {
+      "text": "explore",
+      "start_time": 15.83,
+      "end_time": 16.42
+    },
+    {
+      "text": "and",
+      "start_time": 16.42,
+      "end_time": 16.67
+    },
+    {
+      "text": "explain",
+      "start_time": 16.67,
+      "end_time": 17.26
+    },
+    {
+      "text": "its",
+      "start_time": 17.26,
+      "end_time": 17.48
+    },
+    {
+      "text": "qualities",
+      "start_time": 17.58,
+      "end_time": 18.03
+    },
+    {
+      "text": ",",
+      "start_time": 18.43,
+      "end_time": 18.43
+    },
+    {
+      "text": "and",
+      "start_time": 18.46,
+      "end_time": 18.68
+    },
+    {
+      "text": "its",
+      "start_time": 18.68,
+      "end_time": 18.81
+    },
+    {
+      "text": "implications",
+      "start_time": 18.98,
+      "end_time": 19.94
+    },
+    {
+      "text": "for",
+      "start_time": 19.94,
+      "end_time": 20.19
+    },
+    {
+      "text": "transforming",
+      "start_time": 20.19,
+      "end_time": 21.2
+    },
+    {
+      "text": "your",
+      "start_time": 21.2,
+      "end_time": 21.53
+    },
+    {
+      "text": "experience",
+      "start_time": 21.53,
+      "end_time": 22.03
+    },
+    {
+      "text": "and",
+      "start_time": 22.34,
+      "end_time": 22.62
+    },
+    {
+      "text": "your",
+      "start_time": 22.62,
+      "end_time": 22.95
+    },
+    {
+      "text": "understanding",
+      "start_time": 23.18,
+      "end_time": 23.72
+    },
+    {
+      "text": ".",
+      "start_time": 24.2,
+      "end_time": 24.42
+    },
+    {
+      "text": "Then",
+      "start_time": 26.26,
+      "end_time": 26.55
+    },
+    {
+      "text": ",",
+      "start_time": 26.55,
+      "end_time": 26.69
+    },
+    {
+      "text": "there",
+      "start_time": 26.69,
+      "end_time": 27.05
+    },
+    {
+      "text": "'s",
+      "start_time": 27.05,
+      "end_time": 27.19
+    },
+    {
+      "text": "a",
+      "start_time": 27.19,
+      "end_time": 27.26
+    },
+    {
+      "text": "guided",
+      "start_time": 27.69,
+      "end_time": 27.69
+    },
+    {
+      "text": "meditation",
+      "start_time": 27.8,
+      "end_time": 28.41
+    },
+    {
+      "text": "for",
+      "start_time": 28.41,
+      "end_time": 28.62
+    },
+    {
+      "text": "each",
+      "start_time": 28.62,
+      "end_time": 28.84
+    },
+    {
+      "text": "quality",
+      "start_time": 28.95,
+      "end_time": 29.4
+    },
+    {
+      "text": ",",
+      "start_time": 29.42,
+      "end_time": 29.54
+    },
+    {
+      "text": "leading",
+      "start_time": 30.07,
+      "end_time": 30.07
+    },
+    {
+      "text": "you",
+      "start_time": 30.07,
+      "end_time": 30.28
+    },
+    {
+      "text": "into",
+      "start_time": 30.28,
+      "end_time": 30.57
+    },
+    {
+      "text": "and",
+      "start_time": 30.57,
+      "end_time": 30.78
+    },
+    {
+      "text": "through",
+      "start_time": 30.78,
+      "end_time": 31.29
+    },
+    {
+      "text": "that",
+      "start_time": 31.29,
+      "end_time": 31.33
+    },
+    {
+      "text": "particular",
+      "start_time": 31.65,
+      "end_time": 32.29
+    },
+    {
+      "text": "dimension",
+      "start_time": 32.3,
+      "end_time": 32.95
+    },
+    {
+      "text": "of",
+      "start_time": 32.95,
+      "end_time": 33.09
+    },
+    {
+      "text": "awareness",
+      "start_time": 33.09,
+      "end_time": 33.74
+    },
+    {
+      "text": ",",
+      "start_time": 33.74,
+      "end_time": 33.88
+    },
+    {
+      "text": "experient",
+      "start_time": 33.88,
+      "end_time": 34.44
+    },
+    {
+      "text": "ially",
+      "start_time": 34.58,
+      "end_time": 34.89
+    },
+    {
+      "text": ".",
+      "start_time": 34.89,
+      "end_time": 35.24
+    },
+    {
+      "text": "The",
+      "start_time": 35.24,
+      "end_time": 35.49
+    },
+    {
+      "text": "med",
+      "start_time": 35.49,
+      "end_time": 35.74
+    },
+    {
+      "text": "itations",
+      "start_time": 35.74,
+      "end_time": 36.42
+    },
+    {
+      "text": "can",
+      "start_time": 36.67,
+      "end_time": 36.67
+    },
+    {
+      "text": "be",
+      "start_time": 36.76,
+      "end_time": 36.84
+    },
+    {
+      "text": "practiced",
+      "start_time": 36.84,
+      "end_time": 37.61
+    },
+    {
+      "text": "as",
+      "start_time": 37.61,
+      "end_time": 37.78
+    },
+    {
+      "text": "they",
+      "start_time": 37.78,
+      "end_time": 38.11
+    },
+    {
+      "text": "are",
+      "start_time": 38.11,
+      "end_time": 38.36
+    },
+    {
+      "text": ",",
+      "start_time": 38.36,
+      "end_time": 38.52
+    },
+    {
+      "text": "or",
+      "start_time": 38.53,
+      "end_time": 38.54
+    },
+    {
+      "text": "the",
+      "start_time": 38.96,
+      "end_time": 38.96
+    },
+    {
+      "text": "time",
+      "start_time": 39.05,
+      "end_time": 39.27
+    },
+    {
+      "text": "can",
+      "start_time": 39.36,
+      "end_time": 39.55
+    },
+    {
+      "text": "be",
+      "start_time": 39.55,
+      "end_time": 39.72
+    },
+    {
+      "text": "extended",
+      "start_time": 39.72,
+      "end_time": 40.3
+    },
+    {
+      "text": "if",
+      "start_time": 40.57,
+      "end_time": 40.57
+    },
+    {
+      "text": "you",
+      "start_time": 40.63,
+      "end_time": 40.82
+    },
+    {
+      "text": "like",
+      "start_time": 40.82,
+      "end_time": 41.15
+    },
+    {
+      "text": ".",
+      "start_time": 41.15,
+      "end_time": 41.53
+    },
+    {
+      "text": "They",
+      "start_time": 41.54,
+      "end_time": 41.72
+    },
+    {
+      "text": "can",
+      "start_time": 41.85,
+      "end_time": 42.06
+    },
+    {
+      "text": "be",
+      "start_time": 42.06,
+      "end_time": 42.21
+    },
+    {
+      "text": "done",
+      "start_time": 42.21,
+      "end_time": 42.28
+    },
+    {
+      "text": "sequ",
+      "start_time": 42.68,
+      "end_time": 42.81
+    },
+    {
+      "text": "entially",
+      "start_time": 42.81,
+      "end_time": 43.4
+    },
+    {
+      "text": ",",
+      "start_time": 43.4,
+      "end_time": 43.42
+    },
+    {
+      "text": "or",
+      "start_time": 43.56,
+      "end_time": 43.71
+    },
+    {
+      "text": "repeated",
+      "start_time": 43.71,
+      "end_time": 44.32
+    },
+    {
+      "text": "as",
+      "start_time": 44.32,
+      "end_time": 44.47
+    },
+    {
+      "text": "many",
+      "start_time": 44.47,
+      "end_time": 44.52
+    },
+    {
+      "text": "times",
+      "start_time": 45.15,
+      "end_time": 45.15
+    },
+    {
+      "text": "as",
+      "start_time": 45.26,
+      "end_time": 45.3
+    },
+    {
+      "text": "you",
+      "start_time": 45.3,
+      "end_time": 45.5
+    },
+    {
+      "text": "like",
+      "start_time": 45.68,
+      "end_time": 45.8
+    },
+    {
+      "text": ".",
+      "start_time": 45.88,
+      "end_time": 46.08
+    }
+  ],
+  "summary": {
+    "total_duration_seconds": 46.12,
+    "word_count": 120,
+    "original_sentence_count": 13,
+    "merged_sentence_count": 1,
+    "detected_pauses": 3
+  }
+}

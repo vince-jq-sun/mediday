@@ -1,0 +1,43 @@
+{
+  "original_file": "temp/test_input/test_sample.mp3",
+  "total_duration": 30.001428571428573,
+  "silence_threshold_seconds": 3.0,
+  "silence_segments": [
+    {
+      "start": 7.75,
+      "end": 12.31,
+      "duration": 4.5600000000000005
+    },
+    {
+      "start": 21.1,
+      "end": 24.83,
+      "duration": 3.729999999999997
+    }
+  ],
+  "audio_segments": [
+    {
+      "segment_id": 0,
+      "start_time": 0.0,
+      "end_time": 7.75,
+      "duration": 7.75,
+      "file_path": "/Users/vince/Documents/mediday/temp/segments/test_sample/test_sample_segment_000.wav"
+    },
+    {
+      "segment_id": 1,
+      "start_time": 12.31,
+      "end_time": 21.1,
+      "duration": 8.790000000000001,
+      "file_path": "/Users/vince/Documents/mediday/temp/segments/test_sample/test_sample_segment_001.wav"
+    },
+    {
+      "segment_id": 2,
+      "start_time": 24.83,
+      "end_time": 30.001428571428573,
+      "duration": 5.171428571428574,
+      "file_path": "/Users/vince/Documents/mediday/temp/segments/test_sample/test_sample_segment_002.wav"
+    }
+  ],
+  "total_segments": 3,
+  "total_silence_duration": 8.289999999999997,
+  "total_audio_duration": 21.711428571428574
+}

@@ -1,0 +1,118 @@
+{
+  "metadata": {
+    "source_json": "/var/folders/yg/x826b3fj19v0c3kkfvwk143r0000gn/T/tmpcc3k162e/1-2_foundational_meditation_segment_024.json",
+    "source_srt": "/var/folders/yg/x826b3fj19v0c3kkfvwk143r0000gn/T/tmpcc3k162e/1-2_foundational_meditation_segment_024.srt",
+    "original_sentences_count": 2,
+    "total_words": 15,
+    "pause_threshold": 1.0,
+    "processing_timestamp": null,
+    "integration_method": {
+      "sentences_source": "srt_file_merged",
+      "words_source": "json_tokens",
+      "pause_detection": "word_level_timing",
+      "description": "所有SRT句子合并为一句，单词使用JSON tokens（时间戳精确），检测词间停顿"
+    }
+  },
+  "sentence": {
+    "text": "that we learn to relax into a feel of natural awareness. Always available.",
+    "start_time": 0.0,
+    "end_time": 9.44
+  },
+  "sentence_wt_pause": "that we learn to relax into a feel of natural awareness. <1.38>  Always <1.44>  available.",
+  "original_sentences": [
+    {
+      "text": "that we learn to relax into a feel of natural awareness.",
+      "start_time": 0.0,
+      "end_time": 5.0
+    },
+    {
+      "text": "Always available.",
+      "start_time": 5.0,
+      "end_time": 9.44
+    }
+  ],
+  "words": [
+    {
+      "text": "that",
+      "start_time": 0.07,
+      "end_time": 0.41
+    },
+    {
+      "text": "we",
+      "start_time": 0.41,
+      "end_time": 0.61
+    },
+    {
+      "text": "learn",
+      "start_time": 0.61,
+      "end_time": 1.12
+    },
+    {
+      "text": "to",
+      "start_time": 1.12,
+      "end_time": 1.33
+    },
+    {
+      "text": "relax",
+      "start_time": 1.33,
+      "end_time": 1.85
+    },
+    {
+      "text": "into",
+      "start_time": 1.85,
+      "end_time": 2.26
+    },
+    {
+      "text": "a",
+      "start_time": 2.26,
+      "end_time": 2.35
+    },
+    {
+      "text": "feel",
+      "start_time": 2.35,
+      "end_time": 2.48
+    },
+    {
+      "text": "of",
+      "start_time": 2.77,
+      "end_time": 2.9699999999999998
+    },
+    {
+      "text": "natural",
+      "start_time": 3.24,
+      "end_time": 3.69
+    },
+    {
+      "text": "awareness",
+      "start_time": 3.69,
+      "end_time": 4.49
+    },
+    {
+      "text": ".",
+      "start_time": 4.65,
+      "end_time": 4.98
+    },
+    {
+      "text": "Always",
+      "start_time": 5.07,
+      "end_time": 6.36
+    },
+    {
+      "text": "available",
+      "start_time": 6.51,
+      "end_time": 8.7
+    },
+    {
+      "text": ".",
+      "start_time": 8.7,
+      "end_time": 9.44
+    }
+  ],
+  "summary": {
+    "total_duration_seconds": 9.44,
+    "word_count": 15,
+    "original_sentence_count": 2,
+    "merged_sentence_count": 1,
+    "detected_pauses": 2
+  }
+}

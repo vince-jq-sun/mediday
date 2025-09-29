@@ -1,0 +1,72 @@
+{
+  "original_file": "temp/single_file/test_sample_types_of_medidation.mp3",
+  "segments": [
+    {
+      "segment_id": 0,
+      "start_time": 0.0,
+      "end_time": 7.75,
+      "duration": 7.75,
+      "file_path": "temp/awake_where_you_are_english/test_sample_types_of_medidation/segments/test_sample_types_of_medidation_segment_000.wav",
+      "transcription": {
+        "file_path": "temp/awake_where_you_are_english/test_sample_types_of_medidation/segments/test_sample_types_of_medidation_segment_000.wav",
+        "language_code": "en-US",
+        "provider": "openai",
+        "transcripts": [
+          {
+            "transcript": "Remind yourself that you're here, you're awake and aware.",
+            "confidence": 1.0
+          }
+        ],
+        "word_details": [],
+        "processing_time": 8.48982286453247,
+        "audio_duration": 7.75,
+        "full_transcript": "Remind yourself that you're here, you're awake and aware."
+      }
+    },
+    {
+      "segment_id": 1,
+      "start_time": 12.31,
+      "end_time": 21.1,
+      "duration": 8.790000000000001,
+      "file_path": "temp/awake_where_you_are_english/test_sample_types_of_medidation/segments/test_sample_types_of_medidation_segment_001.wav",
+      "transcription": {
+        "file_path": "temp/awake_where_you_are_english/test_sample_types_of_medidation/segments/test_sample_types_of_medidation_segment_001.wav",
+        "language_code": "en-US",
+        "provider": "openai",
+        "transcripts": [
+          {
+            "transcript": "and spend these first few moments of the meditation just settling and sensing into being here.",
+            "confidence": 1.0
+          }
+        ],
+        "word_details": [],
+        "processing_time": 11.783195972442627,
+        "audio_duration": 8.79,
+        "full_transcript": "and spend these first few moments of the meditation just settling and sensing into being here."
+      }
+    },
+    {
+      "segment_id": 2,
+      "start_time": 24.83,
+      "end_time": 30.001428571428573,
+      "duration": 5.171428571428574,
+      "file_path": "temp/awake_where_you_are_english/test_sample_types_of_medidation/segments/test_sample_types_of_medidation_segment_002.wav",
+      "transcription": {
+        "file_path": "temp/awake_where_you_are_english/test_sample_types_of_medidation/segments/test_sample_types_of_medidation_segment_002.wav",
+        "language_code": "en-US",
+        "provider": "openai",
+        "transcripts": [
+          {
+            "transcript": "and sense of being awake in the midst of this moment.",
+            "confidence": 1.0
+          }
+        ],
+        "word_details": [],
+        "processing_time": 6.610334873199463,
+        "audio_duration": 5.171428571428572,
+        "full_transcript": "and sense of being awake in the midst of this moment."
+      }
+    }
+  ],
+  "total_segments": 3
+}

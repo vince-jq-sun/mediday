@@ -1,0 +1,298 @@
+{
+  "metadata": {
+    "source_json": "/var/folders/yg/x826b3fj19v0c3kkfvwk143r0000gn/T/tmph9bfb1aw/1-2_foundational_meditation_segment_000.json",
+    "source_srt": "/var/folders/yg/x826b3fj19v0c3kkfvwk143r0000gn/T/tmph9bfb1aw/1-2_foundational_meditation_segment_000.srt",
+    "original_sentences_count": 6,
+    "total_words": 47,
+    "pause_threshold": 1.0,
+    "processing_timestamp": null,
+    "integration_method": {
+      "sentences_source": "srt_file_merged",
+      "words_source": "json_tokens",
+      "pause_detection": "word_level_timing",
+      "description": "所有SRT句子合并为一句，单词使用JSON tokens（时间戳精确），检测词间停顿"
+    }
+  },
+  "sentence": {
+    "text": "So let me ask you, what is awareness? What is awareness? I'm not expecting an answer to that question, but rather using it as an invitation to find out experient ially. So let's spend some time together in meditation.",
+    "start_time": 0.0,
+    "end_time": 20.44
+  },
+  "sentence_wt_pause": "So let me ask you, what is awareness? <1.51>  What is <1.16>  awareness? <1.89>  I'm not expecting an answer to that question, <1.27>  but rather using it as an invitation to find out experient ially. So let's spend some time together in meditation.",
+  "original_sentences": [
+    {
+      "text": "So let me ask you, what is awareness?",
+      "start_time": 0.0,
+      "end_time": 3.56
+    },
+    {
+      "text": "What is awareness?",
+      "start_time": 3.56,
+      "end_time": 7.36
+    },
+    {
+      "text": "I'm not expecting an answer to that question,",
+      "start_time": 7.36,
+      "end_time": 11.54
+    },
+    {
+      "text": "but rather using it as an invitation to find out experient",
+      "start_time": 11.54,
+      "end_time": 15.6
+    },
+    {
+      "text": "ially.",
+      "start_time": 15.6,
+      "end_time": 16.38
+    },
+    {
+      "text": "So let's spend some time together in meditation.",
+      "start_time": 16.38,
+      "end_time": 20.44
+    }
+  ],
+  "words": [
+    {
+      "text": "So",
+      "start_time": 0.18,
+      "end_time": 0.21
+    },
+    {
+      "text": "let",
+      "start_time": 0.21,
+      "end_time": 0.53
+    },
+    {
+      "text": "me",
+      "start_time": 0.53,
+      "end_time": 0.74
+    },
+    {
+      "text": "ask",
+      "start_time": 0.74,
+      "end_time": 1.06
+    },
+    {
+      "text": "you",
+      "start_time": 1.06,
+      "end_time": 1.18
+    },
+    {
+      "text": ",",
+      "start_time": 1.24,
+      "end_time": 1.5899999999999999
+    },
+    {
+      "text": "what",
+      "start_time": 2.0,
+      "end_time": 2.02
+    },
+    {
+      "text": "is",
+      "start_time": 2.02,
+      "end_time": 2.23
+    },
+    {
+      "text": "awareness",
+      "start_time": 2.23,
+      "end_time": 3.19
+    },
+    {
+      "text": "?",
+      "start_time": 3.19,
+      "end_time": 3.56
+    },
+    {
+      "text": "What",
+      "start_time": 3.74,
+      "end_time": 4.4
+    },
+    {
+      "text": "is",
+      "start_time": 4.4,
+      "end_time": 4.71
+    },
+    {
+      "text": "awareness",
+      "start_time": 5.5600000000000005,
+      "end_time": 6.71
+    },
+    {
+      "text": "?",
+      "start_time": 6.71,
+      "end_time": 7.16
+    },
+    {
+      "text": "I",
+      "start_time": 7.45,
+      "end_time": 7.46
+    },
+    {
+      "text": "'m",
+      "start_time": 7.54,
+      "end_time": 7.67
+    },
+    {
+      "text": "not",
+      "start_time": 7.67,
+      "end_time": 7.98
+    },
+    {
+      "text": "expecting",
+      "start_time": 7.98,
+      "end_time": 8.51
+    },
+    {
+      "text": "an",
+      "start_time": 8.92,
+      "end_time": 9.14
+    },
+    {
+      "text": "answer",
+      "start_time": 9.36,
+      "end_time": 9.8
+    },
+    {
+      "text": "to",
+      "start_time": 9.8,
+      "end_time": 10.01
+    },
+    {
+      "text": "that",
+      "start_time": 10.01,
+      "end_time": 10.17
+    },
+    {
+      "text": "question",
+      "start_time": 10.45,
+      "end_time": 10.96
+    },
+    {
+      "text": ",",
+      "start_time": 11.54,
+      "end_time": 11.54
+    },
+    {
+      "text": "but",
+      "start_time": 11.72,
+      "end_time": 11.79
+    },
+    {
+      "text": "rather",
+      "start_time": 11.79,
+      "end_time": 12.3
+    },
+    {
+      "text": "using",
+      "start_time": 12.3,
+      "end_time": 12.69
+    },
+    {
+      "text": "it",
+      "start_time": 12.9,
+      "end_time": 12.9
+    },
+    {
+      "text": "as",
+      "start_time": 12.9,
+      "end_time": 13.07
+    },
+    {
+      "text": "an",
+      "start_time": 13.07,
+      "end_time": 13.24
+    },
+    {
+      "text": "invitation",
+      "start_time": 13.54,
+      "end_time": 14.1
+    },
+    {
+      "text": "to",
+      "start_time": 14.1,
+      "end_time": 14.27
+    },
+    {
+      "text": "find",
+      "start_time": 14.27,
+      "end_time": 14.36
+    },
+    {
+      "text": "out",
+      "start_time": 14.65,
+      "end_time": 14.86
+    },
+    {
+      "text": "experient",
+      "start_time": 14.86,
+      "end_time": 15.15
+    },
+    {
+      "text": "ially",
+      "start_time": 15.6,
+      "end_time": 16.06
+    },
+    {
+      "text": ".",
+      "start_time": 16.06,
+      "end_time": 16.38
+    },
+    {
+      "text": "So",
+      "start_time": 16.56,
+      "end_time": 16.56
+    },
+    {
+      "text": "let",
+      "start_time": 16.57,
+      "end_time": 16.84
+    },
+    {
+      "text": "'s",
+      "start_time": 16.84,
+      "end_time": 17.02
+    },
+    {
+      "text": "spend",
+      "start_time": 17.02,
+      "end_time": 17.49
+    },
+    {
+      "text": "some",
+      "start_time": 17.49,
+      "end_time": 17.56
+    },
+    {
+      "text": "time",
+      "start_time": 17.84,
+      "end_time": 18.23
+    },
+    {
+      "text": "together",
+      "start_time": 18.38,
+      "end_time": 18.98
+    },
+    {
+      "text": "in",
+      "start_time": 18.98,
+      "end_time": 19.16
+    },
+    {
+      "text": "meditation",
+      "start_time": 19.16,
+      "end_time": 19.98
+    },
+    {
+      "text": ".",
+      "start_time": 19.98,
+      "end_time": 20.19
+    }
+  ],
+  "summary": {
+    "total_duration_seconds": 20.44,
+    "word_count": 47,
+    "original_sentence_count": 6,
+    "merged_sentence_count": 1,
+    "detected_pauses": 4
+  }
+}

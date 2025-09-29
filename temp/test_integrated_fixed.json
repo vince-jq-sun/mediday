@@ -1,0 +1,324 @@
+{
+  "metadata": {
+    "source_json": "temp/awake_where_you_are_english/1-2_foundational_meditation_sample-1/transcripts/1-2_foundational_meditation_sample-1_segment_000.wav.json",
+    "source_srt": "temp/awake_where_you_are_english/1-2_foundational_meditation_sample-1/transcripts/1-2_foundational_meditation_sample-1_segment_000.srt",
+    "total_sentences": 2,
+    "total_words": 41,
+    "processing_timestamp": null,
+    "integration_method": {
+      "sentences_source": "srt_file",
+      "words_source": "json_tokens",
+      "description": "句子使用SRT文件（断句准确），单词使用JSON tokens（时间戳精确）"
+    }
+  },
+  "sentences": [
+    {
+      "text": "So let me ask you, what is awareness? What is awareness? I'm not expecting an answer to that question, but rather using it as an invitation to find out experientially.",
+      "start_time": 0.0,
+      "end_time": 17.58,
+      "start_timestamp": "00:00:00,000",
+      "end_timestamp": "00:00:17,580"
+    },
+    {
+      "text": "So let's spend some time together in meditation.",
+      "start_time": 17.58,
+      "end_time": 21.66,
+      "start_timestamp": "00:00:17,580",
+      "end_timestamp": "00:00:21,660"
+    }
+  ],
+  "words": [
+    {
+      "text": "so",
+      "start_time": 0.0,
+      "end_time": 0.37,
+      "start_timestamp": "00:00:00,000",
+      "end_timestamp": "00:00:00,370"
+    },
+    {
+      "text": "let",
+      "start_time": 0.76,
+      "end_time": 0.92,
+      "start_timestamp": "00:00:00,760",
+      "end_timestamp": "00:00:00,920"
+    },
+    {
+      "text": "me",
+      "start_time": 1.23,
+      "end_time": 1.29,
+      "start_timestamp": "00:00:01,230",
+      "end_timestamp": "00:00:01,290"
+    },
+    {
+      "text": "ask",
+      "start_time": 1.3900000000000001,
+      "end_time": 1.8399999999999999,
+      "start_timestamp": "00:00:01,390",
+      "end_timestamp": "00:00:01,840"
+    },
+    {
+      "text": "you",
+      "start_time": 1.8399999999999999,
+      "end_time": 2.35,
+      "start_timestamp": "00:00:01,840",
+      "end_timestamp": "00:00:02,350"
+    },
+    {
+      "text": "what",
+      "start_time": 3.21,
+      "end_time": 3.4699999999999998,
+      "start_timestamp": "00:00:03,210",
+      "end_timestamp": "00:00:03,470"
+    },
+    {
+      "text": "is",
+      "start_time": 3.63,
+      "end_time": 4.01,
+      "start_timestamp": "00:00:03,630",
+      "end_timestamp": "00:00:04,010"
+    },
+    {
+      "text": "awareness",
+      "start_time": 4.01,
+      "end_time": 4.8,
+      "start_timestamp": "00:00:04,010",
+      "end_timestamp": "00:00:04,800"
+    },
+    {
+      "text": "what",
+      "start_time": 4.8,
+      "end_time": 7.76,
+      "start_timestamp": "00:00:04,800",
+      "end_timestamp": "00:00:07,760"
+    },
+    {
+      "text": "is",
+      "start_time": 7.76,
+      "end_time": 8.04,
+      "start_timestamp": "00:00:07,760",
+      "end_timestamp": "00:00:08,040"
+    },
+    {
+      "text": "awareness",
+      "start_time": 8.04,
+      "end_time": 8.58,
+      "start_timestamp": "00:00:08,040",
+      "end_timestamp": "00:00:08,580"
+    },
+    {
+      "text": "i",
+      "start_time": 8.58,
+      "end_time": 8.89,
+      "start_timestamp": "00:00:08,580",
+      "end_timestamp": "00:00:08,890"
+    },
+    {
+      "text": "'m",
+      "start_time": 8.89,
+      "end_time": 8.89,
+      "start_timestamp": "00:00:08,890",
+      "end_timestamp": "00:00:08,890"
+    },
+    {
+      "text": "not",
+      "start_time": 9.14,
+      "end_time": 9.56,
+      "start_timestamp": "00:00:09,140",
+      "end_timestamp": "00:00:09,560"
+    },
+    {
+      "text": "expecting",
+      "start_time": 10.62,
+      "end_time": 10.77,
+      "start_timestamp": "00:00:10,620",
+      "end_timestamp": "00:00:10,770"
+    },
+    {
+      "text": "an",
+      "start_time": 10.77,
+      "end_time": 11.0,
+      "start_timestamp": "00:00:10,770",
+      "end_timestamp": "00:00:11,000"
+    },
+    {
+      "text": "answer",
+      "start_time": 11.17,
+      "end_time": 11.85,
+      "start_timestamp": "00:00:11,170",
+      "end_timestamp": "00:00:11,850"
+    },
+    {
+      "text": "to",
+      "start_time": 11.89,
+      "end_time": 12.08,
+      "start_timestamp": "00:00:11,890",
+      "end_timestamp": "00:00:12,080"
+    },
+    {
+      "text": "that",
+      "start_time": 12.08,
+      "end_time": 12.22,
+      "start_timestamp": "00:00:12,080",
+      "end_timestamp": "00:00:12,220"
+    },
+    {
+      "text": "question",
+      "start_time": 12.97,
+      "end_time": 12.97,
+      "start_timestamp": "00:00:12,970",
+      "end_timestamp": "00:00:12,970"
+    },
+    {
+      "text": "but",
+      "start_time": 13.06,
+      "end_time": 13.23,
+      "start_timestamp": "00:00:13,060",
+      "end_timestamp": "00:00:13,230"
+    },
+    {
+      "text": "rather",
+      "start_time": 13.58,
+      "end_time": 13.75,
+      "start_timestamp": "00:00:13,580",
+      "end_timestamp": "00:00:13,750"
+    },
+    {
+      "text": "using",
+      "start_time": 13.75,
+      "end_time": 14.18,
+      "start_timestamp": "00:00:13,750",
+      "end_timestamp": "00:00:14,180"
+    },
+    {
+      "text": "it",
+      "start_time": 14.18,
+      "end_time": 14.34,
+      "start_timestamp": "00:00:14,180",
+      "end_timestamp": "00:00:14,340"
+    },
+    {
+      "text": "as",
+      "start_time": 14.38,
+      "end_time": 14.41,
+      "start_timestamp": "00:00:14,380",
+      "end_timestamp": "00:00:14,410"
+    },
+    {
+      "text": "an",
+      "start_time": 14.53,
+      "end_time": 14.65,
+      "start_timestamp": "00:00:14,530",
+      "end_timestamp": "00:00:14,650"
+    },
+    {
+      "text": "invitation",
+      "start_time": 15.49,
+      "end_time": 15.56,
+      "start_timestamp": "00:00:15,490",
+      "end_timestamp": "00:00:15,560"
+    },
+    {
+      "text": "to",
+      "start_time": 15.56,
+      "end_time": 15.71,
+      "start_timestamp": "00:00:15,560",
+      "end_timestamp": "00:00:15,710"
+    },
+    {
+      "text": "find",
+      "start_time": 15.92,
+      "end_time": 16.07,
+      "start_timestamp": "00:00:15,920",
+      "end_timestamp": "00:00:16,070"
+    },
+    {
+      "text": "out",
+      "start_time": 16.07,
+      "end_time": 16.29,
+      "start_timestamp": "00:00:16,070",
+      "end_timestamp": "00:00:16,290"
+    },
+    {
+      "text": "experient",
+      "start_time": 16.59,
+      "end_time": 17.09,
+      "start_timestamp": "00:00:16,590",
+      "end_timestamp": "00:00:17,090"
+    },
+    {
+      "text": "ially",
+      "start_time": 17.09,
+      "end_time": 17.28,
+      "start_timestamp": "00:00:17,090",
+      "end_timestamp": "00:00:17,280"
+    },
+    {
+      "text": "so",
+      "start_time": 17.6,
+      "end_time": 17.8,
+      "start_timestamp": "00:00:17,600",
+      "end_timestamp": "00:00:17,800"
+    },
+    {
+      "text": "let",
+      "start_time": 17.8,
+      "end_time": 18.1,
+      "start_timestamp": "00:00:17,800",
+      "end_timestamp": "00:00:18,100"
+    },
+    {
+      "text": "'s",
+      "start_time": 18.3,
+      "end_time": 18.3,
+      "start_timestamp": "00:00:18,300",
+      "end_timestamp": "00:00:18,300"
+    },
+    {
+      "text": "spend",
+      "start_time": 18.8,
+      "end_time": 18.8,
+      "start_timestamp": "00:00:18,800",
+      "end_timestamp": "00:00:18,800"
+    },
+    {
+      "text": "some",
+      "start_time": 18.99,
+      "end_time": 19.2,
+      "start_timestamp": "00:00:18,990",
+      "end_timestamp": "00:00:19,200"
+    },
+    {
+      "text": "time",
+      "start_time": 19.2,
+      "end_time": 19.6,
+      "start_timestamp": "00:00:19,200",
+      "end_timestamp": "00:00:19,600"
+    },
+    {
+      "text": "together",
+      "start_time": 19.6,
+      "end_time": 19.97,
+      "start_timestamp": "00:00:19,600",
+      "end_timestamp": "00:00:19,970"
+    },
+    {
+      "text": "in",
+      "start_time": 20.37,
+      "end_time": 20.59,
+      "start_timestamp": "00:00:20,370",
+      "end_timestamp": "00:00:20,590"
+    },
+    {
+      "text": "meditation",
+      "start_time": 20.81,
+      "end_time": 21.62,
+      "start_timestamp": "00:00:20,810",
+      "end_timestamp": "00:00:21,620"
+    }
+  ],
+  "summary": {
+    "total_duration_seconds": 21.66,
+    "word_count": 41,
+    "sentence_count": 2
+  }
+}

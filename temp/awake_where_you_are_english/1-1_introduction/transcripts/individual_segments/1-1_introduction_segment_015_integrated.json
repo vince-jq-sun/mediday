@@ -1,0 +1,633 @@
+{
+  "metadata": {
+    "source_json": "/var/folders/yg/x826b3fj19v0c3kkfvwk143r0000gn/T/tmpxij9zewe/1-1_introduction_segment_015.json",
+    "source_srt": "/var/folders/yg/x826b3fj19v0c3kkfvwk143r0000gn/T/tmpxij9zewe/1-1_introduction_segment_015.srt",
+    "original_sentences_count": 11,
+    "total_words": 109,
+    "pause_threshold": 1.0,
+    "processing_timestamp": null,
+    "integration_method": {
+      "sentences_source": "srt_file_merged",
+      "words_source": "json_tokens",
+      "pause_detection": "word_level_timing",
+      "description": "所有SRT句子合并为一句，单词使用JSON tokens（时间戳精确），检测词间停顿"
+    }
+  },
+  "sentence": {
+    "text": "And then each module is completed with a reflection on practical ways to integrate that insight, ways to be awake where you are as you recognize and rest into these qualities in the familiarity of your everyday life. And this last part is really powerful and important because whatever depth you might touch in the refinement of meditation, when the sitting ends, when you uncross your legs or stand up from your chair, then what happens? If you only get used to the subtlety of experience within meditation, then you can't develop a very integrated practice.",
+    "start_time": 0.0,
+    "end_time": 45.56
+  },
+  "sentence_wt_pause": "And then each module is completed with a reflection on practical ways to integrate that insight, ways to be awake where you are as you recognize <1.08>  and rest into these qualities in the familiarity <1.11>  of your everyday life. And this last part is really powerful and important because whatever depth you might touch in the ref <1.02> inement of meditation, <1.22>  when the sitting ends, when you uncross your legs or stand up from your chair, then what happens? <1.28>  If you only get used to the subtlety of experience within meditation, <1.13>  then you can't develop a very integrated practice.",
+  "original_sentences": [
+    {
+      "text": "And then each module is completed with a reflection on",
+      "start_time": 0.0,
+      "end_time": 4.21
+    },
+    {
+      "text": "practical ways to integrate that insight, ways to be awake",
+      "start_time": 4.21,
+      "end_time": 9.22
+    },
+    {
+      "text": "where you are as you recognize and rest into these",
+      "start_time": 9.22,
+      "end_time": 12.75
+    },
+    {
+      "text": "qualities in the familiarity of your everyday life.",
+      "start_time": 12.75,
+      "end_time": 17.24
+    },
+    {
+      "text": "And this last part is really powerful and important because",
+      "start_time": 17.24,
+      "end_time": 22.35
+    },
+    {
+      "text": "whatever depth you might touch in the refinement of",
+      "start_time": 22.35,
+      "end_time": 26.63
+    },
+    {
+      "text": "meditation, when the sitting ends, when you uncross your",
+      "start_time": 26.63,
+      "end_time": 31.83
+    },
+    {
+      "text": "legs or stand up from your chair, then what happens?",
+      "start_time": 31.83,
+      "end_time": 36.56
+    },
+    {
+      "text": "If you only get used to the subtlety of experience within",
+      "start_time": 36.56,
+      "end_time": 40.54
+    },
+    {
+      "text": "meditation, then you can't develop a very integrated",
+      "start_time": 40.54,
+      "end_time": 44.45
+    },
+    {
+      "text": "practice.",
+      "start_time": 44.45,
+      "end_time": 45.56
+    }
+  ],
+  "words": [
+    {
+      "text": "And",
+      "start_time": 0.0,
+      "end_time": 0.28
+    },
+    {
+      "text": "then",
+      "start_time": 0.28,
+      "end_time": 0.65
+    },
+    {
+      "text": "each",
+      "start_time": 0.91,
+      "end_time": 1.02
+    },
+    {
+      "text": "module",
+      "start_time": 1.02,
+      "end_time": 1.29
+    },
+    {
+      "text": "is",
+      "start_time": 1.63,
+      "end_time": 1.77
+    },
+    {
+      "text": "completed",
+      "start_time": 1.77,
+      "end_time": 2.62
+    },
+    {
+      "text": "with",
+      "start_time": 2.62,
+      "end_time": 2.9699999999999998
+    },
+    {
+      "text": "a",
+      "start_time": 2.99,
+      "end_time": 3.07
+    },
+    {
+      "text": "reflection",
+      "start_time": 3.08,
+      "end_time": 4.02
+    },
+    {
+      "text": "on",
+      "start_time": 4.02,
+      "end_time": 4.21
+    },
+    {
+      "text": "practical",
+      "start_time": 4.21,
+      "end_time": 4.48
+    },
+    {
+      "text": "ways",
+      "start_time": 5.11,
+      "end_time": 5.42
+    },
+    {
+      "text": "to",
+      "start_time": 5.42,
+      "end_time": 5.62
+    },
+    {
+      "text": "integrate",
+      "start_time": 5.62,
+      "end_time": 6.39
+    },
+    {
+      "text": "that",
+      "start_time": 6.52,
+      "end_time": 6.79
+    },
+    {
+      "text": "insight",
+      "start_time": 6.85,
+      "end_time": 7.47
+    },
+    {
+      "text": ",",
+      "start_time": 7.59,
+      "end_time": 7.68
+    },
+    {
+      "text": "ways",
+      "start_time": 7.68,
+      "end_time": 8.03
+    },
+    {
+      "text": "to",
+      "start_time": 8.03,
+      "end_time": 8.18
+    },
+    {
+      "text": "be",
+      "start_time": 8.43,
+      "end_time": 8.43
+    },
+    {
+      "text": "awake",
+      "start_time": 8.43,
+      "end_time": 8.9
+    },
+    {
+      "text": "where",
+      "start_time": 9.22,
+      "end_time": 9.37
+    },
+    {
+      "text": "you",
+      "start_time": 9.37,
+      "end_time": 9.65
+    },
+    {
+      "text": "are",
+      "start_time": 9.65,
+      "end_time": 9.93
+    },
+    {
+      "text": "as",
+      "start_time": 9.93,
+      "end_time": 10.12
+    },
+    {
+      "text": "you",
+      "start_time": 10.12,
+      "end_time": 10.27
+    },
+    {
+      "text": "recognize",
+      "start_time": 10.45,
+      "end_time": 11.17
+    },
+    {
+      "text": "and",
+      "start_time": 11.53,
+      "end_time": 11.53
+    },
+    {
+      "text": "rest",
+      "start_time": 11.68,
+      "end_time": 11.9
+    },
+    {
+      "text": "into",
+      "start_time": 11.9,
+      "end_time": 12.26
+    },
+    {
+      "text": "these",
+      "start_time": 12.31,
+      "end_time": 12.73
+    },
+    {
+      "text": "qualities",
+      "start_time": 12.75,
+      "end_time": 13.59
+    },
+    {
+      "text": "in",
+      "start_time": 13.59,
+      "end_time": 13.7
+    },
+    {
+      "text": "the",
+      "start_time": 13.79,
+      "end_time": 14.01
+    },
+    {
+      "text": "familiarity",
+      "start_time": 14.13,
+      "end_time": 15.09
+    },
+    {
+      "text": "of",
+      "start_time": 15.24,
+      "end_time": 15.29
+    },
+    {
+      "text": "your",
+      "start_time": 15.29,
+      "end_time": 15.66
+    },
+    {
+      "text": "everyday",
+      "start_time": 15.66,
+      "end_time": 16.41
+    },
+    {
+      "text": "life",
+      "start_time": 16.41,
+      "end_time": 16.78
+    },
+    {
+      "text": ".",
+      "start_time": 16.78,
+      "end_time": 17.1
+    },
+    {
+      "text": "And",
+      "start_time": 17.24,
+      "end_time": 17.54
+    },
+    {
+      "text": "this",
+      "start_time": 17.54,
+      "end_time": 17.94
+    },
+    {
+      "text": "last",
+      "start_time": 18.15,
+      "end_time": 18.34
+    },
+    {
+      "text": "part",
+      "start_time": 18.34,
+      "end_time": 18.53
+    },
+    {
+      "text": "is",
+      "start_time": 18.87,
+      "end_time": 18.94
+    },
+    {
+      "text": "really",
+      "start_time": 18.94,
+      "end_time": 19.55
+    },
+    {
+      "text": "powerful",
+      "start_time": 19.55,
+      "end_time": 20.36
+    },
+    {
+      "text": "and",
+      "start_time": 20.36,
+      "end_time": 20.66
+    },
+    {
+      "text": "important",
+      "start_time": 20.66,
+      "end_time": 21.57
+    },
+    {
+      "text": "because",
+      "start_time": 21.57,
+      "end_time": 21.72
+    },
+    {
+      "text": "whatever",
+      "start_time": 22.35,
+      "end_time": 23.07
+    },
+    {
+      "text": "depth",
+      "start_time": 23.12,
+      "end_time": 23.58
+    },
+    {
+      "text": "you",
+      "start_time": 23.6,
+      "end_time": 23.9
+    },
+    {
+      "text": "might",
+      "start_time": 23.9,
+      "end_time": 24.41
+    },
+    {
+      "text": "touch",
+      "start_time": 24.41,
+      "end_time": 24.92
+    },
+    {
+      "text": "in",
+      "start_time": 24.92,
+      "end_time": 25.11
+    },
+    {
+      "text": "the",
+      "start_time": 25.11,
+      "end_time": 25.41
+    },
+    {
+      "text": "ref",
+      "start_time": 25.41,
+      "end_time": 25.44
+    },
+    {
+      "text": "inement",
+      "start_time": 26.43,
+      "end_time": 26.43
+    },
+    {
+      "text": "of",
+      "start_time": 26.46,
+      "end_time": 26.63
+    },
+    {
+      "text": "meditation",
+      "start_time": 26.63,
+      "end_time": 27.51
+    },
+    {
+      "text": ",",
+      "start_time": 27.69,
+      "end_time": 27.85
+    },
+    {
+      "text": "when",
+      "start_time": 27.85,
+      "end_time": 28.24
+    },
+    {
+      "text": "the",
+      "start_time": 28.24,
+      "end_time": 28.42
+    },
+    {
+      "text": "sitting",
+      "start_time": 28.92,
+      "end_time": 29.26
+    },
+    {
+      "text": "ends",
+      "start_time": 29.26,
+      "end_time": 29.66
+    },
+    {
+      "text": ",",
+      "start_time": 29.66,
+      "end_time": 29.86
+    },
+    {
+      "text": "when",
+      "start_time": 29.86,
+      "end_time": 30.26
+    },
+    {
+      "text": "you",
+      "start_time": 30.26,
+      "end_time": 30.56
+    },
+    {
+      "text": "unc",
+      "start_time": 30.56,
+      "end_time": 30.86
+    },
+    {
+      "text": "ross",
+      "start_time": 30.86,
+      "end_time": 31.24
+    },
+    {
+      "text": "your",
+      "start_time": 31.31,
+      "end_time": 31.6
+    },
+    {
+      "text": "legs",
+      "start_time": 31.83,
+      "end_time": 32.06
+    },
+    {
+      "text": "or",
+      "start_time": 32.06,
+      "end_time": 32.26
+    },
+    {
+      "text": "stand",
+      "start_time": 32.26,
+      "end_time": 32.77
+    },
+    {
+      "text": "up",
+      "start_time": 32.77,
+      "end_time": 32.97
+    },
+    {
+      "text": "from",
+      "start_time": 32.97,
+      "end_time": 33.36
+    },
+    {
+      "text": "your",
+      "start_time": 33.37,
+      "end_time": 33.77
+    },
+    {
+      "text": "chair",
+      "start_time": 33.77,
+      "end_time": 34.28
+    },
+    {
+      "text": ",",
+      "start_time": 34.28,
+      "end_time": 34.35
+    },
+    {
+      "text": "then",
+      "start_time": 34.35,
+      "end_time": 34.54
+    },
+    {
+      "text": "what",
+      "start_time": 34.8,
+      "end_time": 35.28
+    },
+    {
+      "text": "happens",
+      "start_time": 35.28,
+      "end_time": 35.99
+    },
+    {
+      "text": "?",
+      "start_time": 36.13,
+      "end_time": 36.56
+    },
+    {
+      "text": "If",
+      "start_time": 36.56,
+      "end_time": 36.73
+    },
+    {
+      "text": "you",
+      "start_time": 36.73,
+      "end_time": 36.98
+    },
+    {
+      "text": "only",
+      "start_time": 36.98,
+      "end_time": 37.32
+    },
+    {
+      "text": "get",
+      "start_time": 37.47,
+      "end_time": 37.57
+    },
+    {
+      "text": "used",
+      "start_time": 37.57,
+      "end_time": 37.84
+    },
+    {
+      "text": "to",
+      "start_time": 38.08,
+      "end_time": 38.08
+    },
+    {
+      "text": "the",
+      "start_time": 38.19,
+      "end_time": 38.33
+    },
+    {
+      "text": "subt",
+      "start_time": 38.34,
+      "end_time": 38.67
+    },
+    {
+      "text": "l",
+      "start_time": 38.67,
+      "end_time": 38.75
+    },
+    {
+      "text": "ety",
+      "start_time": 38.75,
+      "end_time": 39.0
+    },
+    {
+      "text": "of",
+      "start_time": 39.0,
+      "end_time": 39.17
+    },
+    {
+      "text": "experience",
+      "start_time": 39.17,
+      "end_time": 39.98
+    },
+    {
+      "text": "within",
+      "start_time": 40.16,
+      "end_time": 40.54
+    },
+    {
+      "text": "meditation",
+      "start_time": 40.54,
+      "end_time": 41.03
+    },
+    {
+      "text": ",",
+      "start_time": 41.57,
+      "end_time": 41.57
+    },
+    {
+      "text": "then",
+      "start_time": 41.67,
+      "end_time": 41.91
+    },
+    {
+      "text": "you",
+      "start_time": 41.91,
+      "end_time": 42.12
+    },
+    {
+      "text": "can",
+      "start_time": 42.17,
+      "end_time": 42.39
+    },
+    {
+      "text": "'t",
+      "start_time": 42.45,
+      "end_time": 42.58
+    },
+    {
+      "text": "develop",
+      "start_time": 42.58,
+      "end_time": 43.18
+    },
+    {
+      "text": "a",
+      "start_time": 43.18,
+      "end_time": 43.26
+    },
+    {
+      "text": "very",
+      "start_time": 43.26,
+      "end_time": 43.6
+    },
+    {
+      "text": "integrated",
+      "start_time": 43.6,
+      "end_time": 44.45
+    },
+    {
+      "text": "practice",
+      "start_time": 44.45,
+      "end_time": 44.74
+    },
+    {
+      "text": ".",
+      "start_time": 45.1,
+      "end_time": 45.56
+    }
+  ],
+  "summary": {
+    "total_duration_seconds": 45.56,
+    "word_count": 109,
+    "original_sentence_count": 11,
+    "merged_sentence_count": 1,
+    "detected_pauses": 6
+  }
+}

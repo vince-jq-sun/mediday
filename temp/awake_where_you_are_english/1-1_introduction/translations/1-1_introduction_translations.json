@@ -1,0 +1,369 @@
+{
+  "original_file": "temp/single_file/1-1_introduction.mp3",
+  "total_segments": 18,
+  "translation_provider": "enhanced_openai_gpt",
+  "translation_model": "gpt-4.1-mini",
+  "segments": [
+    {
+      "segment_id": 0,
+      "start_time": 0.0,
+      "end_time": 35.42,
+      "duration": 35.42,
+      "file_path": "temp/awake_where_you_are_english/1-1_introduction/segments/1-1_introduction_segment_000.wav",
+      "original_text": "Hello, I'm Martin Aylward, and I'm very happy to introduce you to this program, <1.38>  Awake Where You Are, which is really on the one hand about further developing and deepening your meditation practice, and on the other hand, really about integrating what we taste in meditation, and that means for this course particularly, a certain depth of the different <1.31>  dimensions of awareness, <1.23>  and their important qualities, transformational qualities.",
+      "translated_text": "大家好，我是马丁·艾尔沃德，很高兴为大家介绍这个课程，<1.38> 《安住当下》。这个课程一方面致力于进一步发展和深化你的冥想修行，另一方面则着重于将我们在冥想中体会到的内容融入日常生活。特别是在本课程中，我们将深入探讨觉知的不同维度<1.31>，以及它们的重要品质——那些具有转化力量的品质。<1.23>",
+      "translation_metadata": {
+        "confidence": 0.95,
+        "provider": "enhanced_openai_gpt",
+        "model": "gpt-4.1-mini",
+        "context_used": true,
+        "terminology_applied": true,
+        "tokens_used": 1194,
+        "prompt_tokens": 1080,
+        "completion_tokens": 114,
+        "error": ""
+      }
+    },
+    {
+      "segment_id": 1,
+      "start_time": 35.42,
+      "end_time": 66.055,
+      "duration": 30.635000000000005,
+      "file_path": "temp/awake_where_you_are_english/1-1_introduction/segments/1-1_introduction_segment_001.wav",
+      "original_text": "integrating those qualities, bringing the insight from those meditations into our daily lives. And there'll be various ways for each module, for each dimension of awareness that we explore <1.16>  together. There'll be a kind of unique part to the course where we really look at ways to reflect on and contemplate and open up those nuances, those dimensions of awareness in the midst of the life you're living.",
+      "translated_text": "将这些品质融入生活，将冥想中获得的觉知洞见带入我们的日常。每个模块、每个我们共同探索的觉知维度都会有多种方法。课程中会有一个独特的部分，我们将深入探讨如何在你所生活的当下，反思、观照并开启那些细微差别和觉知维度。",
+      "translation_metadata": {
+        "confidence": 0.95,
+        "provider": "enhanced_openai_gpt",
+        "model": "gpt-4.1-mini",
+        "context_used": true,
+        "terminology_applied": true,
+        "tokens_used": 1387,
+        "prompt_tokens": 1301,
+        "completion_tokens": 86,
+        "error": ""
+      }
+    },
+    {
+      "segment_id": 2,
+      "start_time": 66.055,
+      "end_time": 98.03999999999999,
+      "duration": 31.984999999999985,
+      "file_path": "temp/awake_where_you_are_english/1-1_introduction/segments/1-1_introduction_segment_002.wav",
+      "original_text": "And so that's what makes for the two key components to this program, the two key takeaways for your practice. That first one, really about opening up a direct depth of experience of these different dimensions of awareness and of their associated transformational insights. And there'll be many direct pointers to bringing those qualities alive in your practice. <1.17>  And then the second, bringing those insights into your life , enlivening your practice off the cushion.",
+      "translated_text": "这就是构成本课程两个关键组成部分的原因，也是你修行中两个主要的收获。第一个，真正是关于开启对这些不同觉知维度及其相关转化洞见的直接深刻体验。课程中会有许多具体的指引，帮助你在修行中活化这些品质。<1.17> 第二个，则是将这些洞见带入你的生活，让你的修行在垫子之外焕发生机。",
+      "translation_metadata": {
+        "confidence": 0.95,
+        "provider": "enhanced_openai_gpt",
+        "model": "gpt-4.1-mini",
+        "context_used": true,
+        "terminology_applied": true,
+        "tokens_used": 1408,
+        "prompt_tokens": 1303,
+        "completion_tokens": 105,
+        "error": ""
+      }
+    },
+    {
+      "segment_id": 3,
+      "start_time": 98.03999999999999,
+      "end_time": 139.575,
+      "duration": 41.535,
+      "file_path": "temp/awake_where_you_are_english/1-1_introduction/segments/1-1_introduction_segment_003.wav",
+      "original_text": "Yeah. So I'd like to use this introduction to tell you more about the program and particularly to point to a couple of inherent qualities of awareness that really light up this program. <1.08>  And maybe before that, just a little about my own background. I spent the first few years of my practice back in the early 90s in Asian monasteries and with Himalayan hermits. I was mostly practicing and training in the Thai forest tradition, but I also did quite a lot of cross-training, you could say, in various Tibetan practices, Mahamudra and Dzogchen, and then also some of the Hindu-Sivite practices.",
+      "translated_text": "好的。我想借此介绍，向你们详细讲述这个课程，特别是指出觉知的几个内在特质，这些特质真正点亮了整个课程。<1.08> 也许在此之前，我先简单介绍一下我自己的背景。我在九十年代初修行的最初几年，大多是在亚洲的寺院和喜马拉雅的隐士那里度过的。我主要修习和训练的是泰国森林传统，但也可以说，我进行了相当多的跨修炼，涉猎了各种藏传佛教的修持，包括大手印和宁玛派的大圆满法，还有一些印度湿婆教的修行方法。",
+      "translation_metadata": {
+        "confidence": 0.95,
+        "provider": "enhanced_openai_gpt",
+        "model": "gpt-4.1-mini",
+        "context_used": true,
+        "terminology_applied": true,
+        "tokens_used": 1561,
+        "prompt_tokens": 1412,
+        "completion_tokens": 149,
+        "error": ""
+      }
+    },
+    {
+      "segment_id": 4,
+      "start_time": 139.575,
+      "end_time": 189.435,
+      "duration": 49.860000000000014,
+      "file_path": "temp/awake_where_you_are_english/1-1_introduction/segments/1-1_introduction_segment_004.wav",
+      "original_text": "I've been leading meditation retreats and teaching these practices for the last 25 years, both around the world and most especially in southwest France in the retreat center I founded here called Moulin de Chave, which is where I live. I've written a book which is also called Awake Where You Are, and that goes into these practices in a lot of depth and detail. And I also run a year-long training in mindfulness <1.26>  teaching with another Waking Up contributor, <1.04>  Mark Coleman, and have an online platform <1.06>  for live and interactive meditation teachings <1.06>  and practices called Sangha Live. Anyway, you can find all that stuff and other links to my various <1.14>  teaching activities, both online and in person, at my website martinalewood.com.",
+      "translated_text": "{在过去的25年里，我一直在全球各地，尤其是在法国西南部我创办的禅修中心Moulin de Chave——也是我居住的地方，带领冥想闭关和教授这些修行方法。我写过一本书，书名也叫《醒来于此地》，书中对这些修行做了深入而详尽的阐述。我还与另一位《醒来》项目的贡献者马克·科尔曼共同主持一年的正念教学培训，并运营一个名为Sangha Live的在线平台，提供实时互动的冥想教学和修行。不管怎样，你可以在我的网站martinalewood.com上找到所有这些内容，以及我线上线下各种教学活动的链接。}<...>",
+      "translation_metadata": {
+        "confidence": 0.95,
+        "provider": "enhanced_openai_gpt",
+        "model": "gpt-4.1-mini",
+        "context_used": true,
+        "terminology_applied": true,
+        "tokens_used": 1646,
+        "prompt_tokens": 1476,
+        "completion_tokens": 170,
+        "error": ""
+      }
+    },
+    {
+      "segment_id": 5,
+      "start_time": 189.435,
+      "end_time": 227.97,
+      "duration": 38.535,
+      "file_path": "temp/awake_where_you_are_english/1-1_introduction/segments/1-1_introduction_segment_005.wav",
+      "original_text": "So I'm particularly excited about offering the program that I've put together here because throughout the 35 years of my own practice, there's really one crucial thing about the mysterious nature of awareness that's always really stood out for me as foundational <1.01>  in meditation. <1.31>  And that is that basically awareness is innate. It's sort of automatic. <1.25>  It's always available. <1.25>  It's already here. You know, right now you're awake. You don't need to do anything to be awake.",
+      "translated_text": "所以我特别高兴能提供我在这里整理的这个课程，因为在我自己35年的修行过程中，有一件关于觉知神秘本质的关键事情始终让我觉得它是冥想的根基所在<1.01>。那就是，觉知本质上是与生俱来的。它有点像自动运行的机制<1.25>，它始终可用<1.25>，它已经存在于此刻。你知道，现在你是清醒的，你不需要做任何事情来保持清醒。",
+      "translation_metadata": {
+        "confidence": 0.95,
+        "provider": "enhanced_openai_gpt",
+        "model": "gpt-4.1-mini",
+        "context_used": true,
+        "terminology_applied": true,
+        "tokens_used": 1610,
+        "prompt_tokens": 1488,
+        "completion_tokens": 122,
+        "error": ""
+      }
+    },
+    {
+      "segment_id": 6,
+      "start_time": 227.97,
+      "end_time": 266.035,
+      "duration": 38.065000000000026,
+      "file_path": "temp/awake_where_you_are_english/1-1_introduction/segments/1-1_introduction_segment_006.wav",
+      "original_text": "Every experience you have is the proof that you're awake, like just hearing my voice right now. Oh, how can you hear what I'm saying? <1.21>  How can you make sense of what I'm saying? How can you feel the way your body is right now? Because awareness is lighting up your experience, <1.70>  right? And so, in terms of meditation, the crucial point there is, you never have to go looking for awareness. <2.01>  It's here. And also, you don't make awareness happen. <1.01>  It's natural.",
+      "translated_text": "你所经历的每一刻都是你清醒的证明，就像你现在能听到我的声音一样。哦，你怎么能听懂我说的话呢？<1.21> 你怎么能理解我说的意思？你怎么能感受到此刻身体的状态呢？因为觉知正在照亮你的体验，<1.70> 对吧？所以，在冥想中，关键的一点是，你永远不需要去寻找觉知。<2.01> 它就在这里。而且，你也不是让觉知发生。<1.01> 它是自然而然的。",
+      "translation_metadata": {
+        "confidence": 0.95,
+        "provider": "enhanced_openai_gpt",
+        "model": "gpt-4.1-mini",
+        "context_used": true,
+        "terminology_applied": true,
+        "tokens_used": 1506,
+        "prompt_tokens": 1372,
+        "completion_tokens": 134,
+        "error": ""
+      }
+    },
+    {
+      "segment_id": 7,
+      "start_time": 266.035,
+      "end_time": 296.78499999999997,
+      "duration": 30.749999999999943,
+      "file_path": "temp/awake_where_you_are_english/1-1_introduction/segments/1-1_introduction_segment_007.wav",
+      "original_text": "I remember being on retreat in India sometime in the early 90s, and the teacher firstly pointing to the ever-changing nature of our experience, <1.55>  reminding us that everything is changing. <1.03>  Your thoughts <1.01>  are changing. <1.01>  Sounds are changing. Sensations are changing. <1.13>  Everything is constantly changing. And then the teacher asked, so what is not changing? <2.12>  Thank you.",
+      "translated_text": "我记得九十年代初在印度参加闭关时，老师首先指出我们体验的无常本质，<1.55> 提醒我们一切都在变化。<1.03> 你的念头<1.01> 在变化。<1.01> 声音在变化。感受也在变化。<1.13> 一切都在不断变化。然后老师问道，那什么是不变的呢？<2.12> 谢谢。",
+      "translation_metadata": {
+        "confidence": 0.95,
+        "provider": "enhanced_openai_gpt",
+        "model": "gpt-4.1-mini",
+        "context_used": true,
+        "terminology_applied": true,
+        "tokens_used": 1483,
+        "prompt_tokens": 1376,
+        "completion_tokens": 107,
+        "error": ""
+      }
+    },
+    {
+      "segment_id": 8,
+      "start_time": 296.78499999999997,
+      "end_time": 330.33000000000004,
+      "duration": 33.54500000000007,
+      "file_path": "temp/awake_where_you_are_english/1-1_introduction/segments/1-1_introduction_segment_008.wav",
+      "original_text": "And in hearing that question, amidst the momentary confusion, <1.10>  well, so everything's changing. So what is not changing? <1.22>  It was suddenly incredibly clear to me, oh, it's the awareness <1.22>  in which all this change is happening. <1.34>  That's not changing. <4.47>  Awareness is incredibly, <2.54>  completely, reliably, <1.22>  constantly available.",
+      "translated_text": "当听到那个问题时，在片刻的迷惑中，<1.10> “一切都在变化，那什么是不变的呢？”<1.22> 突然间，我非常清楚地明白了，哦，原来是不变的觉知<1.22>，正是在这觉知中所有变化才得以发生。<1.34> 觉知本身是不变的。<4.47> 觉知是极其、<2.54> 完全、可靠且<1.22> 持续可用的。",
+      "translation_metadata": {
+        "confidence": 0.95,
+        "provider": "enhanced_openai_gpt",
+        "model": "gpt-4.1-mini",
+        "context_used": true,
+        "terminology_applied": true,
+        "tokens_used": 1489,
+        "prompt_tokens": 1360,
+        "completion_tokens": 129,
+        "error": ""
+      }
+    },
+    {
+      "segment_id": 9,
+      "start_time": 330.33000000000004,
+      "end_time": 374.48,
+      "duration": 44.14999999999998,
+      "file_path": "temp/awake_where_you_are_english/1-1_introduction/segments/1-1_introduction_segment_009.wav",
+      "original_text": "constantly illuminating our experience. And our subjective experience may not suggest that. We say to ourselves, okay, well, maybe now I'm aware. Yes, I hear you and I'm noticing awareness. <1.15>  I'm connected to my immediate felt experience right now. But for the last while, for the last 10 minutes, I wasn't. I was gone. I was lost in thought, distracted. <2.07>  So even though our experience of awareness seems to come and go, most fundamentally, and we'll explore this and really taste it and start to live in it during the program, <1.66>  awareness itself doesn't come and go.",
+      "translated_text": "觉知不断地照亮着我们的体验。而我们的主观体验可能并不总是如此。我们对自己说，好吧，也许现在我正觉知着。是的，我听见了，也注意到了觉知。<1.15> 我此刻与自己直接的感受体验相连接。但在过去的一段时间里，在过去的十分钟里，我并没有觉知。我走神了，迷失在念头中，分心了。<2.07> 所以，尽管我们对觉知的体验似乎时有时无，但从最根本的层面上来说——我们将在这个课程中深入探索、细细体味，并开始活出这一点——觉知本身是不会来来去去的。<1.66>",
+      "translation_metadata": {
+        "confidence": 0.95,
+        "provider": "enhanced_openai_gpt",
+        "model": "gpt-4.1-mini",
+        "context_used": true,
+        "terminology_applied": true,
+        "tokens_used": 1559,
+        "prompt_tokens": 1390,
+        "completion_tokens": 169,
+        "error": ""
+      }
+    },
+    {
+      "segment_id": 10,
+      "start_time": 374.48,
+      "end_time": 408.315,
+      "duration": 33.83499999999998,
+      "file_path": "temp/awake_where_you_are_english/1-1_introduction/segments/1-1_introduction_segment_010.wav",
+      "original_text": "always <1.13>  here, already <1.36>  available. Right? So, I mean, it's impossible, isn't it, in any given moment to say, I'm not aware. See for yourself. <1.25>  Right? Can you say you're not aware? No. Because if you can hear yourself saying those words, and if there's enough clarity and presence just to hear yourself saying anything at all, let alone something about your conscious experience, <1.09>  then that experience has to be happening in awareness.",
+      "translated_text": "觉知总是<1.13>存在于此，早已<1.36>唾手可得。对吧？换句话说，在任何特定的时刻，说“我没有觉知”是不可能的。自己试试看。<1.25>对吧？你能说你没有觉知吗？不能。因为如果你能听见自己说出这些话，且有足够的清明与安住当下的觉知去听见自己说任何话，更别说是关于你有意识体验的话语，<1.09>那么这段体验必然正在觉知中发生。",
+      "translation_metadata": {
+        "confidence": 0.95,
+        "provider": "enhanced_openai_gpt",
+        "model": "gpt-4.1-mini",
+        "context_used": true,
+        "terminology_applied": true,
+        "tokens_used": 1567,
+        "prompt_tokens": 1429,
+        "completion_tokens": 138,
+        "error": ""
+      }
+    },
+    {
+      "segment_id": 11,
+      "start_time": 408.315,
+      "end_time": 441.485,
+      "duration": 33.170000000000016,
+      "file_path": "temp/awake_where_you_are_english/1-1_introduction/segments/1-1_introduction_segment_011.wav",
+      "original_text": "So that's the good news for this course. <1.08>  You don't need to create awareness. <1.08>  And whatever we're exploring, and we'll move through the program from more accessible and obvious dimensions of awareness <1.00>  into more subtle and nuanced qualities. The fundamental brightness <1.27>  of awareness. <1.58>  The fundamental awakeness and right-hearness of awareness. <1.73>  is never out of reach.",
+      "translated_text": "这就是本课程的好消息。<1.08>你无需去创造觉知。<1.08>无论我们探索什么，我们都会从觉知中更容易接近、更明显的层面开始，<1.00>逐渐进入更微妙、更细腻的品质。觉知那根本的明亮<1.27>，<1.58>觉知那根本的醒觉与正当此地的状态，<1.73>永远触手可及。",
+      "translation_metadata": {
+        "confidence": 0.95,
+        "provider": "enhanced_openai_gpt",
+        "model": "gpt-4.1-mini",
+        "context_used": true,
+        "terminology_applied": true,
+        "tokens_used": 1445,
+        "prompt_tokens": 1331,
+        "completion_tokens": 114,
+        "error": ""
+      }
+    },
+    {
+      "segment_id": 12,
+      "start_time": 441.485,
+      "end_time": 469.25,
+      "duration": 27.764999999999986,
+      "file_path": "temp/awake_where_you_are_english/1-1_introduction/segments/1-1_introduction_segment_012.wav",
+      "original_text": "It might appear far away in the complexity and abstraction of our thinking about it. But as you'll see, I'll keep reminding you to keep coming back to something very immediate and non-abstract. The <1.00>  sense, the recognition that you're here. You're awake. <1.04>  Your direct experience is immediately accessible.",
+      "translated_text": "它可能在我们对它的复杂和抽象思考中显得遥远。<1.00>但正如你将看到的，我会不断提醒你回到某种非常直接且非抽象的东西上。那就是<1.00>你身处此地的感觉，那种觉知。你醒来了。<1.04>你的直接体验是立刻可及的。",
+      "translation_metadata": {
+        "confidence": 0.95,
+        "provider": "enhanced_openai_gpt",
+        "model": "gpt-4.1-mini",
+        "context_used": true,
+        "terminology_applied": true,
+        "tokens_used": 1386,
+        "prompt_tokens": 1296,
+        "completion_tokens": 90,
+        "error": ""
+      }
+    },
+    {
+      "segment_id": 13,
+      "start_time": 469.25,
+      "end_time": 502.355,
+      "duration": 33.10500000000002,
+      "file_path": "temp/awake_where_you_are_english/1-1_introduction/segments/1-1_introduction_segment_013.wav",
+      "original_text": "And so that's really the heart and the ground of all our practice together. <1.04>  The fact that we're here and awake. <1.04>  And with that as the ground, well, let's see what we can explore together. <1.10>  Let's see how much we can really enter into the immediacy of awareness, <1.10>  its depth and dimensionality, <1.53>  into the fundamental mystery that we're here at all.",
+      "translated_text": "这正是我们所有修行的核心与根基。<1.04>我们身处此地，醒着。<1.04>以此为根基，<1.10>让我们一同探索。<1.10>看看我们究竟能多深地进入觉知的当下，<1.53>它的深度与多维性，<1.53>以及我们为何会存在于此的根本奥秘。",
+      "translation_metadata": {
+        "confidence": 0.95,
+        "provider": "enhanced_openai_gpt",
+        "model": "gpt-4.1-mini",
+        "context_used": true,
+        "terminology_applied": true,
+        "tokens_used": 1411,
+        "prompt_tokens": 1308,
+        "completion_tokens": 103,
+        "error": ""
+      }
+    },
+    {
+      "segment_id": 14,
+      "start_time": 502.355,
+      "end_time": 549.385,
+      "duration": 47.02999999999997,
+      "file_path": "temp/awake_where_you_are_english/1-1_introduction/segments/1-1_introduction_segment_014.wav",
+      "original_text": "As we go through the program, each dimension <1.05>  of awareness that we explore, and so each chapter of the course, will have three parts. The first is an orientation. I'll introduce a theme of awareness, explore and explain its qualities, and its implications for transforming your experience and your understanding. <3.08>  Then, there's a guided meditation for each quality, <1.12>  leading you into and through that particular dimension of awareness , experientially. The meditations can be practiced as they are, or the time can be extended if you like. They can be done sequentially, or repeated as many times as you like.",
+      "translated_text": "在我们进行这个课程时，每一个我们探索的觉知维度，<1.05> 也就是课程的每一章，都会包含三个部分。第一部分是引导介绍。我会介绍一个觉知的主题，探讨并解释它的特质，以及它对转化你的体验和理解所带来的意义。<3.08> 其次，每个主题都会配有一个引导冥想，<1.12> 带领你亲身体验并深入那个特定的觉知维度。这些冥想可以按原计划练习，也可以根据你的喜好延长时间。你可以顺序进行，也可以反复练习多次。",
+      "translation_metadata": {
+        "confidence": 0.95,
+        "provider": "enhanced_openai_gpt",
+        "model": "gpt-4.1-mini",
+        "context_used": true,
+        "terminology_applied": true,
+        "tokens_used": 1546,
+        "prompt_tokens": 1395,
+        "completion_tokens": 151,
+        "error": ""
+      }
+    },
+    {
+      "segment_id": 15,
+      "start_time": 549.385,
+      "end_time": 596.385,
+      "duration": 47.0,
+      "file_path": "temp/awake_where_you_are_english/1-1_introduction/segments/1-1_introduction_segment_015.wav",
+      "original_text": "And then each module is completed with a reflection on practical ways to integrate that insight, ways to be awake where you are as you recognize <1.08>  and rest into these qualities in the familiarity <1.11>  of your everyday life. And this last part is really powerful and important because whatever depth you might touch in the ref <1.02> inement of meditation, <1.22>  when the sitting ends, when you uncross your legs or stand up from your chair, then what happens? <1.28>  If you only get used to the subtlety of experience within meditation, <1.13>  then you can't develop a very integrated practice.",
+      "translated_text": "每个模块的最后都会有一个反思环节，探讨如何将这些觉知的洞见切实融入生活，如何在你所处的环境中保持觉醒，<1.08> 并在日常生活的熟悉感中<1.11> 识别并安住于这些特质。这最后一部分非常有力且重要，因为无论你在冥想的精进中触及多深的层次，<1.22> 当坐禅结束，解开双腿或从椅子上站起时，接下来会发生什么？<1.28> 如果你仅仅习惯于在冥想中体验细微的感受，<1.13> 那么你就无法发展出一个真正身心合一的修行。",
+      "translation_metadata": {
+        "confidence": 0.95,
+        "provider": "enhanced_openai_gpt",
+        "model": "gpt-4.1-mini",
+        "context_used": true,
+        "terminology_applied": true,
+        "tokens_used": 1681,
+        "prompt_tokens": 1501,
+        "completion_tokens": 180,
+        "error": ""
+      }
+    },
+    {
+      "segment_id": 16,
+      "start_time": 596.385,
+      "end_time": 652.295,
+      "duration": 55.90999999999997,
+      "file_path": "temp/awake_where_you_are_english/1-1_introduction/segments/1-1_introduction_segment_016.wav",
+      "original_text": "And actually, there are many, many ways within your everyday roles and responsibilities and <1.23>  relationships to wake up to different facets of being here, of being awake, being aware. <3.33>  Finally, then, before we get into the chapters of the course, I want to first offer you a kind of foundational <1.25>  meditation <1.42>  practice, one where we explore together <1.25>  exactly what is awareness. <1.30>  And so that'll be the next file after this introduction. <1.58>  All right. I'm glad you're here. <1.15>  I'm very happy to be offering this program and I look forward to us. Navigating the mysteries of awareness together.",
+      "translated_text": "实际上，在你日常的角色、责任以及<1.23>人际关系中，有许多方式可以唤醒你对身处此地、觉醒和觉知不同层面的体验。<3.33>最后，在我们进入课程章节之前，我想先为你提供一种基础的<1.25>冥想<1.42>练习，带领我们共同探究<1.25>觉知究竟是什么。<1.30>这将是继本介绍之后的下一个内容。<1.58>好了，很高兴你在这里。<1.15>我非常开心能提供这个课程，也期待我们一起探索觉知的奥秘。",
+      "translation_metadata": {
+        "confidence": 0.95,
+        "provider": "enhanced_openai_gpt",
+        "model": "gpt-4.1-mini",
+        "context_used": true,
+        "terminology_applied": true,
+        "tokens_used": 1548,
+        "prompt_tokens": 1395,
+        "completion_tokens": 153,
+        "error": ""
+      }
+    },
+    {
+      "segment_id": 17,
+      "start_time": 652.295,
+      "end_time": 657.5891156462585,
+      "duration": 5.294115646258547,
+      "file_path": "temp/awake_where_you_are_english/1-1_introduction/segments/1-1_introduction_segment_017.wav",
+      "original_text": "you",
+      "translated_text": "你",
+      "translation_metadata": {
+        "confidence": 0.95,
+        "provider": "enhanced_openai_gpt",
+        "model": "gpt-4.1-mini",
+        "context_used": true,
+        "terminology_applied": true,
+        "tokens_used": 1219,
+        "prompt_tokens": 1216,
+        "completion_tokens": 3,
+        "error": ""
+      }
+    }
+  ],
+  "total_tokens_used": 26646
+}

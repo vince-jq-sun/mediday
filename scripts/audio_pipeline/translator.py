@@ -204,8 +204,10 @@ class Translator:
         for segment in transcription_data['segments']:
             print(f"Translating segment {segment['segment_id'] + 1}/{transcription_data['total_segments']}")
             
-            transcription = segment['transcription']
-            english_text = transcription.get('full_transcript', '')
+            transcription = segment.get('transcription', {})
+            if not transcription:
+                continue
+            english_text = transcription.get('full_transcript', '') or ''
             
             if english_text:
                 translation_result = self.translate_text(english_text)
@@ -225,9 +227,15 @@ class Translator:
                 'end_time': segment['end_time'],
                 'duration': segment['duration'],
                 'file_path': segment['file_path'],
-                'english_text': english_text,
-                'chinese_text': translation_result['translated_text'],
-                'translation_metadata': translation_result
+                'original_text': english_text,
+                'translated_text': translation_result['translated_text'],
+                'translation_metadata': {
+                    'confidence': translation_result.get('confidence', 0.0),
+                    'provider': translation_result.get('provider', ''),
+                    'model': translation_result.get('model', ''),
+                    'error': translation_result.get('error', ''),
+                    'use_terminology': translation_result.get('use_terminology', False)
+                }
             }
             results['segments'].append(segment_result)
         
@@ -270,9 +278,17 @@ class Translator:
         for i, segment in enumerate(transcription_data['segments']):
             print(f"Enhanced GPT translating segment {i + 1}/{transcription_data['total_segments']}")
             
-            transcription = segment['transcription']
-            english_text = transcription.get('full_transcript', '')
-            
+            transcription = segment.get('transcription', {})
+            if not transcription:
+                translation_result = {
+                    'original_text': '',
+                    'translated_text': '',
+                    'segment_id': segment.get('segment_id', i)
+                }
+                results.append(translation_result)
+                continue
+            english_text = transcription.get('full_transcript', '') or ''
+
             if not english_text:
                 translation_result = {
                     'original_text': '',
@@ -291,24 +307,30 @@ class Translator:
                     if include_previous_translations:
                         for j in range(max(0, i - context_window), i):
                             prev_segment = transcription_data['segments'][j]
-                            prev_en = prev_segment['transcription'].get('full_transcript', '').strip()
-                            prev_zh = translations[j] if j < len(translations) else ''
-                            
-                            if prev_en:
-                                context_parts.append(f"前文段落 {j + 1}:")
-                                context_parts.append(f"  英文: {prev_en}")
-                                if prev_zh:
-                                    context_parts.append(f"  中文: {prev_zh}")
-                                context_parts.append("")
+                            prev_transcript = prev_segment.get('transcription', {})
+                            if prev_transcript:
+                                prev_en = prev_transcript.get('full_transcript', '') or ''
+                                prev_en = prev_en.strip() if prev_en else ''
+                                prev_zh = translations[j] if j < len(translations) else ''
+                                
+                                if prev_en:
+                                    context_parts.append(f"前文段落 {j + 1}:")
+                                    context_parts.append(f"  英文: {prev_en}")
+                                    if prev_zh:
+                                        context_parts.append(f"  中文: {prev_zh}")
+                                    context_parts.append("")
                     
                     # Next segments (English only)
                     for j in range(i + 1, min(len(transcription_data['segments']), i + context_window + 1)):
                         next_segment = transcription_data['segments'][j]
-                        next_text = next_segment['transcription'].get('full_transcript', '').strip()
-                        if next_text:
-                            context_parts.append(f"后文段落 {j + 1}:")
-                            context_parts.append(f"  英文: {next_text}")
-                            context_parts.append("")
+                        next_transcript = next_segment.get('transcription', {})
+                        if next_transcript:
+                            next_text = next_transcript.get('full_transcript', '') or ''
+                            next_text = next_text.strip() if next_text else ''
+                            if next_text:
+                                context_parts.append(f"后文段落 {j + 1}:")
+                                context_parts.append(f"  英文: {next_text}")
+                                context_parts.append("")
                     
                     context = "\n".join(context_parts).strip()
                 
@@ -333,9 +355,19 @@ class Translator:
                 'end_time': segment['end_time'],
                 'duration': segment['duration'],
                 'file_path': segment['file_path'],
-                'english_text': english_text,
-                'chinese_text': translation_result.get('translated_text', ''),
-                'translation_metadata': translation_result
+                'original_text': english_text,
+                'translated_text': translation_result.get('translated_text', ''),
+                'translation_metadata': {
+                    'confidence': translation_result.get('confidence', 0.0),
+                    'provider': translation_result.get('provider', ''),
+                    'model': translation_result.get('model', ''),
+                    'context_used': translation_result.get('context_used', False),
+                    'terminology_applied': translation_result.get('terminology_applied', False),
+                    'tokens_used': translation_result.get('tokens_used', 0),
+                    'prompt_tokens': translation_result.get('prompt_tokens', 0),
+                    'completion_tokens': translation_result.get('completion_tokens', 0),
+                    'error': translation_result.get('error', '')
+                }
             }
             
             results['segments'].append(segment_result)

@@ -1,0 +1,43 @@
+{
+  "metadata": {
+    "source_json": "/var/folders/yg/x826b3fj19v0c3kkfvwk143r0000gn/T/tmpyjd65p4h/1-1_introduction_segment_017.json",
+    "source_srt": "/var/folders/yg/x826b3fj19v0c3kkfvwk143r0000gn/T/tmpyjd65p4h/1-1_introduction_segment_017.srt",
+    "original_sentences_count": 1,
+    "total_words": 1,
+    "pause_threshold": 1.0,
+    "processing_timestamp": null,
+    "integration_method": {
+      "sentences_source": "srt_file_merged",
+      "words_source": "json_tokens",
+      "pause_detection": "word_level_timing",
+      "description": "所有SRT句子合并为一句，单词使用JSON tokens（时间戳精确），检测词间停顿"
+    }
+  },
+  "sentence": {
+    "text": "you",
+    "start_time": 0.0,
+    "end_time": 0.62
+  },
+  "sentence_wt_pause": "you",
+  "original_sentences": [
+    {
+      "text": "you",
+      "start_time": 0.0,
+      "end_time": 0.62
+    }
+  ],
+  "words": [
+    {
+      "text": "you",
+      "start_time": 0.0,
+      "end_time": 0.27
+    }
+  ],
+  "summary": {
+    "total_duration_seconds": 0.62,
+    "word_count": 1,
+    "original_sentence_count": 1,
+    "merged_sentence_count": 1,
+    "detected_pauses": 0
+  }
+}

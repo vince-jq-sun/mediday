@@ -19,6 +19,7 @@ except ImportError:
     HAS_SIMPLEAUDIO = False
 import io
 from typing import Dict, List, Optional
+import os
 from .config import GUI_WINDOW_WIDTH, GUI_WINDOW_HEIGHT, TERMINOLOGY_FILE
 from .translator import Translator
 
@@ -28,6 +29,11 @@ class TranslationReviewGUI:
         self.translation_data = self.load_translation_data()
         self.current_segment_index = 0
         self.translator = Translator(terminology_file=TERMINOLOGY_FILE)
+        
+        # Get temp directory for project discovery
+        # Path: temp/{collection}/{episode}/translations/{file}.json
+        # parent(1)=translations, parent(2)=episode, parent(3)=collection, parent(4)=temp
+        self.temp_dir = self.translation_file.parent.parent.parent.parent
         
         # Set up manual recording directory based on project path
         self.manual_recordings_dir = self.get_manual_recordings_dir()
@@ -106,13 +112,49 @@ class TranslationReviewGUI:
         self.root.rowconfigure(0, weight=1)
         main_frame.columnconfigure(1, weight=1)
         
+        # Episode selector section
+        selector_frame = ttk.LabelFrame(main_frame, text="📁 Episode Selector", padding="10")
+        selector_frame.grid(row=0, column=0, columnspan=3, sticky=(tk.W, tk.E), pady=(0, 10))
+        selector_frame.columnconfigure(1, weight=1)
+        selector_frame.columnconfigure(3, weight=1)
+        
+        # Collection dropdown
+        ttk.Label(selector_frame, text="Collection:").grid(row=0, column=0, sticky=tk.W, padx=(0, 5))
+        self.collection_var = tk.StringVar()
+        self.collection_combo = ttk.Combobox(selector_frame, textvariable=self.collection_var, 
+                                             state='readonly', width=30)
+        self.collection_combo.grid(row=0, column=1, sticky=(tk.W, tk.E), padx=(0, 20))
+        self.collection_combo.bind('<<ComboboxSelected>>', self.on_collection_selected)
+        
+        # Episode dropdown
+        ttk.Label(selector_frame, text="Episode:").grid(row=0, column=2, sticky=tk.W, padx=(0, 5))
+        self.project_var = tk.StringVar()
+        self.project_combo = ttk.Combobox(selector_frame, textvariable=self.project_var, 
+                                          state='readonly', width=30)
+        self.project_combo.grid(row=0, column=3, sticky=(tk.W, tk.E), padx=(0, 20))
+        
+        # Switch button
+        self.switch_button = ttk.Button(selector_frame, text="✓ Switch Episode", 
+                                        command=self.switch_project)
+        self.switch_button.grid(row=0, column=4, padx=(0, 0))
+        
+        # Populate collections
+        self.populate_collections()
+        
+        # Current episode label
+        current_collection, current_project = self.get_current_project_info()
+        self.current_project_label = ttk.Label(selector_frame, 
+                                               text=f"Current: {current_collection}/{current_project}",
+                                               font=('Arial', 9, 'italic'))
+        self.current_project_label.grid(row=1, column=0, columnspan=5, sticky=tk.W, pady=(5, 0))
+        
         # Progress info
         self.progress_label = ttk.Label(main_frame, text="", font=('Arial', 12, 'bold'))
-        self.progress_label.grid(row=0, column=0, columnspan=3, pady=(0, 10))
+        self.progress_label.grid(row=1, column=0, columnspan=3, pady=(0, 10))
         
         # Audio playback section
         audio_frame = ttk.LabelFrame(main_frame, text="Audio Playback", padding="10")
-        audio_frame.grid(row=1, column=0, columnspan=3, sticky=(tk.W, tk.E), pady=(0, 10))
+        audio_frame.grid(row=2, column=0, columnspan=3, sticky=(tk.W, tk.E), pady=(0, 10))
         audio_frame.columnconfigure(1, weight=1)
         
         self.play_button = ttk.Button(audio_frame, text="▶ Play Original", command=self.play_original_audio)
@@ -146,7 +188,7 @@ class TranslationReviewGUI:
         
         # Text editing section
         text_frame = ttk.LabelFrame(main_frame, text="Text Editing", padding="10")
-        text_frame.grid(row=2, column=0, columnspan=3, sticky=(tk.W, tk.E, tk.N, tk.S), pady=(0, 10))
+        text_frame.grid(row=3, column=0, columnspan=3, sticky=(tk.W, tk.E, tk.N, tk.S), pady=(0, 10))
         text_frame.columnconfigure(0, weight=1)
         text_frame.rowconfigure(1, weight=1)
         text_frame.rowconfigure(3, weight=1)
@@ -171,7 +213,7 @@ class TranslationReviewGUI:
         
         # Retranslation results display
         self.retranslation_frame = ttk.LabelFrame(main_frame, text="🔄 Retranslation Results", padding="10")
-        self.retranslation_frame.grid(row=3, column=0, columnspan=3, sticky=(tk.W, tk.E), pady=(0, 10))
+        self.retranslation_frame.grid(row=4, column=0, columnspan=3, sticky=(tk.W, tk.E), pady=(0, 10))
         self.retranslation_frame.columnconfigure(0, weight=1)
         
         # Button frame for all retranslation controls (top row)
@@ -204,7 +246,7 @@ class TranslationReviewGUI:
         
         # Recording section
         recording_frame = ttk.LabelFrame(main_frame, text="Manual Recording", padding="10")
-        recording_frame.grid(row=4, column=0, columnspan=3, sticky=(tk.W, tk.E), pady=(0, 10))
+        recording_frame.grid(row=5, column=0, columnspan=3, sticky=(tk.W, tk.E), pady=(0, 10))
         recording_frame.columnconfigure(2, weight=1)
         
         self.record_button = ttk.Button(recording_frame, text="🎤 Record", command=self.toggle_recording)
@@ -219,7 +261,7 @@ class TranslationReviewGUI:
         
         # Navigation section
         nav_frame = ttk.Frame(main_frame)
-        nav_frame.grid(row=5, column=0, columnspan=3, pady=(10, 0))
+        nav_frame.grid(row=6, column=0, columnspan=3, pady=(10, 0))
         
         self.prev_button = ttk.Button(nav_frame, text="◀ Previous", command=self.previous_segment)
         self.prev_button.grid(row=0, column=0, padx=(0, 10))
@@ -231,6 +273,113 @@ class TranslationReviewGUI:
         self.next_button.grid(row=0, column=2)
         
         # Retranslation frame is always visible
+    
+    def get_current_project_info(self):
+        """Extract current collection and project from translation file path"""
+        # Path format: temp/{collection}/{project}/translations/{project}_translations.json
+        parts = self.translation_file.parts
+        try:
+            temp_idx = parts.index('temp')
+            collection = parts[temp_idx + 1]
+            project = parts[temp_idx + 2]
+            return collection, project
+        except (ValueError, IndexError):
+            return "unknown", "unknown"
+    
+    def populate_collections(self):
+        """Populate the collections dropdown with directories from temp/"""
+        collections = []
+        if self.temp_dir.exists():
+            for item in sorted(self.temp_dir.iterdir()):
+                if item.is_dir() and not item.name.startswith('.'):
+                    collections.append(item.name)
+        
+        self.collection_combo['values'] = collections
+        if collections:
+            # Set current collection as default
+            current_collection, _ = self.get_current_project_info()
+            if current_collection in collections:
+                self.collection_combo.set(current_collection)
+                self.on_collection_selected(None)
+    
+    def on_collection_selected(self, event):
+        """Handle collection selection and populate episodes dropdown"""
+        collection = self.collection_var.get()
+        if not collection:
+            return
+        
+        collection_dir = self.temp_dir / collection
+        episodes = []
+        
+        if collection_dir.exists():
+            for item in sorted(collection_dir.iterdir()):
+                if item.is_dir() and not item.name.startswith('.'):
+                    # Check if it has a translations subdirectory
+                    translations_dir = item / "translations"
+                    if translations_dir.exists():
+                        episodes.append(item.name)
+        
+        self.project_combo['values'] = episodes
+        if episodes:
+            # Set current episode as default if in this collection
+            current_collection, current_episode = self.get_current_project_info()
+            if collection == current_collection and current_episode in episodes:
+                self.project_combo.set(current_episode)
+            else:
+                self.project_combo.set(episodes[0])
+    
+    def switch_project(self):
+        """Switch to the selected episode"""
+        collection = self.collection_var.get()
+        project = self.project_var.get()
+        
+        if not collection or not project:
+            messagebox.showwarning("No Selection", "Please select both a collection and an episode.")
+            return
+        
+        # Check if there are unsaved changes
+        if self.has_unsaved_changes():
+            result = messagebox.askyesnocancel(
+                "Unsaved Changes",
+                "You have unsaved changes. Do you want to save them before switching episodes?"
+            )
+            if result is True:  # Yes, save
+                self.save_current_segment(show_message=False)
+            elif result is None:  # Cancel
+                return
+        
+        # Build the path to the new translation file
+        new_translation_file = self.temp_dir / collection / project / "translations" / f"{project}_translations.json"
+        
+        if not new_translation_file.exists():
+            messagebox.showerror("File Not Found", 
+                               f"Translation file not found:\n{new_translation_file}")
+            return
+        
+        # Stop any audio playback
+        self.stop_audio_playback()
+        if self.recording_audio_playing or self.recording_audio_paused:
+            pygame.mixer.music.stop()
+            self.recording_audio_playing = False
+            self.recording_audio_paused = False
+        
+        # Load the new project
+        self.translation_file = new_translation_file
+        self.translation_data = self.load_translation_data()
+        self.current_segment_index = 0
+        self.manual_recordings_dir = self.get_manual_recordings_dir()
+        
+        # Update current episode label
+        self.current_project_label.config(text=f"Current: {collection}/{project}")
+        
+        # Clear retranslation area
+        self.retranslation_text.delete(1.0, tk.END)
+        self.copy_retranslation_button.config(state=tk.DISABLED)
+        
+        # Load the first segment of the new episode
+        self.load_current_segment()
+        
+        messagebox.showinfo("Episode Switched", f"Switched to: {collection}/{project}")
     
     def load_current_segment(self):
         """Load current segment data into the GUI"""

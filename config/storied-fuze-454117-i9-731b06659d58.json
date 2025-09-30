@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "storied-fuze-454117-i9",
+  "private_key_id": "731b06659d584c1578b1eb5c91f0f0614ce36fe1",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDfSMHpxi4Gh3OV\n0KR8wSS3kr5fXT9mXdOsy8mZ8OIxGYnfp15a24EhgAV7y8JwbMg5tmcRwlPZVGBY\nkfM3/3GhkqBjlHNf/HOyy4bE5+tY4kbOx2EpnLcUf1CUC6lEL6VXQUFIUU0aycvN\nfOnHq5eZx2XwP8Ox0s3yE6U78vBKFV1mM5HzUiEr0hEr1SviFvU1SKmohGGns2S2\nK4lNf1ONYfBtso7KWbSWFy8JsNHUZ3VGmuNe/VyQJLTKYTY2scnjqXR6hH+ZcAxk\n5byXhYzlAMp3ObT5PuEu8bo6DSojUwy5KKTFElzkPqjuPiMhTyPGcbJl9vwWgYEY\nHaPJS+wDAgMBAAECggEABA2dujD8cZE7Oj37rmlnJuSathUgQIB1hjkmI2LpsuXO\nyJOQ3+oE0byG3PTERnwttPZ9r9HXlHthSwT4kEyqcw9mqp1tlrwjcYcbntltk+3P\nm+inTTUTZw4vQptk6uBJNRNHLG6QDWtvr/7o039m6htiMKvyUSO4KgEh9RD3kbCs\nPnQ5M9vT2zQCnFjKUmz5niqaAJB5WEsW2mrq4EDEtHmOWZbAynwvzuPanX5N8tCy\n30SD0orAtkiVK5jctO6bTIqLiBeVuqYEs9nBax8GwKmqGPtcux536Sb2O6sPBfC/\nukGOEgWtbDgNLvFEUo5kH711d6MSIvfEcHsVLw3xsQKBgQD23v1/Rp/3aYwcyCL8\nkhS2kwbeCXXSpcnjWVzLWxUH5vZompHZ2rGU6URIGXzvVk6VoCSGVQVwMAMq4nwg\nYH2RgNo6JVPc0z/4vI+ImvqScvVMC4c6EUuRsK7vTcMuOBOMwzb8vSbSLzAKkH6T\netddunHqhhjLh2SvmNaoNY+baQKBgQDnintdeFPUUsOFIgy0wNiPlcz8EwL1RWMg\nNFSGUgjTPKK6SmP6djmGzfaoY0XdhHw2qhvk4Yh5UJL82S745xCFdmzM4YnC7h+T\nSo902xfheqJkGcF2I99vbCQU4hzKI60HhuszxyGsTHI8K7ppUD1iLBR3OxAXA+he\nZA0rdl76iwKBgF95ykxpAgDrvxZ6iJ1p2bzqi+NfgUPgfn4A15SGO1H9DxtRfErm\n+3r95DyGLv1ZQbc4YifZxeqnhvIU+bCD4MxfKwcF3LMwuDL4qgJI/dOZxiiM5NWe\nTr2fuWgviObdJSJxdVi1xsfPHCNZ0roy7gv/yYLMLda5HEWVNJ+FZ27RAoGAU+s8\nJTd8YqMQnEsoAcc3dmsb3WzikJTyhXSSAhDvg+ghLpXRwLBizzoNISDB7LSc9I8Z\nBw67EQUkESKCRNIyibzPWD6SWKVHqnHGptrVv/Jbsx4moTQFQnQWa788IgNmLik3\nTA/rY3BdovNSX+MmLFO/oysz/LN83+ExaMRBTlsCgYEAhRETXuu8Uu9tvABozJcj\nmoeXBU5eFKtCG8YKUFQ26bP1l6r9jHF9v6KvTQDR0jKPtUUXG0WfCj/9l82TVYcx\nGqFIRYD8Cj7hoxtZtbHExrn4BgX11Ehekv+EUnPjYFU66JE2rUtu40TVk99QIXzi\nJYNMlVDFR6SAZsosK8ixvSM=\n-----END PRIVATE KEY-----\n",
+  "client_email": "mediday@storied-fuze-454117-i9.iam.gserviceaccount.com",
+  "client_id": "104029403826284327327",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/mediday%40storied-fuze-454117-i9.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

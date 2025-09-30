@@ -27,4 +27,4 @@ python -m scripts.audio_pipeline.pipeline synthesize \
     --voice "$TTS_VOICE" \
     --pitch "$TTS_PITCH"
 
-echo "✅ Synthesis completed. Check $PROJECT_SYNTHESIS_FILE for results."
+echo "✅ Synthesis completed. Check $PROJECT_SYNTHESIS_FILE for results."pi
